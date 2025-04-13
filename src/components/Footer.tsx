@@ -13,7 +13,15 @@ const Footer = () => {
           {/* Branding and Description */}
           <div className="col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <h2 className="text-3xl font-bold text-gray-900">AceHost</h2>
+              <div className="relative w-48 h-16">
+                <Image
+                  src="/logo.png"
+                  alt="AceHost Logo"
+                  fill
+                  className="object-contain object-left"
+                  priority
+                />
+              </div>
             </Link>
             <p className="text-gray-600 mb-8 pr-4">
               AceHost is a leading Whistler luxury property management company
