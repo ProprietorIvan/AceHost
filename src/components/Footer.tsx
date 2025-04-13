@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Youtube, ArrowUpRight } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,136 +7,141 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-100">
-      <div className="container mx-auto px-6 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-8 mb-16">
-          <div className="md:col-span-4">
-            <Link href="/" className="flex items-center mb-6">
-              <div className="relative w-10 h-10 mr-3">
-                <Image
-                  src="/logo.png"
-                  alt="AceHost Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">AceHost</span>
+    <footer className="bg-white border-t border-gray-100 py-16">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          {/* Branding and Description */}
+          <div className="col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <h2 className="text-3xl font-bold text-gray-900">AceHost</h2>
             </Link>
-            <p className="text-gray-600 text-sm max-w-xs mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 pr-4">
               AceHost is a leading Whistler luxury property management company
               offering magnificent vacation rental homes in Whistler, British
               Columbia.
             </p>
+            <div className="flex space-x-4">
+              <a
+                href="https://instagram.com/acehost"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-800 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} />
+              </a>
+              <a
+                href="https://youtube.com/acehost"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-800 transition-colors"
+                aria-label="Youtube"
+              >
+                <Youtube size={24} />
+              </a>
+            </div>
           </div>
 
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
+          {/* Properties Column */}
+          <div className="col-span-1">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Properties
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link
                   href="/concierge-service"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Concierge Services
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/properties"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Luxury Properties
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/list-property"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Property Management
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
+          {/* Resources Column */}
+          <div className="col-span-1">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Resources
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link
                   href="/blog"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Blog
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/faq"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   FAQ&apos;s
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Our Story
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Contact
-                  <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
-              Social
-            </h3>
+          {/* Social Column */}
+          <div className="col-span-1">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Social</h3>
             <ul className="space-y-4">
               <li>
                 <a
                   href="https://instagram.com/acehost"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Instagram
-                  <ArrowUpRight size={14} className="ml-1" />
                 </a>
               </li>
               <li>
                 <a
                   href="https://youtube.com/acehost"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Youtube
-                  <ArrowUpRight size={14} className="ml-1" />
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-8 flex justify-center">
-          <p className="text-gray-500 text-sm">
+        <div className="mt-16 pt-8 border-t border-gray-100 text-center">
+          <p className="text-gray-500">
             © {currentYear} AceHost Whistler. All rights reserved.
           </p>
         </div>
