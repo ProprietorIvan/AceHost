@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  ArrowRight,
-  Instagram,
-  Youtube,
-  MapPin,
-  Users,
-  Bed,
-  Bath,
-} from "lucide-react";
+import { ArrowRight, Instagram, Youtube } from "lucide-react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +11,7 @@ import { useTranslation } from "next-i18next";
 
 const Home = () => {
   const { t } = useTranslation("common");
-  const [locationFilter, setLocationFilter] = useState("whistler"); // Default to Whistler
+  const [activeFilter, setActiveFilter] = useState("whistler"); // Set Whistler as default
 
   // Structured data for rich snippets
   const structuredData = {
@@ -46,8 +38,10 @@ const Home = () => {
     },
   };
 
-  const featuredProperties = [
+  // Define all property listings
+  const allListings = [
     {
+      id: "altitude-retreat-kadenwood",
       name: "Altitude Retreat | Kadenwood | Private Butler",
       image: "/photos/properties/altitude-retreat.jpg",
       guests: 18,
@@ -57,19 +51,11 @@ const Home = () => {
       priceRange: "$7,500-$10,000 +",
       winterPrice: "$8,000-$10,000+ Nightly | Winter",
       holidayPrice: "$14,500-$19,000 Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/altitude-retreat-kadenwood",
     },
     {
-      name: "Two Cedars | Kadenwood | Private Butler",
-      image: "/photos/properties/two-cedars.jpg",
-      guests: 17,
-      bedrooms: 7,
-      beds: 12,
-      bathrooms: 8.5,
-      priceRange: "$6,500-$9,500+",
-      winterPrice: "$8,500-$10,000+ Nightly | Winter",
-      holidayPrice: "$17,500-$21,000+ Nightly | Christmas & NY",
-    },
-    {
+      id: "chalet-la-forja-kadenwood",
       name: "Chalet La Forja | Kadenwood | Private Butler",
       image: "/photos/properties/chalet-la-forja.jpg",
       guests: "12+4",
@@ -79,8 +65,73 @@ const Home = () => {
       priceRange: "$7,000-11,000+ | Private Butler Included",
       winterPrice: "$8500-$11,000+ Nightly | Winter",
       holidayPrice: "$16,000-$21,000+ Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/chalet-la-forja-kadenwood",
+    },
+    {
+      id: "dream-log-chalet",
+      name: "Dream Log Chalet | 5 Bedroom | 4 Bath | Creekside",
+      image:
+        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
+      guests: 12,
+      bedrooms: 5,
+      beds: 7,
+      bathrooms: 4,
+      priceRange: "$13,000-$17,000/month",
+      winterPrice: "$17,000/month | Winter",
+      holidayPrice: "$11,500/month | Summer",
+      location: "whistler",
+      link: "/listings/dream-log-chalet-5-bedroom-4-bath-creekside",
+    },
+    {
+      id: "falcon-blueberry",
+      name: "Falcon Blueberry Drive | 3 Bedroom | 3 Bath",
+      image: "/photos/properties/falcon-blu.jpg",
+      guests: 8,
+      bedrooms: 3,
+      beds: 4,
+      bathrooms: 3,
+      priceRange: "$450-$950 +",
+      winterPrice: "$750-$950+ Nightly | Winter",
+      holidayPrice: "$1,200-$1,500 Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/falcon-blueberry-drive",
+    },
+    {
+      id: "heron-views",
+      name: "Heron Views | Whistler Village | 1 Bedroom",
+      image: "/photos/properties/heron-views-whi.jpg",
+      guests: 4,
+      bedrooms: 1,
+      beds: 2,
+      bathrooms: 1,
+      priceRange: "$250-$450 +",
+      winterPrice: "$350-$450+ Nightly | Winter",
+      holidayPrice: "$550-$650 Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/heron-views-whistler-village",
+    },
+    {
+      id: "luxe-cozy",
+      name: "Luxe Cozy | 3 Bedroom | Whistler Village",
+      image: "/photos/properties/luxe-cozy.jpg",
+      guests: 6,
+      bedrooms: 3,
+      beds: 3,
+      bathrooms: 2,
+      priceRange: "$350-$650 +",
+      winterPrice: "$550-$650+ Nightly | Winter",
+      holidayPrice: "$850-$950 Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/luxe-cozy-3-bed-whistler-village",
     },
   ];
+
+  // Filter properties based on active filter
+  const filteredListings =
+    activeFilter === "all"
+      ? allListings
+      : allListings.filter((listing) => listing.location === activeFilter);
 
   const faqItems = [
     {
@@ -137,100 +188,6 @@ const Home = () => {
       image: "/photos/sections/concierge.jpg",
     },
   ];
-
-  // Define all properties available
-  const allProperties = [
-    {
-      id: "altitude-retreat-kadenwood-private-butler",
-      name: "Altitude Retreat | Kadenwood | Private Butler",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image: "/photos/properties/altitude-retreat.jpg",
-      guests: 18,
-      bedrooms: 7,
-      bathrooms: 5.5,
-      priceRange: "$7,500-$10,000+",
-      minStay: "3-4 nights | 7 during holidays",
-      description:
-        "Altitude Retreat is situated in the most prestigious ski-in ski-out neighbourhood in Whistler. Located just a stone's throw away from the exclusive Kadenwood residence only gondola makes this property the perfect location for your Whistler vacation!",
-    },
-    {
-      id: "chalet-la-forja-kadenwood-private-butler",
-      name: "Chalet La Forja | Kadenwood | Private Butler",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image: "/photos/properties/chalet-la-forja.jpg",
-      guests: 16,
-      bedrooms: 7.5,
-      bathrooms: 8,
-      priceRange: "$7,000-$11,000+",
-      minStay: "3-4 nights | 7 during holidays",
-      description:
-        "Chalet La Forja is a true masterpiece of mountain luxury. This extraordinary ski-in/ski-out chalet offers unparalleled alpine views and a sophisticated living space designed for the ultimate Whistler vacation experience.",
-    },
-    {
-      id: "dream-log-chalet-5-bedroom-4-bath-creekside",
-      name: "Dream Log Chalet | 5 Bedroom | 4 Bath | Creekside",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image:
-        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
-      guests: 12,
-      bedrooms: 5,
-      bathrooms: 4,
-      priceRange: "$11,500-$17,000 monthly",
-      minStay: "90 night minimum",
-      description:
-        "Welcome to this charming traditional log chalet, located in a quiet residential family-friendly neighborhood in Bayshores, Whistler. This home features 5 bedrooms, 4 baths, and a large backyard with a professionally built treehouse.",
-    },
-    {
-      id: "luxe-cozy-3-bed-whistler-village",
-      name: "Luxe Cozy | 3 Bedroom | Whistler Village",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image: "/photos/properties/luxe-cozy.jpg",
-      guests: 8,
-      bedrooms: 3,
-      bathrooms: 2,
-      priceRange: "$650-$1,200+",
-      minStay: "3-4 nights | 7 during holidays",
-      description:
-        "Luxurious and cozy 3-bedroom condo right in the heart of Whistler Village, walking distance to the gondolas and all amenities. Enjoy mountain views and premium finishes in this perfectly located retreat.",
-    },
-    {
-      id: "heron-views-whistler-village",
-      name: "Heron Views | Whistler Village",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image: "/photos/properties/heron-views.jpg",
-      guests: 6,
-      bedrooms: 2,
-      bathrooms: 2,
-      priceRange: "$500-$1,000+",
-      minStay: "3 nights minimum",
-      description:
-        "Heron Views offers a stunning Whistler Village location with beautiful views of the surrounding mountains. This modern 2-bedroom condo is ideally situated for both summer and winter activities.",
-    },
-    {
-      id: "falcon-blueberry-drive",
-      name: "Falcon | Blueberry Drive",
-      location: "Whistler, Canada",
-      category: "whistler",
-      image: "/photos/properties/falcon.jpg",
-      guests: 10,
-      bedrooms: 4,
-      bathrooms: 3.5,
-      priceRange: "$1,200-$3,000+",
-      minStay: "3 nights minimum",
-      description:
-        "Falcon is a luxurious 4-bedroom chalet located on prestigious Blueberry Drive. Offering spectacular views and premium amenities including a hot tub and gourmet kitchen, it's perfect for families and groups.",
-    },
-  ];
-
-  // Filter properties based on location
-  const filteredProperties = allProperties.filter(
-    (property) => property.category === locationFilter
-  );
 
   return (
     <>
@@ -332,127 +289,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Properties Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Our Luxury Properties</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our exclusive collection of luxury vacation rental
-                properties, each offering premium amenities and exceptional
-                locations.
-              </p>
-
-              {/* Location Filter Tabs */}
-              <div className="flex justify-center mt-8 border-b border-gray-200">
-                <button
-                  className={`px-6 py-3 font-medium text-lg border-b-2 ${
-                    locationFilter === "whistler"
-                      ? "border-black text-black"
-                      : "border-transparent text-gray-500 hover:text-gray-700"
-                  }`}
-                  onClick={() => setLocationFilter("whistler")}
-                >
-                  Whistler Properties
-                </button>
-                <button
-                  className={`px-6 py-3 font-medium text-lg border-b-2 ${
-                    locationFilter === "vancouver"
-                      ? "border-black text-black"
-                      : "border-transparent text-gray-500 hover:text-gray-700"
-                  }`}
-                  onClick={() => setLocationFilter("vancouver")}
-                >
-                  Vancouver Properties
-                </button>
-                <button
-                  className={`px-6 py-3 font-medium text-lg border-b-2 ${
-                    locationFilter === "worldwide"
-                      ? "border-black text-black"
-                      : "border-transparent text-gray-500 hover:text-gray-700"
-                  }`}
-                  onClick={() => setLocationFilter("worldwide")}
-                >
-                  Worldwide Properties
-                </button>
-              </div>
-            </div>
-
-            {/* Property Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProperties.map((property) => (
-                <Link
-                  key={property.id}
-                  href={`/listings/${property.id}`}
-                  className="group"
-                >
-                  <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <div className="relative h-64">
-                      <Image
-                        src={property.image}
-                        alt={property.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-gray-700 transition-colors">
-                        {property.name}
-                      </h3>
-                      <div className="flex items-center text-gray-500 mb-3">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        <span className="text-sm">{property.location}</span>
-                      </div>
-                      <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-700">
-                        <div className="flex items-center">
-                          <Users className="h-4 w-4 mr-1" />
-                          <span>{property.guests} guests</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Bed className="h-4 w-4 mr-1" />
-                          <span>{property.bedrooms} beds</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Bath className="h-4 w-4 mr-1" />
-                          <span>{property.bathrooms} baths</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-4 line-clamp-2">
-                        {property.description}
-                      </p>
-                      <div className="text-sm text-gray-500">
-                        <div className="font-medium">
-                          Price Range: {property.priceRange}
-                        </div>
-                        <div>Min Stay: {property.minStay}</div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {filteredProperties.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-lg text-gray-600">
-                  No properties available in this location yet. Please check
-                  back soon!
-                </p>
-              </div>
-            )}
-
-            <div className="text-center mt-10">
-              <Link
-                href="/properties"
-                className="inline-flex items-center px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
-              >
-                <span>View All Properties</span>
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
         {/* Services Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
@@ -488,29 +324,64 @@ const Home = () => {
               <h2 className="text-4xl font-light mb-6 text-gray-900">
                 View Our Full Collection Of Luxury Vacation Rental Properties
               </h2>
-              <div className="flex justify-center space-x-4 mt-8">
-                <button className="px-6 py-2 border-b-2 border-gray-900 text-gray-900 font-medium">
+              <div className="flex justify-center flex-wrap space-x-2 mt-8">
+                <button
+                  className={`px-6 py-2 border-b-2 ${
+                    activeFilter === "all"
+                      ? "border-gray-900 text-gray-900 font-medium"
+                      : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors"
+                  }`}
+                  onClick={() => setActiveFilter("all")}
+                >
                   View All
                 </button>
-                <button className="px-6 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors">
+                <button
+                  className={`px-6 py-2 border-b-2 ${
+                    activeFilter === "whistler"
+                      ? "border-gray-900 text-gray-900 font-medium"
+                      : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors"
+                  }`}
+                  onClick={() => setActiveFilter("whistler")}
+                >
                   Whistler Properties
                 </button>
-                <button className="px-6 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors">
+                <button
+                  className={`px-6 py-2 border-b-2 ${
+                    activeFilter === "vancouver"
+                      ? "border-gray-900 text-gray-900 font-medium"
+                      : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors"
+                  }`}
+                  onClick={() => setActiveFilter("vancouver")}
+                >
                   Vancouver Properties
                 </button>
-                <button className="px-6 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors">
+                <button
+                  className={`px-6 py-2 border-b-2 ${
+                    activeFilter === "worldwide"
+                      ? "border-gray-900 text-gray-900 font-medium"
+                      : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors"
+                  }`}
+                  onClick={() => setActiveFilter("worldwide")}
+                >
                   Worldwide
                 </button>
-                <button className="px-6 py-2 border-b-2 border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors">
+                <button
+                  className={`px-6 py-2 border-b-2 ${
+                    activeFilter === "pets"
+                      ? "border-gray-900 text-gray-900 font-medium"
+                      : "border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors"
+                  }`}
+                  onClick={() => setActiveFilter("pets")}
+                >
                   Pets Allowed
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {featuredProperties.map((property, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {filteredListings.map((property, index) => (
                 <div
-                  key={index}
+                  key={property.id}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="relative h-64">
@@ -521,9 +392,12 @@ const Home = () => {
                       className="object-cover"
                     />
                     <div className="absolute bottom-4 right-4">
-                      <button className="bg-white text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors">
+                      <Link
+                        href={property.link}
+                        className="bg-white text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors"
+                      >
                         Book Now
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <div className="p-6">
@@ -552,7 +426,7 @@ const Home = () => {
                       <p className="text-gray-600">{property.holidayPrice}</p>
                     </div>
                     <Link
-                      href="/properties"
+                      href={property.link}
                       className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors"
                     >
                       <span>View Property</span>
@@ -588,7 +462,135 @@ const Home = () => {
           </div>
         </section>
 
-        <Footer />
+        {/* Footer */}
+        <footer className="bg-white border-t border-gray-100 py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row justify-between mb-16">
+              <div className="mb-8 md:mb-0">
+                <Link href="/" className="flex items-center mb-6">
+                  <span className="text-4xl font-bold">AceHost</span>
+                </Link>
+                <p className="text-gray-600 max-w-xs mb-6">
+                  AceHost is a leading Whistler luxury property management
+                  company offering magnificent vacation rental homes in
+                  Whistler, British Columbia.
+                </p>
+                <div className="flex space-x-4">
+                  <a
+                    href="https://instagram.com/acehost"
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <Instagram size={24} />
+                  </a>
+                  <a
+                    href="https://youtube.com/acehost"
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <Youtube size={24} />
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <h3 className="text-gray-900 font-medium mb-4">Properties</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="/concierge"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Concierge Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/properties"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Luxury Properties
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/management"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Property Management
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-gray-900 font-medium mb-4">Resources</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="/blog"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/faq"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        FAQ&apos;s
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/about"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Our Story
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/contact"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Contact
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-gray-900 font-medium mb-4">Social</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <a
+                        href="https://instagram.com/acehost"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://youtube.com/acehost"
+                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                      >
+                        Youtube
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-100 pt-8">
+              <p className="text-gray-500 text-sm">
+                © 2021 AceHost Whistler. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -25,23 +23,24 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
-.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Large media files - ignore all image files in public
+/public/photos/**/*.jpg
+/public/photos/**/*.jpeg
+/public/photos/**/*.png
+/public/photos/**/*.gif
+/public/photos/**/*.webp
 
-# Large files
-/public/photos/properties/*/
-/public/photos/homepage/*/
-/public/photos/**/*.mp4
-/public/background.mp4
-*.mp4
-*.mov
-*.avi
-*.webm
-*.mkv
+# Ignore build artifacts
+.cache/
+dist/
+
+# Ignore media uploads
+/media_uploads/
