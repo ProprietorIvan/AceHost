@@ -1,0 +1,4 @@
+[lfs]
+	url = https://github.com/ProprietorIvan/AceHost.git/info/lfs
+[lfs "transfer"]
+	maxretries = 5 
