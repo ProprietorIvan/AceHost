@@ -200,6 +200,21 @@ const Home = () => {
       link: "/listings/whispering-pines-ski-in-ski-out",
     },
     {
+      id: "slopeside-villa",
+      name: "Slope Side Chalet | Kadenwood",
+      image:
+        "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
+      guests: 16,
+      bedrooms: 7,
+      beds: 12,
+      bathrooms: 7.5,
+      priceRange: "$2,600-$6,000/night",
+      winterPrice: "$6,000/night | Winter",
+      holidayPrice: "$2,600/night | Summer",
+      location: "whistler",
+      link: "/listings/slopeside-villa-kadenwood",
+    },
+    {
       id: "two-cedars-kadenwood",
       name: "Two Cedars Kadenwood | 6 Bedroom | 6.5 Bath",
       image: "/photos/properties/Two Cedars New/02-2934 Ancient Cedars-02.jpg",
