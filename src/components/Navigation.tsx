@@ -51,7 +51,7 @@ const Navigation = ({
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <div className="w-16 h-16 relative">
+              <div className="w-48 h-48 relative">
                 <Image
                   src="/logo.png"
                   alt="AceHost Logo"
