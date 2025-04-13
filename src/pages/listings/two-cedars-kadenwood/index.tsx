@@ -14,14 +14,51 @@ export default function TwoCedarsKadenwood() {
   const [showFullScreenPhoto, setShowFullScreenPhoto] = useState(false);
   const [fullScreenPhotoIndex, setFullScreenPhotoIndex] = useState(0);
 
-  const propertyImages = Array.from(
-    { length: 43 },
-    (_, i) =>
-      `/photos/properties/Two Cedars New/${String(i + 1).padStart(
-        2,
-        "0"
-      )}-2934 Ancient Cedars-${String(i + 1).padStart(2, "0")}.jpg`
-  );
+  const propertyImages = [
+    "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
+    "/photos/properties/Two Cedars New/02-2934 Ancient Cedars-02.jpg",
+    "/photos/properties/Two Cedars New/03-2934 Ancient Cedars-03.jpg",
+    "/photos/properties/Two Cedars New/04-2934 Ancient Cedars-04.jpg",
+    "/photos/properties/Two Cedars New/05-2934 Ancient Cedars-05.jpg",
+    "/photos/properties/Two Cedars New/06-2934 Ancient Cedars-06.jpg",
+    "/photos/properties/Two Cedars New/07-2934 Ancient Cedars-07.jpg",
+    "/photos/properties/Two Cedars New/11-2934 Ancient Cedars-11.jpg",
+    "/photos/properties/Two Cedars New/12-2934 Ancient Cedars-12.jpg",
+    "/photos/properties/Two Cedars New/13-2934 Ancient Cedars-13.jpg",
+    "/photos/properties/Two Cedars New/14-2934 Ancient Cedars-14.jpg",
+    "/photos/properties/Two Cedars New/15-2934 Ancient Cedars-15.jpg",
+    "/photos/properties/Two Cedars New/16-2934 Ancient Cedars-16.jpg",
+    "/photos/properties/Two Cedars New/17-2934 Ancient Cedars-17.jpg",
+    "/photos/properties/Two Cedars New/18-2934 Ancient Cedars-18.jpg",
+    "/photos/properties/Two Cedars New/20-2934 Ancient Cedars-20.jpg",
+    "/photos/properties/Two Cedars New/21-2934 Ancient Cedars-21.jpg",
+    "/photos/properties/Two Cedars New/24-2934 Ancient Cedars-24.jpg",
+    "/photos/properties/Two Cedars New/25-2934 Ancient Cedars-25.jpg",
+    "/photos/properties/Two Cedars New/26-2934 Ancient Cedars-26.jpg",
+    "/photos/properties/Two Cedars New/28-2934 Ancient Cedars-28.jpg",
+    "/photos/properties/Two Cedars New/30-2934 Ancient Cedars-30.jpg",
+    "/photos/properties/Two Cedars New/31-2934 Ancient Cedars-31.jpg",
+    "/photos/properties/Two Cedars New/32-2934 Ancient Cedars-32.jpg",
+    "/photos/properties/Two Cedars New/33-2934 Ancient Cedars-33.jpg",
+    "/photos/properties/Two Cedars New/34-2934 Ancient Cedars-34.jpg",
+    "/photos/properties/Two Cedars New/35-2934 Ancient Cedars-35.jpg",
+    "/photos/properties/Two Cedars New/36-2934 Ancient Cedars-36.jpg",
+    "/photos/properties/Two Cedars New/37-2934 Ancient Cedars-37.jpg",
+    "/photos/properties/Two Cedars New/38-2934 Ancient Cedars-38.jpg",
+    "/photos/properties/Two Cedars New/39-2934 Ancient Cedars-39.jpg",
+    "/photos/properties/Two Cedars New/41-2934 Ancient Cedars-41.jpg",
+    "/photos/properties/Two Cedars New/42-2934 Ancient Cedars-42.jpg",
+    "/photos/properties/Two Cedars New/43-2934 Ancient Cedars-43.jpg",
+    "/photos/properties/Two Cedars New/46-2934 Ancient Cedars-46.jpg",
+    "/photos/properties/Two Cedars New/48-2934 Ancient Cedars-48.jpg",
+    "/photos/properties/Two Cedars New/49-2934 Ancient Cedars-49.jpg",
+    "/photos/properties/Two Cedars New/51-2934 Ancient Cedars-51.jpg",
+    "/photos/properties/Two Cedars New/52-2934 Ancient Cedars-52.jpg",
+    "/photos/properties/Two Cedars New/OSA_AncientCW0864-.jpg",
+    "/photos/properties/Two Cedars New/OSA_AncientCW1129.jpg",
+    "/photos/properties/Two Cedars New/OSA_AncientCW1248.jpg",
+    "/photos/properties/Two Cedars New/OSA_AncientCW1437-Panorama.jpg",
+  ];
 
   const showPhoto = (index: number) => {
     setFullScreenPhotoIndex(index);
