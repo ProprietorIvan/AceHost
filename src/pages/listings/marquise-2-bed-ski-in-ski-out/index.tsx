@@ -196,40 +196,32 @@ const MarquiseSkiInSkiOut = () => {
 
           {/* Photo Gallery Modal */}
           {showAllPhotos && (
-            <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex flex-col justify-center items-center">
-              <div className="absolute top-8 right-8">
+            <div className="fixed inset-0 z-50 bg-black overflow-y-auto">
+              <div className="sticky top-0 z-10 bg-black p-4 flex justify-between items-center">
+                <h2 className="text-xl text-white font-medium">
+                  Marquise 2-Bed Ski-in Ski-out - All Photos
+                </h2>
                 <button
                   onClick={() => setShowAllPhotos(false)}
-                  className="bg-black bg-opacity-50 p-2 rounded-full text-white hover:bg-opacity-70 transition-colors"
+                  className="text-white hover:text-gray-300"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  Close
                 </button>
               </div>
 
-              <div className="max-w-7xl w-full px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto max-h-screen">
-                {photos.map((photo, index) => (
-                  <div key={index} className="aspect-[4/3] relative">
-                    <Image
-                      src={photo}
-                      alt={`Marquise Ski-in Ski-out full view ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+              <div className="max-w-7xl mx-auto py-6 px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {photos.map((photo, index) => (
+                    <div key={index} className="relative aspect-[4/3]">
+                      <Image
+                        src={photo}
+                        alt={`Marquise Ski-in Ski-out photo ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}
