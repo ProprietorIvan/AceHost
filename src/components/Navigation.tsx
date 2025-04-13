@@ -32,16 +32,16 @@ const Navigation = ({
 
   const propertyLinks = [
     { text: "All Properties", url: "/properties" },
-    { text: "Whistler Properties", url: "/properties?category=whistler" },
-    { text: "Vancouver Properties", url: "/properties?category=vancouver" },
-    { text: "Worldwide Properties", url: "/properties?category=worldwide" },
-    { text: "Pets Allowed", url: "/properties?category=pets-allowed" },
+    { text: "Whistler Properties", url: "/properties" },
+    { text: "Vancouver Properties", url: "/properties" },
+    { text: "Worldwide Properties", url: "/properties" },
+    { text: "Pets Allowed", url: "/properties" },
   ];
 
   const resourceLinks = [
-    { text: "Blog", url: "/blog" },
-    { text: "FAQ", url: "/faq" },
-    { text: "Our Story", url: "/story" },
+    { text: "Blog", url: "/about" },
+    { text: "FAQ", url: "/about" },
+    { text: "Our Story", url: "/about" },
   ];
 
   return (

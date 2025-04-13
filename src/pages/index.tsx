@@ -12,6 +12,7 @@ import { useTranslation } from "next-i18next";
 const Home = () => {
   const { t } = useTranslation("common");
   const [activeFilter, setActiveFilter] = useState("whistler"); // Set Whistler as default
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   // Structured data for rich snippets
   const structuredData = {
@@ -138,30 +139,19 @@ const Home = () => {
     {
       question: "Is there a minimum stay requirement for Acehost properties?",
       answer:
-        "To ensure our guests can fully enjoy our luxurious properties and all the amenities and services we offer, as well as meet the owner&apos;s requirements for renting out their home, we have established a minimum stay requirement. The duration may vary depending on the property and rules, but typically it is a 3-4 night minimum stay. During major holidays such as Christmas, New Year&apos;s and Presidents Day week, a 6 or 7-night minimum stay may be required. However, we understand that circumstances may vary, and flexibility is possible in many cases. Please feel free to contact us to discuss your specific needs and requirements. We will do our best to accommodate you.",
+        "To ensure our guests enjoy our luxurious properties, we have a 3-4 night minimum stay requirement. During major holidays such as Christmas and New Year's, a 6-7 night minimum stay may be required.",
     },
     {
       question:
         "Can I find pet-friendly luxury rental vacation homes in Whistler on AceHost.ca?",
       answer:
-        "At AceHost, we recognize the significance of pets in many families, and we are delighted to offer a selection of pet-friendly luxury rental homes in Whistler. To make your search for the perfect pet-friendly luxury rental home in Whistler as seamless as possible, we have implemented a user-friendly filter on our website. When searching for properties, you can simply select the pet-friendly filter, and our website will display all the available options that welcome pets. It is important to note that while we strive to provide the best accommodations for pet owners, some additional fees or deposits may apply for pet-friendly properties. These charges help ensure that the homes are properly maintained and cleaned after each guest and that any potential damages caused by pets can be addressed.",
-    },
-    {
-      question: "Is there a fee for early check-in or late checkout?",
-      answer:
-        "No, we are very flexible and lenient on check-in and checkout timings at no additional cost. As long as the place is clean and there are no checkouts that day, we are more than happy to accommodate an early check-in. Please contact us with your desired time, and we will try our best to accommodate your needs. We understand the importance of convenience and want to ensure that your travel plans are as stress-free as possible.",
+        "Yes, we offer a selection of pet-friendly luxury rental homes in Whistler. Use our pet-friendly filter when searching for properties to see all available options that welcome pets.",
     },
     {
       question:
-        "What amenities can I expect in a luxury vacation rental home in Whistler from AceHost.ca?",
+        "What amenities can I expect in a luxury vacation rental from AceHost.ca?",
       answer:
-        "When booking a luxury vacation rental through AceHost you can expect an array of top-of-the-line amenities. Including fully equipped gourmet kitchens and butler&apos;s pantries perfect for staff use. Wellness facilities include private hot tubs, heated pools, saunas, steam showers and dedicated massage rooms. Enjoy the convenience of state-of-the-art entertainment systems and premium linens for maximum comfort.",
-    },
-    {
-      question:
-        "What is the cancellation policy for booking a luxury vacation rental home in Whistler with AceHost.ca?",
-      answer:
-        "Our cancellation policy can vary depending on the property and specific terms set out by the owner. Please carefully read the contract before making a booking. 1. Deposit Requirement: Typically, a 50% deposit is required to reserve the dates for your luxury vacation rental home. An additional 50% may be required 60 days prior to your arrival. 2. Cancellation Period: No cancellations are allowed within 60 days of your scheduled arrival. However, in some cases, dates can be potentially moved subject to mutual agreement. *In the event of a pandemic, restricting border control in Canada, with advance notice (subject to mutual agreement) we are happy to move dates.",
+        "Our luxury properties feature gourmet kitchens, private hot tubs, heated pools, saunas, steam showers, state-of-the-art entertainment systems, and premium linens for maximum comfort.",
     },
   ];
 
@@ -441,23 +431,49 @@ const Home = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 bg-white">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-light mb-16 text-center text-gray-900">
-                Have Questions? Here&apos;s a few FAQ&apos;s to help!
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-medium mb-8 text-center text-gray-900">
+                Frequently Asked Questions
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {faqItems.map((item, index) => (
-                  <div key={index} className="border-b border-gray-100 pb-8">
-                    <h3 className="text-xl font-medium mb-4 text-gray-900 flex items-center justify-between">
-                      {item.question}
-                      <span className="text-gray-400">+</span>
-                    </h3>
-                    <div className="text-gray-600">{item.answer}</div>
+                  <div
+                    key={index}
+                    className="border border-gray-100 rounded-lg overflow-hidden"
+                  >
+                    <button
+                      onClick={() =>
+                        setExpandedFaq(expandedFaq === index ? null : index)
+                      }
+                      className="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
+                    >
+                      <h3 className="text-base font-medium text-gray-900 text-left">
+                        {item.question}
+                      </h3>
+                      <span className="text-2xl text-gray-400">
+                        {expandedFaq === index ? "−" : "+"}
+                      </span>
+                    </button>
+                    {expandedFaq === index && (
+                      <div className="px-6 py-4 bg-white">
+                        <p className="text-sm text-gray-600">{item.answer}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
+              </div>
+
+              <div className="text-center mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center text-black font-medium hover:text-gray-700 transition-colors"
+                >
+                  <span>Have more questions? Contact us</span>
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
               </div>
             </div>
           </div>
