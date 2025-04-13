@@ -49,10 +49,10 @@ export default function TwoCedarsKadenwood() {
   return (
     <>
       <Head>
-        <title>Two Cedars Kadenwood | 6 Bedroom | 6.5 Bath | AceHost</title>
+        <title>Two Cedars | Kadenwood | Private Butler | AceHost</title>
         <meta
           name="description"
-          content="Two Cedars in Kadenwood - Luxury 6 bedroom, 6.5 bathroom property in Whistler's most prestigious neighborhood."
+          content="Two Cedars in Kadenwood - Luxury 7 bedroom, 8.5 bathroom property with private butler in Whistler's most exclusive neighborhood."
         />
       </Head>
 
@@ -62,21 +62,21 @@ export default function TwoCedarsKadenwood() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
           <div>
             <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              Two Cedars Kadenwood
+              Two Cedars | Kadenwood | Private Butler
             </h1>
-            <p className="text-xl mb-4">6 Bedroom | 6.5 Bath | Kadenwood</p>
+            <p className="text-xl mb-4">7 Bedroom | 8.5 Bath | Kadenwood</p>
             <div className="flex flex-wrap gap-4 mb-4">
               <div className="flex items-center gap-2">
-                <span className="font-semibold">Guests:</span> 12
+                <span className="font-semibold">Guests:</span> 17
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold">Bedrooms:</span> 6
+                <span className="font-semibold">Bedrooms:</span> 7
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold">Bathrooms:</span> 6.5
+                <span className="font-semibold">Bathrooms:</span> 8.5
               </div>
             </div>
-            <p className="text-lg font-semibold">Starting at $45,000/month</p>
+            <p className="text-lg font-semibold">$6,500-$9,500+ per night</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <button
@@ -192,14 +192,16 @@ export default function TwoCedarsKadenwood() {
           <section>
             <h2 className="text-2xl font-bold mb-4">Description</h2>
             <p className="mb-4">
-              Two Cedars is a luxurious 6-bedroom, 6.5-bathroom property located
+              Two Cedars is a luxurious 7-bedroom, 8.5-bathroom property located
               in the prestigious Kadenwood neighborhood, Whistler&apos;s most
               exclusive residential area. This stunning mountain retreat offers
               unparalleled luxury, privacy, and breathtaking views of the
-              surrounding mountains and valleys.
+              surrounding mountains and valleys. Included with this property is
+              a private butler service to ensure your stay is both comfortable
+              and memorable.
             </p>
             <p>
-              With over 6,500 square feet of living space, this elegantly
+              With over 8,000 square feet of living space, this elegantly
               designed home features soaring ceilings, floor-to-ceiling windows,
               a gourmet kitchen, multiple fireplaces, a home theater, and a
               private outdoor hot tub. The property combines rustic mountain
@@ -213,7 +215,7 @@ export default function TwoCedarsKadenwood() {
             <h3 className="text-xl font-semibold mb-2">Main Level</h3>
             <p className="mb-4">
               The main level features an open-concept living area with a grand
-              stone fireplace, dining space for 12, and a gourmet kitchen with
+              stone fireplace, dining space for 14, and a gourmet kitchen with
               high-end appliances. Floor-to-ceiling windows showcase stunning
               mountain views. This level also includes a powder room and access
               to the expansive deck with outdoor seating and hot tub.
@@ -223,7 +225,7 @@ export default function TwoCedarsKadenwood() {
             <p className="mb-4">
               The upper level houses the primary suite with a king bed, gas
               fireplace, walk-in closet, and luxurious ensuite bathroom
-              featuring a soaking tub and separate shower. Two additional
+              featuring a soaking tub and separate shower. Three additional
               bedrooms on this floor each have queen beds and ensuite bathrooms.
             </p>
 

@@ -265,6 +265,11 @@ const Home = () => {
       ? allListings
       : allListings.filter((listing) => listing.location === activeFilter);
 
+  // This ensures only one Two Cedars property is displayed
+  const displayedListings = filteredListings.filter(
+    (listing) => listing.id !== "two-cedars-duplicate"
+  );
+
   const faqItems = [
     {
       question: "Is there a minimum stay requirement for Acehost properties?",
@@ -500,7 +505,7 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {filteredListings.map((property, index) => (
+              {displayedListings.map((property, index) => (
                 <div
                   key={property.id}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
