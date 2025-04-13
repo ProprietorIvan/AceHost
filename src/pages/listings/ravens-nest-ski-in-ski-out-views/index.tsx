@@ -17,14 +17,18 @@ const RavensNest = () => {
 
   // Property photos
   const photos = [
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-1.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-2.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-3.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-4.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-5.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-6.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-7.jpg",
-    "/photos/properties/Raven_s Nest 3-Bedroom/ravens-8.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05324.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05329.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05344.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05349.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05358.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05359.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05364.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05369.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05394.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05399.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05424.jpg",
+    "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05439.jpg",
   ];
 
   const handlePhotoClick = (index: number) => {
