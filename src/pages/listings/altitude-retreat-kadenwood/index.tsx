@@ -14,7 +14,7 @@ const AltitudeRetreat = () => {
 
   // Property photos
   const photos = [
-    "/photos/properties/Altitude New Photos Best/altitude retreat-9.jpg",
+    "/photos/properties/Altitude New Photos Best/hero2.jpeg",
     "/photos/properties/Altitude New Photos Best/altitude retreat-21.jpg",
     "/photos/properties/Altitude New Photos Best/altitude retreat-19.jpg",
     "/photos/properties/Altitude New Photos Best/altitude retreat-18.jpg",

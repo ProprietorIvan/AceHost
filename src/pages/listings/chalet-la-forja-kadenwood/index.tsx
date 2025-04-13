@@ -14,8 +14,8 @@ const ChaletLaForja = () => {
 
   // Property photos
   const photos = [
-    "/photos/properties/Chalet La Forja/Forja-3 copy.jpg",
-    "/photos/properties/Chalet La Forja/IMG_1414.JPG",
+    "/photos/properties/Chalet La Forja/hero00001.jpg",
+    "/photos/properties/Chalet La Forja/hero00002.jpg",
     "/photos/properties/Chalet La Forja/02-2950 Heritage Peaks Trail-02.jpg",
     "/photos/properties/Chalet La Forja/03-2950 Heritage Peaks Trail-03.jpg",
     "/photos/properties/Chalet La Forja/04-2950 Heritage Peaks Trail-04.jpg",

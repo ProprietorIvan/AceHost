@@ -43,8 +43,7 @@ const Home = () => {
     {
       id: "altitude-retreat-kadenwood",
       name: "Altitude Retreat | Kadenwood | Private Butler",
-      image:
-        "/photos/properties/Altitude New Photos Best/001-2919 Ancient Cedars-63.jpg",
+      image: "/photos/properties/Altitude New Photos Best/hero2.jpeg",
       guests: 18,
       bedrooms: 7,
       beds: 9,
@@ -58,8 +57,7 @@ const Home = () => {
     {
       id: "chalet-la-forja-kadenwood",
       name: "Chalet La Forja | Kadenwood | Private Butler",
-      image:
-        "/photos/properties/Chalet La Forja/02-2950 Heritage Peaks Trail-02.jpg",
+      image: "/photos/properties/Chalet La Forja/hero00001.jpg",
       guests: "12+4",
       bedrooms: 7.5,
       beds: 15,
