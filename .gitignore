@@ -31,13 +31,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Large media files - ignore all image files in public
-/public/photos/**/*.jpg
-/public/photos/**/*.jpeg
-/public/photos/**/*.png
-/public/photos/**/*.gif
-/public/photos/**/*.webp
-
 # Ignore build artifacts
 .cache/
 dist/
