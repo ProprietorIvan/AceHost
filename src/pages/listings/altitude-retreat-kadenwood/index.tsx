@@ -100,33 +100,33 @@ const AltitudeRetreat = () => {
           {/* Header with Property Info */}
           <div className="max-w-7xl mx-auto px-4 pt-8">
             <div className="flex justify-center mb-6">
-              <div className="bg-black text-white rounded-full py-2 px-6 flex items-center space-x-4">
+              <div className="bg-black text-white rounded-full py-2 px-4 sm:px-6 flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
                 <span>18 guests</span>
-                <span className="mx-3 text-gray-500">|</span>
+                <span className="hidden sm:block mx-3 text-gray-500">|</span>
                 <span>Nightly Price Range: $7,500-$10,000 +</span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
               Altitude Retreat | Kadenwood | Private Butler
             </h1>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
               <button
                 onClick={() => setShowAllPhotos(true)}
-                className="px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
               >
                 More Photos
               </button>
               <Link
                 href="#details"
-                className="px-8 py-3 bg-white border border-gray-300 text-gray-900 rounded font-medium hover:bg-gray-50"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-white border border-gray-300 text-gray-900 rounded font-medium hover:bg-gray-50 text-sm sm:text-base"
               >
                 Details
               </Link>
               <Link
                 href="/contact"
-                className="px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
               >
                 Contact Us
               </Link>
@@ -134,21 +134,21 @@ const AltitudeRetreat = () => {
                 href="https://www.airbnb.ca/rooms/771060491470943213?guests=1&adults=1&s=67&unique_share_id=a8ff5a7a-4bda-4cc7-aaad-e99b178f3a5d"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
               >
                 Book on Airbnb
               </a>
             </div>
 
-            <div className="text-center mb-8">
-              <p className="text-gray-700">
+            <div className="text-center mb-6 sm:mb-8">
+              <p className="text-gray-700 text-sm sm:text-base">
                 Minimum Stay Requirement: 3-4 nights | 7 Christmas/NY
               </p>
             </div>
 
             {/* Featured Video */}
-            <div className="max-w-5xl mx-auto mb-16">
-              <div className="relative aspect-video rounded-lg overflow-hidden">
+            <div className="max-w-5xl mx-auto mb-10 sm:mb-16">
+              <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
                 <iframe
                   src="https://player.vimeo.com/video/906479830"
                   className="w-full h-full"
@@ -161,23 +161,35 @@ const AltitudeRetreat = () => {
           </div>
 
           {/* Photo Grid */}
-          <div className="max-w-7xl mx-auto px-4 mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {photos.map((photo, index) => (
+          <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+              {photos.slice(0, 8).map((photo, index) => (
                 <div
                   key={index}
-                  className="aspect-[4/3] relative cursor-pointer"
+                  className="aspect-[4/3] relative cursor-pointer rounded-lg overflow-hidden shadow-md"
                   onClick={() => setShowAllPhotos(true)}
                 >
                   <Image
                     src={photo}
                     alt={`Altitude Retreat interior ${index + 1}`}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    priority={index < 4}
                   />
                 </div>
               ))}
             </div>
+            {photos.length > 8 && (
+              <div className="text-center mt-6">
+                <button
+                  onClick={() => setShowAllPhotos(true)}
+                  className="inline-flex items-center px-6 py-2 bg-black hover:bg-gray-900 text-white rounded-full text-sm font-medium"
+                >
+                  View all {photos.length} photos
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Property Description */}
@@ -380,12 +392,12 @@ const AltitudeRetreat = () => {
         {showAllPhotos && (
           <div className="fixed inset-0 z-50 bg-black overflow-y-auto">
             <div className="sticky top-0 z-10 bg-black p-4 flex justify-between items-center">
-              <h2 className="text-xl text-white font-medium">
-                Altitude Retreat | Kadenwood - All Photos
+              <h2 className="text-lg sm:text-xl text-white font-medium">
+                Altitude Retreat - All Photos
               </h2>
               <button
                 onClick={() => setShowAllPhotos(false)}
-                className="text-white hover:text-gray-300"
+                className="text-white hover:text-gray-300 bg-gray-900 px-4 py-2 rounded-full"
               >
                 Close
               </button>
@@ -402,15 +414,23 @@ const AltitudeRetreat = () => {
                 ></iframe>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {photos.map((photo, index) => (
-                  <div key={index} className="relative aspect-[4/3]">
-                    <Image
-                      src={photo}
-                      alt={`Altitude Retreat photo ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
+                  <div key={index} className="mb-6">
+                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                      <Image
+                        src={photo}
+                        alt={`Altitude Retreat interior ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                        priority={index < 6}
+                        loading={index < 6 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <p className="text-white text-sm mt-2">
+                      Altitude Retreat interior {index + 1}
+                    </p>
                   </div>
                 ))}
               </div>
