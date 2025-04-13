@@ -36,8 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Large files
-/public/photos/properties/*/
-/public/photos/homepage/*/
+# Exclude only video files, not all images
 /public/photos/**/*.mp4
 /public/background.mp4
 *.mp4

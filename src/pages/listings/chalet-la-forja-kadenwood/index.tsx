@@ -124,18 +124,13 @@ const ChaletLaForja = () => {
             {/* Featured Video */}
             <div className="max-w-5xl mx-auto mb-16">
               <div className="relative aspect-video rounded-lg overflow-hidden">
-                <video
-                  ref={videoRef}
-                  controls
-                  preload="metadata"
-                  className="w-full h-full object-cover"
-                >
-                  <source
-                    src="/photos/properties/Chalet La Forja/chalet_la_forja___kadenwood_ski_in_ski_out_estate (1080p).mp4#t=3"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  src="https://player.vimeo.com/video/922794848"
+                  className="w-full h-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Chalet La Forja Property Walkthrough"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -388,17 +383,13 @@ const ChaletLaForja = () => {
 
             <div className="max-w-7xl mx-auto py-6 px-4">
               <div className="relative aspect-video mb-8 rounded-lg overflow-hidden">
-                <video
-                  controls
-                  preload="metadata"
-                  className="w-full h-full object-cover"
-                >
-                  <source
-                    src="/photos/properties/Chalet La Forja/chalet_la_forja___kadenwood_ski_in_ski_out_estate (1080p).mp4#t=3"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                  src="https://player.vimeo.com/video/922794848"
+                  className="w-full h-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Chalet La Forja Property Walkthrough"
+                ></iframe>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
