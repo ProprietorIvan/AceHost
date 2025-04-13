@@ -41,3 +41,7 @@ next-env.d.ts
 /public/photos/**/*.mp4
 /public/background.mp4
 *.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
