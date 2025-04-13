@@ -17,14 +17,11 @@ const WhisperingPines = () => {
 
   // Property photos
   const photos = [
-    "/photos/properties/The Aspens/aspens-1.jpg",
-    "/photos/properties/The Aspens/aspens-2.jpg",
-    "/photos/properties/The Aspens/aspens-3.jpg",
-    "/photos/properties/The Aspens/aspens-4.jpg",
-    "/photos/properties/The Aspens/aspens-5.jpg",
-    "/photos/properties/The Aspens/aspens-6.jpg",
-    "/photos/properties/The Aspens/aspens-7.jpg",
-    "/photos/properties/The Aspens/aspens-8.jpg",
+    "/photos/properties/The Aspens/4800-Spearhead-Drive-31.JPG",
+    "/photos/properties/The Aspens/4800-Spearhead-Drive-32.JPG",
+    "/photos/properties/The Aspens/4800-Spearhead-Drive-33.JPG",
+    "/photos/properties/The Aspens/4800-Spearhead-Drive-34.JPG",
+    "/photos/properties/The Aspens/4800-Spearhead-Drive-35.JPG",
   ];
 
   const handlePhotoClick = (index: number) => {
