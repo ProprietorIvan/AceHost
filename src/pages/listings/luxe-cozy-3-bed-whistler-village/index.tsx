@@ -74,7 +74,7 @@ const LuxeCozyWhistlerVillage = () => {
               </button>
               <Link
                 href="#details"
-                className="px-8 py-3 bg-white border border-gray-300 text-gray-900 rounded font-medium hover:bg-gray-50"
+                className="px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium"
               >
                 Details
               </Link>

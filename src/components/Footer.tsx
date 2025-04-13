@@ -23,25 +23,10 @@ const Footer = () => {
               <span className="text-2xl font-bold text-gray-900">AceHost</span>
             </Link>
             <p className="text-gray-600 text-sm max-w-xs mb-8 leading-relaxed">
-              Leading Whistler luxury property management company offering
-              magnificent vacation rental homes and personalized services.
+              AceHost is a leading Whistler luxury property management company
+              offering magnificent vacation rental homes in Whistler, British
+              Columbia.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://instagram.com/acehost"
-                className="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="https://youtube.com/acehost"
-                className="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube size={18} />
-              </a>
-            </div>
           </div>
 
           <div className="md:col-span-2">
@@ -51,45 +36,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/properties"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
-                >
-                  All Properties
-                  <ArrowUpRight size={14} className="ml-1" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/properties"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
-                >
-                  Whistler Properties
-                  <ArrowUpRight size={14} className="ml-1" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/properties"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
-                >
-                  Private Homes
-                  <ArrowUpRight size={14} className="ml-1" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
-              Services
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
                   href="/concierge-service"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  VIP Concierge
+                  Concierge Services
+                  <ArrowUpRight size={14} className="ml-1" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/properties"
+                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                >
+                  Luxury Properties
                   <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
@@ -98,16 +57,7 @@ const Footer = () => {
                   href="/list-property"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  List Your Property
-                  <ArrowUpRight size={14} className="ml-1" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
-                >
-                  Our Services
+                  Property Management
                   <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
@@ -116,24 +66,24 @@ const Footer = () => {
 
           <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
-              Company
+              Resources
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link
-                  href="/about"
+                  href="/blog"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  About Us
+                  Blog
                   <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/faq"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  Contact
+                  FAQ&apos;s
                   <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
@@ -146,69 +96,49 @@ const Footer = () => {
                   <ArrowUpRight size={14} className="ml-1" />
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
+                >
+                  Contact
+                  <ArrowUpRight size={14} className="ml-1" />
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-6">
-              Legal
+              Social
             </h3>
             <ul className="space-y-4">
               <li>
-                <Link
-                  href="/terms"
+                <a
+                  href="https://instagram.com/acehost"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  Terms
+                  Instagram
                   <ArrowUpRight size={14} className="ml-1" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/privacy"
+                <a
+                  href="https://youtube.com/acehost"
                   className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
                 >
-                  Privacy
+                  Youtube
                   <ArrowUpRight size={14} className="ml-1" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cookies"
-                  className="text-gray-600 text-sm hover:text-black transition-colors flex items-center"
-                >
-                  Cookies
-                  <ArrowUpRight size={14} className="ml-1" />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-200 pt-8 flex justify-center">
+          <p className="text-gray-500 text-sm">
             © {currentYear} AceHost Whistler. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <Link
-              href="/terms"
-              className="text-gray-500 text-sm hover:text-black transition-colors"
-            >
-              Terms
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-gray-500 text-sm hover:text-black transition-colors"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-gray-500 text-sm hover:text-black transition-colors"
-            >
-              Cookies
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

@@ -25,7 +25,7 @@ const Navigation = ({
     { text: "Home", url: "/" },
     { text: "Luxury Properties For Rent", url: "/properties" },
     { text: "VIP Concierge Services", url: "/concierge-service" },
-    { text: "Whistler Property Management", url: "/management" },
+    { text: "Whistler Property Management", url: "/list-property" },
     { text: "About AceHost", url: "/about" },
     { text: "Resources", url: "/resources" },
   ];
@@ -50,12 +50,12 @@ const Navigation = ({
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center">
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
               {navLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
-                  className="text-sm font-medium transition-colors text-gray-700 hover:text-gray-900"
+                  className="text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:text-black transition-colors mx-1"
                 >
                   {link.text}
                 </Link>
@@ -63,7 +63,7 @@ const Navigation = ({
 
               <Link
                 href="/contact"
-                className="bg-black text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                className="text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:text-black transition-colors mx-1"
               >
                 <span>Contact Us</span>
               </Link>
@@ -94,7 +94,7 @@ const Navigation = ({
                   key={index}
                   href={link.url}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block py-2 px-3 text-base text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+                  className="block py-2 px-3 mt-2 text-gray-700 hover:text-black transition-colors"
                 >
                   {link.text}
                 </Link>
@@ -103,7 +103,7 @@ const Navigation = ({
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="block py-2 px-3 mt-2 bg-black text-white hover:bg-gray-800 rounded-md transition-colors"
+                className="block py-2 px-3 mt-2 text-gray-700 hover:text-black transition-colors"
               >
                 <span>Contact Us</span>
               </Link>

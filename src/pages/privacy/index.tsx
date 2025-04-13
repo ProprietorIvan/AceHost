@@ -8,10 +8,10 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy | Riviera Stays</title>
+        <title>Privacy Policy | AceHost</title>
         <meta
           name="description"
-          content="Privacy Policy for Riviera Stays - Learn how we handle and protect your personal information when you use our luxury property rental services."
+          content="Privacy Policy for AceHost - Learn how we handle and protect your personal information when you use our luxury property rental services in Whistler."
         />
       </Head>
       <Navigation />
@@ -28,11 +28,10 @@ export default function Privacy() {
             })}
           </p>
           <p className="mb-4">
-            At Riviera Stays, we value your privacy and are committed to
-            protecting your personal data. This privacy policy explains how we
-            collect, use, and safeguard your information when you use our
-            website or our luxury property rental services in Monaco and the
-            French Riviera.
+            At AceHost, we value your privacy and are committed to protecting
+            your personal data. This privacy policy explains how we collect,
+            use, and safeguard your information when you use our website or our
+            luxury property rental services in Whistler, British Columbia.
           </p>
         </section>
 
@@ -48,7 +47,7 @@ export default function Privacy() {
             <li className="mb-2">
               <strong>Personal identification information:</strong> Name, email
               address, phone number, postal address, nationality, and
-              passport/ID details (when required for booking)
+              identification details (when required for booking)
             </li>
             <li className="mb-2">
               <strong>Booking information:</strong> Dates of stay, property
@@ -159,7 +158,7 @@ export default function Privacy() {
             <li className="mb-2">
               <strong>Business partners:</strong> In connection with providing
               you with additional services such as transportation, concierge
-              services, or experiences
+              services, ski and snowboard rentals, or other experiences
             </li>
           </ul>
           <p className="mb-4">
@@ -175,11 +174,11 @@ export default function Privacy() {
           </h2>
           <p className="mb-4">
             Your information may be transferred to and processed in countries
-            outside of the European Economic Area (EEA) where data protection
-            laws may be less stringent. When we transfer your personal data
-            outside the EEA, we ensure a similar degree of protection is
-            afforded to it by implementing appropriate safeguards and ensuring
-            that the transfer complies with data protection laws.
+            outside of Canada where data protection laws may be different. When
+            we transfer your personal data outside Canada, we ensure a similar
+            degree of protection is afforded to it by implementing appropriate
+            safeguards and ensuring that the transfer complies with data
+            protection laws.
           </p>
         </section>
 
@@ -251,62 +250,55 @@ export default function Privacy() {
             </li>
           </ul>
           <p className="mb-4">
-            To exercise any of these rights, please contact us using the details
-            provided below. We may need to request specific information from you
-            to confirm your identity before responding to your request.
+            To exercise any of these rights, please contact us using the
+            information provided in the &quot;Contact Us&quot; section below.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Data Security</h2>
           <p className="mb-4">
-            We have implemented appropriate security measures to prevent your
-            personal data from being accidentally lost, used, or accessed in an
-            unauthorized way, altered, or disclosed. We limit access to your
-            personal data to employees, agents, contractors, and other third
-            parties who have a business need to know.
-          </p>
-          <p className="mb-4">
-            We have procedures in place to deal with any suspected personal data
-            breach and will notify you and any applicable regulator of a breach
-            where we are legally required to do so.
+            We have implemented appropriate technical and organizational
+            measures to protect your personal data from unauthorized access,
+            use, disclosure, alteration, or destruction. However, no method of
+            transmission over the internet or electronic storage is 100% secure,
+            and we cannot guarantee absolute security.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">
-            Changes to This Privacy Policy
+            Changes to Our Privacy Policy
           </h2>
           <p className="mb-4">
-            We may update our Privacy Policy from time to time to reflect
+            We may update this privacy policy from time to time to reflect
             changes in our practices or for other operational, legal, or
             regulatory reasons. We will notify you of any material changes by
-            posting the new Privacy Policy on this page and updating the
-            &ldquo;Last Updated&rdquo; date.
+            posting the new privacy policy on this page and updating the
+            &quot;Last Updated&quot; date.
           </p>
           <p className="mb-4">
-            We encourage you to review this Privacy Policy periodically to stay
-            informed about how we are protecting your information.
+            We encourage you to review this privacy policy periodically for any
+            changes. Changes to this privacy policy are effective when they are
+            posted on this page.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
           <p className="mb-4">
-            If you have any questions about this Privacy Policy or our data
-            practices, please contact us:
+            If you have questions or concerns about this privacy policy or our
+            privacy practices, please contact us at:
           </p>
-          <ul className="list-none ml-6">
-            <li className="mb-2">
-              <strong>Email:</strong> info@riviera-stays.com
-            </li>
-            <li className="mb-2">
-              <strong>Phone:</strong> +377 643917618
-            </li>
-            <li className="mb-2">
-              <strong>Address:</strong> 7 avenue des Papalins, 98000 Monaco
-            </li>
-          </ul>
+          <p className="mb-4">
+            <strong>AceHost</strong>
+            <br />
+            Email: privacy@acehost.com
+            <br />
+            Phone: +1 (604) 555-1234
+            <br />
+            Address: 4567 Slopes Way, Whistler, BC V0N 1B4, Canada
+          </p>
         </section>
       </main>
       <Footer />

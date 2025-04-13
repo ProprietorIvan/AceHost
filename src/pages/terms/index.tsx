@@ -7,10 +7,10 @@ const TermsOfService = () => {
   return (
     <>
       <Head>
-        <title>Terms of Service | Riviera Stays</title>
+        <title>Terms of Service | AceHost</title>
         <meta
           name="description"
-          content="View the terms of service for Riviera Stays, detailing the conditions for using our luxury property rental services."
+          content="View the terms of service for AceHost, detailing the conditions for using our luxury property rental services in Whistler."
         />
       </Head>
 
@@ -37,15 +37,15 @@ const TermsOfService = () => {
                   Introduction
                 </h2>
                 <p>
-                  Welcome to Riviera Stays. These terms and conditions govern
-                  your use of our website and services. By accessing our website
-                  or using our services, you agree to these terms. Please read
-                  them carefully.
+                  Welcome to AceHost. These terms and conditions govern your use
+                  of our website and services. By accessing our website or using
+                  our services, you agree to these terms. Please read them
+                  carefully.
                 </p>
                 <p>
                   These Terms of Service (&quot;Terms&quot;) constitute a
-                  legally binding agreement between you and Riviera Stays
-                  governing your access to and use of the website and services.
+                  legally binding agreement between you and AceHost governing
+                  your access to and use of the website and services.
                 </p>
               </section>
 
@@ -54,7 +54,7 @@ const TermsOfService = () => {
                   Use of Services
                 </h2>
                 <p>
-                  Riviera Stays provides a platform for users to browse, inquire
+                  AceHost provides a platform for users to browse, inquire
                   about, and book luxury property rentals. Our services include:
                 </p>
                 <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-600">
@@ -68,9 +68,11 @@ const TermsOfService = () => {
                     specialists
                   </li>
                   <li>
-                    Informational content about Monaco and French Riviera
-                    properties and experiences
+                    Informational content about Whistler properties and
+                    experiences
                   </li>
+                  <li>VIP concierge services for Whistler visitors</li>
+                  <li>Property management services for homeowners</li>
                 </ul>
               </section>
 
@@ -149,13 +151,41 @@ const TermsOfService = () => {
 
               <section className="mb-10">
                 <h2 className="text-2xl font-medium mb-4 text-gray-900">
+                  Property Rules and Regulations
+                </h2>
+                <p>
+                  When staying at any property booked through AceHost, you agree
+                  to:
+                </p>
+                <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-600">
+                  <li>Respect the property and its contents</li>
+                  <li>
+                    Comply with occupancy limits specified for the property
+                  </li>
+                  <li>
+                    Follow any house rules provided for the specific property
+                  </li>
+                  <li>Report any damages or issues promptly</li>
+                  <li>Be considerate of neighbors and the local community</li>
+                  <li>
+                    Leave the property in a reasonable condition upon departure
+                  </li>
+                </ul>
+                <p>
+                  Additional property-specific rules may apply and will be
+                  communicated to you before or at the time of check-in.
+                </p>
+              </section>
+
+              <section className="mb-10">
+                <h2 className="text-2xl font-medium mb-4 text-gray-900">
                   Intellectual Property
                 </h2>
                 <p>
                   All content on our website, including text, graphics, logos,
-                  images, audio, video, and software, is the property of Riviera
-                  Stays or its content suppliers and is protected by
-                  international copyright laws.
+                  images, audio, video, and software, is the property of AceHost
+                  or its content suppliers and is protected by international
+                  copyright laws.
                 </p>
                 <p>
                   You may not reproduce, modify, distribute, display, perform,
@@ -170,15 +200,15 @@ const TermsOfService = () => {
                 </h2>
                 <p>
                   Our services are provided on an &quot;as is&quot; and &quot;as
-                  available&quot; basis. Riviera Stays makes no representations
-                  or warranties of any kind, express or implied, regarding the
+                  available&quot; basis. AceHost makes no representations or
+                  warranties of any kind, express or implied, regarding the
                   operation of our services or the information, content,
                   materials, or products included on our website.
                 </p>
                 <p>
-                  To the full extent permissible by applicable law, Riviera
-                  Stays disclaims all warranties, express or implied, including
-                  but not limited to, implied warranties of merchantability and
+                  To the full extent permissible by applicable law, AceHost
+                  disclaims all warranties, express or implied, including but
+                  not limited to, implied warranties of merchantability and
                   fitness for a particular purpose.
                 </p>
               </section>
@@ -188,10 +218,10 @@ const TermsOfService = () => {
                   Limitation of Liability
                 </h2>
                 <p>
-                  Riviera Stays will not be liable for any damages of any kind
-                  arising from the use of our services, including but not
-                  limited to direct, indirect, incidental, punitive, and
-                  consequential damages.
+                  AceHost will not be liable for any damages of any kind arising
+                  from the use of our services, including but not limited to
+                  direct, indirect, incidental, punitive, and consequential
+                  damages.
                 </p>
               </section>
 
@@ -200,12 +230,11 @@ const TermsOfService = () => {
                   Indemnification
                 </h2>
                 <p>
-                  You agree to indemnify, defend, and hold harmless Riviera
-                  Stays, its officers, directors, employees, agents, and
-                  suppliers from and against all losses, expenses, damages, and
-                  costs, including reasonable attorneys&apos; fees, resulting
-                  from any violation of these Terms or any activity related to
-                  your account.
+                  You agree to indemnify, defend, and hold harmless AceHost, its
+                  officers, directors, employees, agents, and suppliers from and
+                  against all losses, expenses, damages, and costs, including
+                  reasonable attorneys&apos; fees, resulting from any violation
+                  of these Terms or any activity related to your account.
                 </p>
               </section>
 
@@ -227,8 +256,8 @@ const TermsOfService = () => {
                 </h2>
                 <p>
                   These Terms shall be governed by and construed in accordance
-                  with the laws of Monaco, without regard to its conflict of law
-                  provisions.
+                  with the laws of British Columbia, Canada, without regard to
+                  its conflict of law provisions.
                 </p>
               </section>
 
@@ -249,20 +278,21 @@ const TermsOfService = () => {
 
               <section className="mb-10">
                 <h2 className="text-2xl font-medium mb-4 text-gray-900">
-                  Contact Us
+                  Contact Information
                 </h2>
                 <p>
-                  If you have any questions about these Terms, please contact us
-                  at:
+                  If you have any questions about these Terms, please contact
+                  us:
                 </p>
-                <div className="mt-4">
-                  <p>
-                    <strong>Riviera Stays</strong>
-                  </p>
-                  <p>Monte Carlo, Monaco</p>
-                  <p>Email: legal@rivierastays.com</p>
-                  <p>Phone: +377 97 97 97 97</p>
-                </div>
+                <p className="mt-4">
+                  <strong>AceHost</strong>
+                  <br />
+                  Email: terms@acehost.com
+                  <br />
+                  Phone: +1 (604) 555-1234
+                  <br />
+                  Address: 4567 Slopes Way, Whistler, BC V0N 1B4, Canada
+                </p>
               </section>
             </div>
           </div>

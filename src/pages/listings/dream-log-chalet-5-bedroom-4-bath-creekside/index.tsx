@@ -7,14 +7,18 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { FaBed, FaBath } from "react-icons/fa";
+import { X } from "lucide-react";
 
 const DreamLogChalet = () => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(
+    null
+  );
 
   // Property photos
   const photos = [
-    "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00620.jpg",
+    "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00615.jpg",
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00610.jpg",
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00605.jpg",
@@ -55,6 +59,34 @@ const DreamLogChalet = () => {
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00322.jpg",
     "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00316.jpg",
   ];
+
+  const handlePhotoClick = (index: number) => {
+    setSelectedPhotoIndex(index);
+  };
+
+  const closeFullScreenPhoto = () => {
+    setSelectedPhotoIndex(null);
+  };
+
+  const navigatePhoto = (direction: "prev" | "next") => {
+    if (selectedPhotoIndex === null) return;
+
+    if (direction === "prev") {
+      setSelectedPhotoIndex(
+        selectedPhotoIndex === 0 ? photos.length - 1 : selectedPhotoIndex - 1
+      );
+    } else {
+      setSelectedPhotoIndex(
+        selectedPhotoIndex === photos.length - 1 ? 0 : selectedPhotoIndex + 1
+      );
+    }
+  };
+
+  // Close full screen view when all photos modal is closed
+  const closeAllPhotos = () => {
+    setShowAllPhotos(false);
+    setSelectedPhotoIndex(null);
+  };
 
   return (
     <>
@@ -99,7 +131,7 @@ const DreamLogChalet = () => {
               </button>
               <Link
                 href="#details"
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-white border border-gray-300 text-gray-900 rounded font-medium hover:bg-gray-50 text-sm sm:text-base"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white border border-gray-700 rounded font-medium hover:bg-gray-800 text-sm sm:text-base"
               >
                 Details
               </Link>
@@ -118,20 +150,20 @@ const DreamLogChalet = () => {
             </div>
           </div>
 
-          {/* Photo Grid */}
+          {/* Photo Grid - default to 2 columns on mobile */}
           <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
               {photos.slice(0, 8).map((photo, index) => (
                 <div
                   key={index}
                   className="aspect-[4/3] relative cursor-pointer rounded-lg overflow-hidden shadow-md"
-                  onClick={() => setShowAllPhotos(true)}
+                  onClick={() => handlePhotoClick(index)}
                 >
                   <Image
                     src={photo}
                     alt={`Dream Log Chalet interior ${index + 1}`}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
                     priority={index < 4}
                   />
@@ -178,7 +210,7 @@ const DreamLogChalet = () => {
                 <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
                   <div className="relative aspect-[4/3] mb-2">
                     <Image
-                      src={photos[1]}
+                      src={photos[0]}
                       alt="Dream Log Chalet Interior"
                       fill
                       className="object-cover"
@@ -324,7 +356,7 @@ const DreamLogChalet = () => {
           </div>
         </main>
 
-        {/* Photo Gallery Modal */}
+        {/* Photo Gallery Modal - Updated to support 2 columns on mobile and full-screen view */}
         {showAllPhotos && (
           <div className="fixed inset-0 z-50 bg-black overflow-y-auto">
             <div className="sticky top-0 z-10 bg-black p-4 flex justify-between items-center">
@@ -332,7 +364,7 @@ const DreamLogChalet = () => {
                 Dream Log Chalet - All Photos
               </h2>
               <button
-                onClick={() => setShowAllPhotos(false)}
+                onClick={closeAllPhotos}
                 className="text-white hover:text-gray-300 bg-gray-900 px-4 py-2 rounded-full"
               >
                 Close
@@ -340,16 +372,19 @@ const DreamLogChalet = () => {
             </div>
 
             <div className="max-w-7xl mx-auto py-6 px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {photos.map((photo, index) => (
                   <div key={index} className="mb-6">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <div
+                      className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+                      onClick={() => handlePhotoClick(index)}
+                    >
                       <Image
                         src={photo}
                         alt={`Dream Log Chalet interior ${index + 1}`}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
+                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
+                        className="object-cover hover:scale-105 transition-transform duration-300"
                         priority={index < 6}
                         loading={index < 6 ? "eager" : "lazy"}
                       />
@@ -360,6 +395,53 @@ const DreamLogChalet = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Full-screen Photo View */}
+        {selectedPhotoIndex !== null && (
+          <div className="fixed inset-0 z-[60] bg-black flex items-center justify-center">
+            <div className="absolute top-4 right-4 flex space-x-4">
+              <button
+                onClick={closeFullScreenPhoto}
+                className="text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <button
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
+              onClick={() => navigatePhoto("prev")}
+            >
+              &larr;
+            </button>
+
+            <div className="relative w-full h-full max-w-6xl max-h-[80vh] mx-auto px-4">
+              <div className="relative w-full h-full">
+                <Image
+                  src={photos[selectedPhotoIndex]}
+                  alt={`Dream Log Chalet full view ${selectedPhotoIndex + 1}`}
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
+              onClick={() => navigatePhoto("next")}
+            >
+              &rarr;
+            </button>
+
+            <div className="absolute bottom-4 left-0 right-0 text-center">
+              <p className="text-white text-sm">
+                {selectedPhotoIndex + 1} / {photos.length}
+              </p>
             </div>
           </div>
         )}
