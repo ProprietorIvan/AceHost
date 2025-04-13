@@ -37,3 +37,13 @@ dist/
 
 # Ignore media uploads
 /media_uploads/
+
+# Large files
+# Exclude only video files, not all images
+/public/photos/**/*.mp4
+/public/background.mp4
+*.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
