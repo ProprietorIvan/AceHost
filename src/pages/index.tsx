@@ -72,7 +72,7 @@ const Home = () => {
       id: "dream-log-chalet",
       name: "Dream Log Chalet | 5 Bedroom | 4 Bath | Creekside",
       image:
-        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
+        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00575-Edit.jpg",
       guests: 12,
       bedrooms: 5,
       beds: 7,
@@ -170,7 +170,7 @@ const Home = () => {
       description:
         "AceHost offers a variety of luxury Airbnb vacation rental properties to choose from in Whistler, designed to provide guests with high-end, tailored experiences. Our chalets include VIP Concierge Services, premium amenities, stunning views, prime locations, often located in ski in ski out neighbourhoods, or near the slopes.",
       linkText: "Luxury Vacation Properties",
-      image: "/photos/sections/luxury-homes.jpg",
+      image: "/photos/homepage/ViewOurCollection.jpg",
     },
     {
       title:
@@ -178,14 +178,14 @@ const Home = () => {
       description:
         "AceHost offers vacation rental property management services in Whistler, specializing in, but not limited to, luxury homes. We handle everything from guest management to property maintenance, while leveraging our Airbnb SuperHost & Premier VRBO status, in addition to our unique and modern marketing strategies to increase your bookings.",
       linkText: "Property Management Services",
-      image: "/photos/sections/property-management.jpg",
+      image: "/photos/homepage/WhistlerVacationRental.jpg",
     },
     {
       title: "Whistler VIP Concierge Services",
       description:
         "AceHost&apos;s VIP Concierge services provide personalized holiday experiences, ensuring guests receive priority access to Whistler&apos;s top restaurants, activities, and events. The service covers everything from restaurant bookings to private chefs, in-home spa treatments, and adventure planning like heli-skiing or snowmobile tours. AceHost&apos;s local expertise and strong connections in town make each stay seamless and memorable, with round-the-clock availability to cater to any request.",
       linkText: "Concierge Services",
-      image: "/photos/sections/concierge.jpg",
+      image: "/photos/homepage/WhistlerVipConcierge.jpg",
     },
   ];
 
