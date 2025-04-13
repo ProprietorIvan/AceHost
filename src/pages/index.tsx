@@ -43,7 +43,8 @@ const Home = () => {
     {
       id: "altitude-retreat-kadenwood",
       name: "Altitude Retreat | Kadenwood | Private Butler",
-      image: "/photos/properties/altitude-retreat.jpg",
+      image:
+        "/photos/properties/Altitude New Photos Best/001-2919 Ancient Cedars-63.jpg",
       guests: 18,
       bedrooms: 7,
       beds: 9,
@@ -57,7 +58,8 @@ const Home = () => {
     {
       id: "chalet-la-forja-kadenwood",
       name: "Chalet La Forja | Kadenwood | Private Butler",
-      image: "/photos/properties/chalet-la-forja.jpg",
+      image:
+        "/photos/properties/Chalet La Forja/02-2950 Heritage Peaks Trail-02.jpg",
       guests: "12+4",
       bedrooms: 7.5,
       beds: 15,
@@ -86,7 +88,7 @@ const Home = () => {
     {
       id: "falcon-blueberry",
       name: "Falcon Blueberry Drive | 3 Bedroom | 3 Bath",
-      image: "/photos/properties/falcon-blu.jpg",
+      image: "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
       guests: 8,
       bedrooms: 3,
       beds: 4,
@@ -100,7 +102,7 @@ const Home = () => {
     {
       id: "heron-views",
       name: "Heron Views | Whistler Village | 1 Bedroom",
-      image: "/photos/properties/heron-views-whi.jpg",
+      image: "/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg",
       guests: 4,
       bedrooms: 1,
       beds: 2,
@@ -114,7 +116,8 @@ const Home = () => {
     {
       id: "luxe-cozy",
       name: "Luxe Cozy | 3 Bedroom | Whistler Village",
-      image: "/photos/properties/luxe-cozy.jpg",
+      image:
+        "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
       guests: 6,
       bedrooms: 3,
       beds: 3,
