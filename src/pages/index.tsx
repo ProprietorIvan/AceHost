@@ -217,7 +217,7 @@ const Home = () => {
       id: "dream-log-chalet",
       name: "Dream Log Chalet | 5 Bedroom | 4 Bath | Creekside",
       image:
-        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
+        "/photos/properties/Dream Log 5-bedroom Chalet/Dream Log Chalet interior 33.jpg",
       guests: 12,
       bedrooms: 5,
       beds: 6,
