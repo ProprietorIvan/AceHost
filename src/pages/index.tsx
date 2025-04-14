@@ -270,7 +270,7 @@ const Home = () => {
       winterPrice: "",
       holidayPrice: "",
       location: "worldwide",
-      link: "/worldwide-listings/yacht-thailand-sea-d",
+      link: "/worldwide-listings/super-yacht-thailand",
     },
     {
       id: "villa-aegean-greece",
@@ -284,7 +284,7 @@ const Home = () => {
       winterPrice: "",
       holidayPrice: "",
       location: "worldwide",
-      link: "/worldwide-listings/villa-aegean-mykonos-greece",
+      link: "/worldwide-listings/mykonos-crystal-villa",
     },
     {
       id: "punta-mita",
@@ -298,7 +298,7 @@ const Home = () => {
       winterPrice: "",
       holidayPrice: "",
       location: "worldwide",
-      link: "/worldwide-listings/punta-mita-luxury-villa",
+      link: "/worldwide-listings/punta-mita---casa-juntos",
     },
   ];
 

@@ -3,8 +3,11 @@ const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  i18n,
+  // swcMinify is no longer needed in Next.js 15
+  i18n: {
+    ...i18n,
+    localeDetection: false
+  },
   // Configure sitemap generation
   async rewrites() {
     return [
