@@ -9,6 +9,7 @@ import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { FaUser, FaBed, FaBath } from "react-icons/fa";
+import { Users, Bed, Bath } from "lucide-react";
 
 const Home = () => {
   const { t } = useTranslation("common");
@@ -60,54 +61,87 @@ const Home = () => {
   };
 
   // Render optimized property card directly
-  const renderPropertyCard = (property: any) => (
+  const renderPropertyCard = (property: any, index: number) => (
     <div
       key={property.id}
-      className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
     >
       <div className="relative h-64">
         <Image
           src={property.image}
-          alt={property.name}
+          alt={property.title || property.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
           className="object-cover"
-          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading={index < 3 ? "eager" : "lazy"}
+          quality={85}
         />
         <div className="absolute bottom-4 right-4">
           <Link
             href={property.link}
-            className="bg-white text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors"
+            className="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
           >
             Book Now
           </Link>
         </div>
       </div>
       <div className="p-6">
+        {/* Property details */}
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md">
-            {property.guests} Guests
-          </span>
-          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-            {property.bedrooms} Bedrooms
-          </span>
-          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-            {property.beds} Beds
-          </span>
-          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-            {property.bathrooms} Bathrooms
-          </span>
+          {property.guests && (
+            <span className="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md">
+              {property.guests}{" "}
+              {typeof property.guests === "number" && property.guests === 1
+                ? "Guest"
+                : "Guests"}
+            </span>
+          )}
+          {property.bedrooms && (
+            <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+              {property.bedrooms}{" "}
+              {typeof property.bedrooms === "number" && property.bedrooms === 1
+                ? "Bedroom"
+                : "Bedrooms"}
+            </span>
+          )}
+          {property.beds && (
+            <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+              {property.beds}{" "}
+              {typeof property.beds === "number" && property.beds === 1
+                ? "Bed"
+                : "Beds"}
+            </span>
+          )}
+          {property.bathrooms && (
+            <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+              {property.bathrooms}{" "}
+              {typeof property.bathrooms === "number" &&
+              property.bathrooms === 1
+                ? "Bathroom"
+                : "Bathrooms"}
+            </span>
+          )}
         </div>
+
+        {/* Property name */}
         <h3 className="text-xl font-medium mb-4 text-gray-900">
           {property.name}
         </h3>
+
+        {/* Pricing information */}
         <div className="space-y-2 mb-6">
-          <p className="text-gray-600">
-            Nightly Price Range: {property.priceRange}
-          </p>
-          <p className="text-gray-600">{property.winterPrice}</p>
-          <p className="text-gray-600">{property.holidayPrice}</p>
+          {property.priceRange && (
+            <p className="text-gray-600">{property.priceRange}</p>
+          )}
+          {property.winterPrice && (
+            <p className="text-gray-600">{property.winterPrice}</p>
+          )}
+          {property.holidayPrice && (
+            <p className="text-gray-600">{property.holidayPrice}</p>
+          )}
         </div>
+
+        {/* View property link */}
         <Link
           href={property.link}
           className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors"
@@ -153,7 +187,7 @@ const Home = () => {
       id: "chalet-la-forja",
       name: "Chalet La Forja | Kadenwood | Private Butler",
       image: "/photos/properties/Chalet La Forja/hero00001.jpg",
-      guests: 16,
+      guests: "12+4",
       bedrooms: 7.5,
       beds: 15,
       bathrooms: 8,
@@ -243,7 +277,7 @@ const Home = () => {
       bedrooms: 5,
       beds: 6,
       bathrooms: 6,
-      priceRange: "$18,000-$29,000",
+      priceRange: "Monthly Price Range: $18,000-$29,000",
       winterPrice: "90+ day minimum",
       holidayPrice: "$29,000 Monthly | Winter (Booked until June 15, 2025)",
       location: "whistler",
@@ -257,7 +291,7 @@ const Home = () => {
       bedrooms: 3,
       beds: 3,
       bathrooms: 3.5,
-      priceRange: "$10,000 - $12,000",
+      priceRange: "Monthly Price Range: $10,000 - $12,000",
       winterPrice: "90 night minimum",
       holidayPrice: "$30,000 - 3 months | $40,000- 4 months",
       location: "whistler",
@@ -268,7 +302,7 @@ const Home = () => {
       name: "Wedge Mountain Lodge & Spa",
       image:
         "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
-      guests: 26,
+      guests: "20+6",
       bedrooms: 10,
       beds: 10,
       bathrooms: 13,
@@ -287,7 +321,7 @@ const Home = () => {
       bedrooms: 3,
       beds: 3,
       bathrooms: 2.5,
-      priceRange: "$400-$1,700+",
+      priceRange: "Nightly Price Range: $400-$1,700+",
       winterPrice: "",
       holidayPrice: "",
       location: "whistler",
@@ -317,7 +351,7 @@ const Home = () => {
       bedrooms: 2,
       beds: 2,
       bathrooms: 2,
-      priceRange: "$350-$1,300",
+      priceRange: "Nightly Price Range: $350-$1,300",
       winterPrice: "",
       holidayPrice: "",
       location: "whistler",
@@ -331,7 +365,7 @@ const Home = () => {
       bedrooms: 1,
       beds: 1,
       bathrooms: 1,
-      priceRange: "$160-450",
+      priceRange: "Nightly Price Range: $160-450",
       winterPrice: "",
       holidayPrice: "",
       location: "whistler",
@@ -407,108 +441,140 @@ const Home = () => {
         "Yes, we offer a selection of pet-friendly luxury rental homes in Whistler. Use our pet-friendly filter when searching for properties to see all available options that welcome pets.",
     },
     {
+      question: "Is there a fee for early check-in or late checkout?",
+      answer:
+        "Early check-in and late checkout options may be available depending on the property and booking schedule, and may include an additional fee. Please contact us in advance to inquire about these options for your stay.",
+    },
+    {
       question:
-        "What amenities can I expect in a luxury vacation rental from AceHost.ca?",
+        "What amenities can I expect in a luxury vacation rental home in Whistler from AceHost.ca?",
       answer:
         "Our luxury properties feature gourmet kitchens, private hot tubs, heated pools, saunas, steam showers, state-of-the-art entertainment systems, and premium linens for maximum comfort.",
     },
+    {
+      question:
+        "What is the cancellation policy for booking a luxury vacation rental home in Whistler with AceHost.ca?",
+      answer:
+        "Our cancellation policies vary by property and season. Generally, cancellations made 60+ days before arrival receive a full refund minus service fees. For specific details, please refer to the terms of your booking agreement or contact our team directly.",
+    },
   ];
 
+  // Featured sections for services
   const sections = [
     {
-      title: "View Our Collection of Luxury Chalet Rental Homes in Whistler",
+      title: "Luxury Vacation Properties",
       description:
         "AceHost offers a variety of luxury Airbnb vacation rental properties to choose from in Whistler, designed to provide guests with high-end, tailored experiences. Our chalets include VIP Concierge Services, premium amenities, stunning views, prime locations, often located in ski in ski out neighbourhoods, or near the slopes.",
-      linkText: "Luxury Vacation Properties",
       image: "/photos/homepage/ViewOurCollection.jpg",
+      linkText: "Find Your Luxury Rental",
     },
     {
-      title:
-        "Whistler Vacation Rental Property Management Services with AceHost",
+      title: "Property Management Services",
       description:
         "AceHost offers vacation rental property management services in Whistler, specializing in, but not limited to, luxury homes. We handle everything from guest management to property maintenance, while leveraging our Airbnb SuperHost & Premier VRBO status, in addition to our unique and modern marketing strategies to increase your bookings.",
-      linkText: "Property Management Services",
       image: "/photos/homepage/WhistlerVacationRental.jpg",
+      linkText: "Explore Our Management",
     },
     {
-      title: "Whistler VIP Concierge Services",
+      title: "Concierge Services",
       description:
-        "AceHost&apos;s VIP Concierge services provide personalized holiday experiences, ensuring guests receive priority access to Whistler&apos;s top restaurants, activities, and events. The service covers everything from restaurant bookings to private chefs, in-home spa treatments, and adventure planning like heli-skiing or snowmobile tours. AceHost&apos;s local expertise and strong connections in town make each stay seamless and memorable, with round-the-clock availability to cater to any request.",
-      linkText: "Concierge Services",
+        "AceHost's VIP Concierge services provide personalized holiday experiences, ensuring guests receive priority access to Whistler's top restaurants, activities, and events. The service covers everything from restaurant bookings to private chefs, in-home spa treatments, and adventure planning like heli-skiing or snowmobile tours. AceHost's local expertise and strong connections in town make each stay seamless and memorable, with round-the-clock availability to cater to any request.",
       image: "/photos/homepage/WhistlerVipConcierge.jpg",
+      linkText: "View Concierge Options",
     },
   ];
 
   return (
     <>
       <Head>
-        <title>
-          AceHost | Luxury Vacation Rentals in Whistler BC | Property Management
-        </title>
+        <title>AceHost | Luxury Vacation Rental Properties in Whistler</title>
         <meta
           name="description"
-          content="AceHost offers premium luxury vacation rental properties in Whistler, BC. Discover our exclusive collection of ski chalets with VIP concierge services and property management."
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
+          content="AceHost offers luxury rental properties in Whistler, VIP concierge services, and property management. Explore our exclusive collection of Whistler chalets and homes."
         />
         <meta
           name="keywords"
-          content="Whistler luxury rentals, ski chalets Whistler, vacation property management, luxury accommodations Whistler, VIP concierge services"
+          content="Whistler vacation rentals, luxury whistler chalet, whistler accommodations, whistler property management, whistler concierge, luxury rental"
         />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="AceHost | Luxury Vacation Rentals in Whistler BC"
+          content="AceHost | Luxury Vacation Rental Properties in Whistler"
         />
         <meta
           property="og:description"
-          content="Discover luxury vacation rental properties in Whistler with AceHost. Premium chalets, VIP concierge, and property management services."
+          content="AceHost offers luxury rental properties in Whistler, VIP concierge services, and property management. Explore our exclusive collection of Whistler chalets and homes."
         />
         <meta
           property="og:image"
           content="https://acehost.ca/photos/homepage/hero.jpg"
         />
         <meta property="og:url" content="https://acehost.ca" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="AceHost | Luxury Vacation Rentals in Whistler BC"
-        />
-        <meta
-          name="twitter:description"
-          content="Discover luxury vacation rental properties in Whistler with AceHost. Premium chalets, VIP concierge, and property management services."
-        />
-        <meta
-          name="twitter:image"
-          content="https://acehost.ca/photos/homepage/hero.jpg"
-        />
         <link rel="canonical" href="https://acehost.ca" />
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* JSON-LD Structured Data for Rich Snippets */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
+
+        {/* Website Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "AceHost Whistler",
+              url: "https://acehost.ca",
+              logo: "https://acehost.ca/logo.png",
+              description:
+                "AceHost offers luxury rental properties in Whistler, VIP concierge services, and property management.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "4557 Blackcomb Way",
+                addressLocality: "Whistler",
+                addressRegion: "BC",
+                postalCode: "V8E 0Y2",
+                addressCountry: "CA",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-604-962-6262",
+                contactType: "customer service",
+              },
+              sameAs: [
+                "https://www.instagram.com/acehost",
+                "https://www.youtube.com/acehost",
+              ],
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://acehost.ca/properties?search={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
         />
-        {/* Preload critical fonts */}
+
+        {/* Google Fonts preconnect for performance */}
         <link
-          rel="preload"
-          href="/fonts/main-font.woff2"
-          as="font"
-          type="font/woff2"
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
           crossOrigin="anonymous"
         />
-        {/* Preconnect to required origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Add more metadata as needed */}
+
+        {/* Optimize core web vitals */}
+        <link rel="preload" href="/logo.png" as="image" />
+        <link rel="preload" href="/photos/homepage/hero.jpg" as="image" />
       </Head>
 
       <div className="min-h-screen bg-white text-gray-900">
@@ -555,6 +621,7 @@ const Home = () => {
                   frameBorder="0"
                   allow="fullscreen; picture-in-picture"
                   title="AceHost Whistler Concierge Experience"
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>
@@ -567,11 +634,10 @@ const Home = () => {
             {sections.map((section, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
                 <div className="mb-6 h-48 relative overflow-hidden rounded-lg">
-                  <Image
+                  <img
                     src={section.image}
                     alt={section.title}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="text-2xl font-medium mb-4 text-gray-900">
@@ -651,95 +717,9 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {displayedListings.map((property) =>
-                renderPropertyCard(property)
+              {displayedListings.map((property, index) =>
+                renderPropertyCard(property, index)
               )}
-            </div>
-          </div>
-        </section>
-
-        {/* YouTube Videos Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                Experience Whistler Luxury
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Watch our videos to see the AceHost experience and discover the
-                beauty of Whistler luxury properties.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Video 1 */}
-              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/BKK5X_LPd8k"
-                    title="Dream Whistler Vacation"
-                    frameBorder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">
-                    Dream Whistler Vacation
-                  </h3>
-                  <p className="text-gray-600">
-                    Experience the ultimate Whistler vacation with our luxury
-                    accommodations and exclusive services.
-                  </p>
-                </div>
-              </div>
-
-              {/* Video 2 */}
-              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/GOzVT9x08sc"
-                    title="Whistler Chef"
-                    frameBorder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">
-                    Whistler Chef Experience
-                  </h3>
-                  <p className="text-gray-600">
-                    Enjoy exceptional culinary experiences with our private chef
-                    services in your luxury Whistler rental.
-                  </p>
-                </div>
-              </div>
-
-              {/* Video 3 */}
-              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/cNHhE2B8Zeo"
-                    title="The Ultimate Luxury Whistler Chalet Winter Road Trip Experience"
-                    frameBorder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">
-                    Ultimate Luxury Winter Road Trip
-                  </h3>
-                  <p className="text-gray-600">
-                    Discover the perfect winter road trip experience with luxury
-                    chalets and breathtaking mountain views.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
