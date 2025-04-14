@@ -130,7 +130,7 @@ const Home = () => {
       id: "ravens-nest",
       name: "Raven's Nest | Ski in Ski out | Views",
       image:
-        "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05324.jpg",
+        "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05566.jpg",
       guests: 6,
       bedrooms: 3,
       beds: 3,
