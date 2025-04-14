@@ -65,36 +65,34 @@ export default function Properties() {
     useState<PropertyFeature | null>(null);
 
   // Structured data for SEO
-  const structuredData: {
-    "@context": string;
-    "@type": string;
-    itemListElement: Array<{
-      "@type": string;
-      position: number;
-      item: {
+  const structuredData = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListElement: [] as Array<{
         "@type": string;
-        name: string;
-        image: string;
-        description: string;
-        accommodationCategory: string;
-        numberOfRooms: number;
-        amenityFeature: Array<{
+        position: number;
+        item: {
           "@type": string;
           name: string;
-        }>;
-        address: {
-          "@type": string;
-          addressLocality: string;
+          image: string;
+          description: string;
+          accommodationCategory: string;
+          numberOfRooms: number;
+          amenityFeature: Array<{
+            "@type": string;
+            name: string;
+          }>;
+          address: {
+            "@type": string;
+            addressLocality: string;
+          };
         };
-      };
-    }>;
-    numberOfItems: number;
-  } = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: [],
-    numberOfItems: 0,
-  };
+      }>,
+      numberOfItems: 0,
+    }),
+    []
+  );
 
   // Property Data
   const propertyCategories = useMemo<PropertyCategory[]>(
@@ -106,7 +104,7 @@ export default function Properties() {
           "Discover our luxury chalets and condos in Whistler, perfect for an unforgettable mountain getaway with world-class ski access and amenities.",
         properties: [
           {
-            id: "altitude-retreat",
+            id: "altitude-retreat-kadenwood",
             name: "Altitude Retreat | Kadenwood | Private Butler",
             images: [
               "/assets/properties/altitude-retreat/1.jpg",
@@ -138,6 +136,198 @@ export default function Properties() {
               "Ski-In/Ski-Out Access",
             ],
             priceRange: "$7,500-$10,000+",
+          },
+          {
+            id: "chalet-la-forja-kadenwood",
+            name: "Chalet La Forja | Kadenwood | Private Hot Tub",
+            images: [
+              "/photos/properties/Chalet La Forja/1.jpg",
+              "/photos/properties/Chalet La Forja/2.jpg",
+              "/photos/properties/Chalet La Forja/3.jpg",
+            ],
+            guests: 12,
+            bedrooms: 5,
+            bathrooms: 5.5,
+            location: "Kadenwood, Whistler",
+            description:
+              "Chalet La Forja is a magnificent mountain retreat situated in Whistler's prestigious Kadenwood neighborhood. This luxurious ski-in/ski-out property offers breathtaking views, elegant design, and premium amenities for an unforgettable Whistler experience.",
+            features: [
+              "Private Hot Tub",
+              "Gourmet Kitchen",
+              "Ski-In/Ski-Out Access",
+              "Mountain Views",
+              "Luxury Finishes",
+              "Game Room",
+              "Heated Floors",
+              "Private Balcony",
+            ],
+            highlights: [
+              "Exclusive Kadenwood Location",
+              "Ski-In/Ski-Out Access",
+              "Hot Tub with Mountain Views",
+              "Luxury Design",
+            ],
+            priceRange: "$2,500-$5,000",
+          },
+          {
+            id: "dream-log-chalet-5-bedroom-4-bath-creekside",
+            name: "Dream Log Chalet | 5 Bedroom | Creekside",
+            images: [
+              "/photos/properties/Dream Log Chalet/1.jpg",
+              "/photos/properties/Dream Log Chalet/2.jpg",
+              "/photos/properties/Dream Log Chalet/3.jpg",
+            ],
+            guests: 10,
+            bedrooms: 5,
+            bathrooms: 4,
+            location: "Creekside, Whistler",
+            description:
+              "Authentic log cabin charm meets modern luxury in this beautiful 5-bedroom chalet in Whistler's Creekside area. Features vaulted ceilings, a stone fireplace, and convenient access to Creekside Village and lifts.",
+            features: [
+              "Authentic Log Construction",
+              "Stone Fireplace",
+              "Hot Tub",
+              "Chef's Kitchen",
+              "Large Deck",
+              "Close to Creekside Gondola",
+              "Vaulted Ceilings",
+              "Mountain Views",
+            ],
+            highlights: [
+              "Authentic Log Cabin Design",
+              "5 Minutes to Creekside Gondola",
+              "Family-Friendly Layout",
+              "Private Hot Tub",
+            ],
+            priceRange: "$900-$2,200",
+          },
+          {
+            id: "falcon-blueberry-drive",
+            name: "Falcon Estate | Blueberry | Hot Tub",
+            images: [
+              "/photos/properties/Falcon Blueberry/1.jpg",
+              "/photos/properties/Falcon Blueberry/2.jpg",
+              "/photos/properties/Falcon Blueberry/3.jpg",
+            ],
+            guests: 12,
+            bedrooms: 5,
+            bathrooms: 4.5,
+            location: "Blueberry Hill, Whistler",
+            description:
+              "Perched on Whistler's prestigious Blueberry Hill, Falcon Estate offers panoramic mountain and valley views in a private setting. This spacious mountain home combines luxury with comfort.",
+            features: [
+              "Private Hot Tub",
+              "Panoramic Views",
+              "Home Theater",
+              "Wine Cellar",
+              "Large Deck",
+              "Gourmet Kitchen",
+              "Wood-Burning Fireplace",
+              "Designer Furnishings",
+            ],
+            highlights: [
+              "Panoramic Valley Views",
+              "Prestigious Blueberry Location",
+              "Home Theater Room",
+              "Private Setting",
+            ],
+            priceRange: "$1,500-$3,500",
+          },
+          {
+            id: "heron-views-whistler-village",
+            name: "Heron Views | Whistler Village | Walk to Lifts",
+            images: [
+              "/photos/properties/Heron Views/1.jpg",
+              "/photos/properties/Heron Views/2.jpg",
+              "/photos/properties/Heron Views/3.jpg",
+            ],
+            guests: 8,
+            bedrooms: 3,
+            bathrooms: 3,
+            location: "Whistler Village, Whistler",
+            description:
+              "Located in the heart of Whistler Village, this beautifully updated condo offers unparalleled convenience with stunning mountain views. Just steps away from the lifts, restaurants, and village attractions.",
+            features: [
+              "Village Central Location",
+              "Mountain Views",
+              "Walk to Lifts",
+              "Balcony",
+              "Gas Fireplace",
+              "Updated Kitchen",
+              "Secure Underground Parking",
+              "Shared Hot Tub",
+            ],
+            highlights: [
+              "Walk to Whistler & Blackcomb Lifts",
+              "Heart of Whistler Village",
+              "Mountain Views",
+              "Recently Renovated",
+            ],
+            priceRange: "$650-$1,500",
+          },
+          {
+            id: "luxe-cozy-3-bed-whistler-village",
+            name: "Luxe & Cozy | 3 Bed | Whistler Village",
+            images: [
+              "/photos/properties/Luxe Cozy/1.jpg",
+              "/photos/properties/Luxe Cozy/2.jpg",
+              "/photos/properties/Luxe Cozy/3.jpg",
+            ],
+            guests: 6,
+            bedrooms: 3,
+            bathrooms: 2,
+            location: "Whistler Village, Whistler",
+            description:
+              "This stylish and recently renovated 3-bedroom condo in Whistler Village combines convenient location with modern comfort. Tastefully decorated with a cozy mountain aesthetic and just minutes from the gondolas.",
+            features: [
+              "Recently Renovated",
+              "Modern Design",
+              "Village Location",
+              "Walk to Lifts",
+              "Gas Fireplace",
+              "Designer Furnishings",
+              "Open Concept Living",
+              "Mountain Views",
+            ],
+            highlights: [
+              "Stylish Modern Interior",
+              "Steps to Village Restaurants",
+              "5-Minute Walk to Gondolas",
+              "Fully Equipped Kitchen",
+            ],
+            priceRange: "$450-$1,100",
+          },
+          {
+            id: "marquise-2-bed-ski-in-ski-out",
+            name: "Marquise | 2 Bed | Ski-in/Ski-out",
+            images: [
+              "/photos/properties/Marquise/1.jpg",
+              "/photos/properties/Marquise/2.jpg",
+              "/photos/properties/Marquise/3.jpg",
+            ],
+            guests: 6,
+            bedrooms: 2,
+            bathrooms: 2,
+            location: "Blackcomb Base, Whistler",
+            description:
+              "Enjoy true ski-in/ski-out convenience at this welcoming 2-bedroom condo in the desirable Marquise complex at Blackcomb Base. Features a private balcony, gas fireplace, and access to shared pool and hot tub.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Shared Pool & Hot Tub",
+              "Private Balcony",
+              "Gas Fireplace",
+              "Fully Equipped Kitchen",
+              "Mountain Views",
+              "Secure Underground Parking",
+              "Ideal Blackcomb Location",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Pool & Hot Tub",
+              "Easy Access to Blackcomb Base",
+              "Cozy Mountain Retreat",
+            ],
+            priceRange: "$350-$900",
           },
           {
             id: "nordic-escape",
@@ -172,7 +362,262 @@ export default function Properties() {
             ],
             priceRange: "$800-$2,500",
           },
-          // Add more Whistler properties as needed
+          {
+            id: "panoramic-estate-kadenwood",
+            name: "Panoramic Estate | Kadenwood | Luxury",
+            images: [
+              "/photos/properties/Panoramic Estate/1.jpg",
+              "/photos/properties/Panoramic Estate/2.jpg",
+              "/photos/properties/Panoramic Estate/3.jpg",
+            ],
+            guests: 14,
+            bedrooms: 6,
+            bathrooms: 6.5,
+            location: "Kadenwood, Whistler",
+            description:
+              "This stunning mountain estate in exclusive Kadenwood offers unparalleled luxury and breathtaking panoramic views. With over 6,500 sq. ft. of living space, this architectural masterpiece features high-end finishes and amenities throughout.",
+            features: [
+              "Panoramic Mountain Views",
+              "Private Hot Tub",
+              "Cinema Room",
+              "Wine Cellar",
+              "Gourmet Kitchen",
+              "Ski-in/Ski-out Access",
+              "Elevator",
+              "Heated Outdoor Living Area",
+            ],
+            highlights: [
+              "Exclusive Kadenwood Location",
+              "Panoramic Views",
+              "Ski-in/Ski-out Access",
+              "Ultimate Luxury Experience",
+            ],
+            priceRange: "$5,000-$12,000+",
+          },
+          {
+            id: "ravens-nest-ski-in-ski-out-views",
+            name: "Raven's Nest | Ski-in/Ski-out | Views",
+            images: [
+              "/photos/properties/Ravens Nest/1.jpg",
+              "/photos/properties/Ravens Nest/2.jpg",
+              "/photos/properties/Ravens Nest/3.jpg",
+            ],
+            guests: 8,
+            bedrooms: 3,
+            bathrooms: 3,
+            location: "Creekside, Whistler",
+            description:
+              "Perched above Whistler Creekside with stunning valley views, this ski-in/ski-out townhome offers perfect mountain access and elegant comfort. Features vaulted ceilings, a stone fireplace, and a private hot tub.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Valley Views",
+              "Vaulted Ceilings",
+              "Stone Fireplace",
+              "Gourmet Kitchen",
+              "Large Deck",
+              "Heated Floors",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Panoramic Valley Views",
+              "Private Hot Tub",
+              "Creekside Convenience",
+            ],
+            priceRange: "$750-$1,800",
+          },
+          {
+            id: "slopeside-villa-kadenwood",
+            name: "Slopeside Villa | Kadenwood | Luxury",
+            images: [
+              "/photos/properties/Slopeside Villa/1.jpg",
+              "/photos/properties/Slopeside Villa/2.jpg",
+              "/photos/properties/Slopeside Villa/3.jpg",
+            ],
+            guests: 12,
+            bedrooms: 5,
+            bathrooms: 5.5,
+            location: "Kadenwood, Whistler",
+            description:
+              "Experience the height of alpine luxury in this magnificent Kadenwood estate. With direct ski-in/ski-out access and spectacular mountain views, this residence combines exceptional design with premium comfort.",
+            features: [
+              "Direct Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Outdoor Firepit",
+              "Home Theater",
+              "Wine Cellar",
+              "Gourmet Kitchen",
+              "Designer Furnishings",
+              "Multiple Fireplaces",
+            ],
+            highlights: [
+              "Exclusive Kadenwood Estate",
+              "Direct Slope Access",
+              "Luxury Design & Finishes",
+              "Panoramic Mountain Views",
+            ],
+            priceRange: "$4,000-$9,000+",
+          },
+          {
+            id: "snow-pine",
+            name: "Snow Pine | Alpine Elegance | Hot Tub",
+            images: [
+              "/photos/properties/Snow Pine/1.jpg",
+              "/photos/properties/Snow Pine/2.jpg",
+              "/photos/properties/Snow Pine/3.jpg",
+            ],
+            guests: 8,
+            bedrooms: 4,
+            bathrooms: 3.5,
+            location: "White Gold, Whistler",
+            description:
+              "This elegant alpine retreat in Whistler's White Gold neighborhood combines luxury with convenience. Just a short walk to the Village and lifts, this beautiful mountain home features high ceilings, a gourmet kitchen, and a private hot tub.",
+            features: [
+              "Private Hot Tub",
+              "Gourmet Kitchen",
+              "High Ceilings",
+              "Wood-Burning Fireplace",
+              "Large Deck",
+              "Walk to Village & Lifts",
+              "Mountain Views",
+              "Heated Floors",
+            ],
+            highlights: [
+              "10-Minute Walk to Village",
+              "Private Hot Tub",
+              "Spacious Mountain Home",
+              "Quiet Neighborhood",
+            ],
+            priceRange: "$800-$2,000",
+          },
+          {
+            id: "the-nest-ski-in-ski-out",
+            name: "The Nest | Ski-in/Ski-out | Luxury Views",
+            images: [
+              "/photos/properties/The Nest/1.jpg",
+              "/photos/properties/The Nest/2.jpg",
+              "/photos/properties/The Nest/3.jpg",
+            ],
+            guests: 8,
+            bedrooms: 3,
+            bathrooms: 3.5,
+            location: "Blackcomb Benchlands, Whistler",
+            description:
+              "Nestled in the Blackcomb Benchlands, this luxury townhome offers true ski-in/ski-out access with stunning views. Recently renovated with designer finishes, a private hot tub, and a spacious layout perfect for families or groups.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Mountain Views",
+              "Designer Furnishings",
+              "Gourmet Kitchen",
+              "Multiple Decks",
+              "Gas Fireplace",
+              "Heated Floors",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Designer Renovation",
+              "Private Hot Tub",
+              "Blackcomb Base Location",
+            ],
+            priceRange: "$900-$2,200",
+          },
+          {
+            id: "two-cedars-kadenwood",
+            name: "Two Cedars | Kadenwood | Hot Tub & Views",
+            images: [
+              "/photos/properties/Two Cedars/1.jpg",
+              "/photos/properties/Two Cedars/2.jpg",
+              "/photos/properties/Two Cedars/3.jpg",
+            ],
+            guests: 10,
+            bedrooms: 4,
+            bathrooms: 4.5,
+            location: "Kadenwood, Whistler",
+            description:
+              "Set in exclusive Kadenwood, Two Cedars offers ski-in/ski-out access and breathtaking panoramic views. This premium mountain home features elegant design, a private hot tub, and luxury amenities throughout.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Panoramic Views",
+              "Gourmet Kitchen",
+              "Multiple Fireplaces",
+              "Large Deck",
+              "Media Room",
+              "Heated Floors",
+            ],
+            highlights: [
+              "Exclusive Kadenwood Location",
+              "Panoramic Mountain Views",
+              "Private Hot Tub",
+              "Ski-in/Ski-out Access",
+            ],
+            priceRange: "$3,000-$7,000+",
+          },
+          {
+            id: "wedge-mountain-lodge-spa",
+            name: "Wedge Mountain Lodge & Spa | Private Chef",
+            images: [
+              "/photos/properties/Wedge Mountain/1.jpg",
+              "/photos/properties/Wedge Mountain/2.jpg",
+              "/photos/properties/Wedge Mountain/3.jpg",
+            ],
+            guests: 16,
+            bedrooms: 6,
+            bathrooms: 7,
+            location: "Stonebridge, Whistler",
+            description:
+              "This spectacular mountain lodge in exclusive Stonebridge offers the ultimate in luxury and privacy. With 8,500 sq. ft. of living space, it features a private spa, home theater, and the option for private chef service.",
+            features: [
+              "Private Spa",
+              "Heated Pool",
+              "Home Theater",
+              "Wine Cellar",
+              "Private Chef Available",
+              "Multiple Fireplaces",
+              "Games Room",
+              "Mountain Views",
+            ],
+            highlights: [
+              "Private Spa Facilities",
+              "Optional Private Chef",
+              "Heated Outdoor Pool",
+              "Ultimate Luxury Experience",
+            ],
+            priceRange: "$6,000-$15,000+",
+          },
+          {
+            id: "whispering-pines-ski-in-ski-out",
+            name: "Whispering Pines | Ski-in/Ski-out | Hot Tub",
+            images: [
+              "/photos/properties/Whispering Pines/1.jpg",
+              "/photos/properties/Whispering Pines/2.jpg",
+              "/photos/properties/Whispering Pines/3.jpg",
+            ],
+            guests: 10,
+            bedrooms: 4,
+            bathrooms: 4,
+            location: "Horstman Estates, Whistler",
+            description:
+              "Located in prestigious Horstman Estates on Blackcomb Mountain, this luxury ski-in/ski-out chalet offers direct access to the slopes and stunning views. Features include a private hot tub, vaulted ceilings, and elegant alpine design.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Mountain Views",
+              "Vaulted Ceilings",
+              "Stone Fireplace",
+              "Gourmet Kitchen",
+              "Heated Floors",
+              "Large Deck",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Prestigious Horstman Location",
+              "Private Hot Tub",
+              "Luxury Alpine Design",
+            ],
+            priceRange: "$1,200-$3,000",
+          },
         ],
       },
       {
@@ -181,6 +626,42 @@ export default function Properties() {
         description:
           "Experience the best of Vancouver with our luxury properties located in the city's most desirable neighborhoods, offering urban elegance with stunning views.",
         properties: [
+          {
+            id: "vancouver-house-corner-unit-30th-floor",
+            name: "The Vancouver House, Corner Unit | 30th Floor",
+            images: [
+              "/photos/properties/vancouver-house/645adc4aca79d22167763483_Vancouver_House-03.jpg",
+              "/photos/properties/vancouver-house/645adc49fb32ea8384334e2e_Vancouver_House-05.jpg",
+              "/photos/properties/vancouver-house/645adc48fb32ea2543334d52_Vancouver_House-13.jpg",
+              "/photos/properties/vancouver-house/645adc480342565cb5e2cac6_Vancouver_House-12.jpg",
+              "/photos/properties/vancouver-house/645adc4803425681d3e2cab2_Vancouver_House-15.jpg",
+            ],
+            guests: 4,
+            bedrooms: 2,
+            bathrooms: 2,
+            location: "Beach District, Vancouver",
+            description:
+              "Welcome to this spectacular corner unit on the 30th floor of the iconic Vancouver House. This architectural masterpiece offers breathtaking 270-degree views of False Creek, English Bay, and the North Shore mountains through floor-to-ceiling windows.",
+            features: [
+              "Floor-to-Ceiling Windows",
+              "Large Balcony with Seating",
+              "Air Conditioning",
+              "High-Speed Wi-Fi",
+              "Smart TVs",
+              "Designer Furnishings",
+              "Fitness Center Access",
+              "Indoor Pool & Hot Tub Access",
+              "Rooftop Garden Access",
+              "24-Hour Concierge",
+            ],
+            highlights: [
+              "270-degree Views",
+              "Designer Furnishings",
+              "Steps to Seawall",
+              "Luxury Building Amenities",
+            ],
+            priceRange: "$400-$700",
+          },
           {
             id: "coal-harbour-penthouse",
             name: "Coal Harbour Penthouse | City & Ocean Views",
@@ -214,7 +695,6 @@ export default function Properties() {
             ],
             priceRange: "$600-$1,200",
           },
-          // Add more Vancouver properties as needed
         ],
       },
       {
@@ -223,6 +703,102 @@ export default function Properties() {
         description:
           "From Mediterranean villas to tropical beach houses, our curated collection of worldwide properties offers exceptional luxury experiences in the most desirable global destinations.",
         properties: [
+          {
+            id: "mykonos-crystal-villa",
+            name: "Mykonos Crystal Villa | Infinity Pool | Sea Views",
+            images: [
+              "/photos/properties/Mykonos Villa/1.jpg",
+              "/photos/properties/Mykonos Villa/2.jpg",
+              "/photos/properties/Mykonos Villa/3.jpg",
+            ],
+            guests: 10,
+            bedrooms: 5,
+            bathrooms: 5,
+            location: "Agios Lazaros, Mykonos, Greece",
+            description:
+              "Perched on a hillside in exclusive Agios Lazaros, Crystal Villa offers breathtaking views of the Aegean Sea and the famous Mykonos sunset. This architectural masterpiece combines traditional Cycladic design with modern luxury.",
+            features: [
+              "Infinity Pool",
+              "Panoramic Sea Views",
+              "Private Chef Available",
+              "Daily Housekeeping",
+              "Concierge Service",
+              "Outdoor Dining Areas",
+              "Alfresco Lounge",
+              "Close to Psarou Beach",
+            ],
+            highlights: [
+              "Stunning Aegean Views",
+              "Infinity Pool",
+              "Designer Interiors",
+              "Close to Top Beaches",
+            ],
+            priceRange: "$2,500-$5,000",
+          },
+          {
+            id: "super-yacht-thailand",
+            name: "Super Yacht Thailand | Luxury Charter | Full Crew",
+            images: [
+              "/photos/properties/Yacht Thailand/1.jpg",
+              "/photos/properties/Yacht Thailand/2.jpg",
+              "/photos/properties/Yacht Thailand/3.jpg",
+            ],
+            guests: 8,
+            bedrooms: 4,
+            bathrooms: 4,
+            location: "Phuket, Thailand",
+            description:
+              "Experience the height of luxury aboard our 100-foot super yacht in the stunning waters of Thailand. With a full crew including captain, chef, and stewards, explore the breathtaking islands and beaches of the Andaman Sea in complete comfort.",
+            features: [
+              "Full Professional Crew",
+              "Private Chef",
+              "Master Suite",
+              "Water Sports Equipment",
+              "Alfresco Dining",
+              "Jacuzzi",
+              "Stabilizers",
+              "Air Conditioning Throughout",
+            ],
+            highlights: [
+              "Explore Thailand by Sea",
+              "Full Professional Crew",
+              "All-Inclusive Experience",
+              "Ultimate Luxury Adventure",
+            ],
+            priceRange: "$5,000-$8,000/day",
+          },
+          {
+            id: "punta-mita---casa-juntos",
+            name: "Punta Mita - Casa Juntos | Beachfront | Full Staff",
+            images: [
+              "/photos/properties/Punta Mita/1.jpg",
+              "/photos/properties/Punta Mita/2.jpg",
+              "/photos/properties/Punta Mita/3.jpg",
+            ],
+            guests: 12,
+            bedrooms: 6,
+            bathrooms: 6.5,
+            location: "Punta Mita, Mexico",
+            description:
+              "Located within the exclusive Punta Mita resort community, Casa Juntos is a stunning beachfront villa offering panoramic Pacific Ocean views and direct beach access. With full staff including private chef, this luxury retreat provides the ultimate Mexican Riviera experience.",
+            features: [
+              "Direct Beach Access",
+              "Infinity Pool",
+              "Full Staff Including Chef",
+              "Golf Club Access",
+              "Indoor/Outdoor Living",
+              "Home Theater",
+              "Fully Equipped Gym",
+              "Ocean-View Master Suite",
+            ],
+            highlights: [
+              "Private Beachfront",
+              "Full Staff with Chef",
+              "Exclusive Resort Access",
+              "Spectacular Ocean Views",
+            ],
+            priceRange: "$3,000-$7,000",
+          },
           {
             id: "french-riviera-villa",
             name: "French Riviera Villa | Private Pool | Sea View",
@@ -256,7 +832,6 @@ export default function Properties() {
             ],
             priceRange: "$2,400-$5,600",
           },
-          // Add more worldwide properties as needed
         ],
       },
       // Keep other property categories
@@ -368,7 +943,7 @@ export default function Properties() {
         },
       },
     }));
-  }, [filteredCategories]);
+  }, [filteredCategories, structuredData]);
 
   // Add/remove amenity filter
   const toggleAmenityFilter = (amenity: string) => {
@@ -672,14 +1247,14 @@ export default function Properties() {
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {category.properties.map((property) => (
                       <div
                         key={property.id}
-                        className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+                        className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100"
                       >
                         <div className="relative">
-                          <div className="relative h-72">
+                          <div className="relative h-72 overflow-hidden">
                             <Image
                               src={property.images[0]}
                               alt={property.name}
@@ -687,9 +1262,9 @@ export default function Properties() {
                               className="object-cover group-hover:scale-105 transition-transform duration-700"
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                             <div className="absolute bottom-6 left-6">
-                              <span className="bg-gray-900/80 text-white px-3 py-1 rounded-full text-sm">
+                              <span className="bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                                 {property.location}
                               </span>
                             </div>
@@ -697,7 +1272,7 @@ export default function Properties() {
 
                           {/* Property features overlay */}
                           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end pointer-events-none">
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-wrap gap-2">
                               {property.highlights
                                 ?.slice(0, 3)
                                 .map((highlight, idx) => (
@@ -713,26 +1288,30 @@ export default function Properties() {
                         </div>
 
                         <div className="p-6">
-                          <h3 className="text-xl font-medium mb-4 text-gray-900 line-clamp-2">
+                          <h3 className="text-xl font-medium mb-4 text-gray-900 line-clamp-2 h-[3.5rem]">
                             {property.name}
                           </h3>
 
                           <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center space-x-4">
                               <div className="flex items-center text-gray-700">
-                                <Users className="h-5 w-5 mr-1" />
+                                <Users className="h-4 w-4 mr-1" />
                                 <span>{property.guests}</span>
                               </div>
                               <div className="flex items-center text-gray-700">
-                                <Bed className="h-5 w-5 mr-1" />
+                                <Bed className="h-4 w-4 mr-1" />
                                 <span>{property.bedrooms}</span>
                               </div>
                               <div className="flex items-center text-gray-700">
-                                <Bath className="h-5 w-5 mr-1" />
+                                <Bath className="h-4 w-4 mr-1" />
                                 <span>{property.bathrooms}</span>
                               </div>
                             </div>
                           </div>
+
+                          <p className="text-gray-600 text-sm line-clamp-3 mb-4 h-[4.5rem]">
+                            {property.description.slice(0, 150)}...
+                          </p>
 
                           {property.priceRange && (
                             <p className="text-gray-900 font-semibold mb-4">
@@ -743,13 +1322,28 @@ export default function Properties() {
                             </p>
                           )}
 
-                          <button
-                            onClick={() => viewPropertyDetails(property)}
-                            className="w-full py-3 px-4 border border-black text-black rounded-md hover:bg-black hover:text-white transition-colors flex items-center justify-center"
-                          >
-                            <span>View Details</span>
-                            <ChevronRight className="ml-2 h-4 w-4" />
-                          </button>
+                          <div className="flex space-x-3">
+                            <Link
+                              href={
+                                category.id === "whistler"
+                                  ? `/listings/${property.id}`
+                                  : category.id === "vancouver"
+                                  ? `/vancouver-listings/${property.id}`
+                                  : `/worldwide-listings/${property.id}`
+                              }
+                              className="flex-1 py-3 px-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center"
+                            >
+                              <span>View Property</span>
+                              <ChevronRight className="ml-2 h-4 w-4" />
+                            </Link>
+
+                            <button
+                              onClick={() => viewPropertyDetails(property)}
+                              className="p-3 border border-black text-black rounded-lg hover:bg-black hover:text-white transition-colors flex items-center justify-center"
+                            >
+                              <Search className="h-5 w-5" />
+                            </button>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -762,8 +1356,8 @@ export default function Properties() {
 
         {/* Property Detail Modal */}
         {selectedProperty && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 flex items-center justify-center">
-            <div className="relative bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-xl">
+          <div className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 flex items-center justify-center p-4">
+            <div className="relative bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl">
               <button
                 onClick={closePropertyDetails}
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-2"
@@ -773,16 +1367,18 @@ export default function Properties() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Image Gallery */}
-                <div className="relative h-96 lg:h-full">
+                <div className="relative h-[60vh] lg:h-[90vh] overflow-hidden">
                   <Image
                     src={selectedProperty.images[0]}
                     alt={selectedProperty.name}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                   <div className="absolute inset-0 flex items-center justify-between px-4">
                     <button
-                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600"
+                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         // Previous image logic
@@ -791,7 +1387,7 @@ export default function Properties() {
                       <ChevronLeft size={24} />
                     </button>
                     <button
-                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600"
+                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         // Next image logic
@@ -800,40 +1396,47 @@ export default function Properties() {
                       <ChevronRight size={24} />
                     </button>
                   </div>
+
+                  {/* Property tag and location */}
+                  <div className="absolute top-6 left-6 flex flex-col gap-2">
+                    <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-medium">
+                      Featured Property
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="mb-2">
+                <div className="p-8 overflow-y-auto max-h-[90vh]">
+                  <div className="mb-6">
                     <div className="flex items-center mb-2">
                       <MapPin className="h-5 w-5 text-gray-600 mr-2" />
                       <span className="text-gray-600">
                         {selectedProperty.location}
                       </span>
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
                       {selectedProperty.name}
                     </h2>
                   </div>
 
                   <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-md">
+                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
                       <Users className="h-5 w-5 text-gray-700 mr-2" />
                       <span>{selectedProperty.guests} guests</span>
                     </div>
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-md">
+                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
                       <Bed className="h-5 w-5 text-gray-700 mr-2" />
                       <span>{selectedProperty.bedrooms} bedrooms</span>
                     </div>
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-md">
+                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
                       <Bath className="h-5 w-5 text-gray-700 mr-2" />
                       <span>{selectedProperty.bathrooms} bathrooms</span>
                     </div>
                   </div>
 
                   {selectedProperty.priceRange && (
-                    <div className="mb-6 bg-gray-50 p-4 rounded-lg">
-                      <p className="font-semibold text-lg">
+                    <div className="mb-6 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                      <p className="font-semibold text-xl">
                         {selectedProperty.priceRange}{" "}
                         <span className="text-gray-500 font-normal text-sm">
                           / night
@@ -843,41 +1446,67 @@ export default function Properties() {
                   )}
 
                   <div className="mb-6">
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900">
-                      Description
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                      About This Property
                     </h3>
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 leading-relaxed">
                       {selectedProperty.description}
                     </p>
                   </div>
 
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                  {selectedProperty.highlights && (
+                    <div className="mb-6">
+                      <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                        Highlights
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProperty.highlights.map((highlight, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900">
                       Property Features
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {selectedProperty.features.map((feature, index) => (
                         <div key={index} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-gray-700 mr-2" />
+                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
                           <span className="text-gray-700">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <Link
-                    href={`/properties/${selectedProperty.id}`}
-                    className="block text-center bg-black text-white py-3 px-4 rounded-md hover:bg-gray-800 transition-colors mb-4 font-medium"
-                  >
-                    Book This Property
-                  </Link>
+                  <div className="flex flex-col space-y-3">
+                    <Link
+                      href={
+                        activeCategory === "whistler"
+                          ? `/listings/${selectedProperty.id}`
+                          : activeCategory === "vancouver"
+                          ? `/vancouver-listings/${selectedProperty.id}`
+                          : `/worldwide-listings/${selectedProperty.id}`
+                      }
+                      className="block text-center bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+                    >
+                      View Full Details & Book
+                    </Link>
 
-                  <Link
-                    href="/contact"
-                    className="block text-center border border-black text-black py-3 px-4 rounded-md hover:bg-gray-100 transition-colors font-medium"
-                  >
-                    Contact Us About This Property
-                  </Link>
+                    <Link
+                      href="/contact"
+                      className="block text-center border border-black text-black py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                    >
+                      Contact Us About This Property
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
