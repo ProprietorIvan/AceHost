@@ -194,34 +194,37 @@ export default function TwoCedarsKadenwood() {
           <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
             <button
               onClick={closeFullScreenPhoto}
-              className="absolute top-4 right-4 text-white p-2"
+              className="absolute top-4 right-4 text-white p-2 z-[60]"
             >
               <XCircle className="w-8 h-8" />
             </button>
             <button
               onClick={prevPhoto}
-              className="absolute left-4 text-white p-2"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white p-2 z-[60]"
+              aria-label="Previous photo"
             >
               <ArrowLeft className="w-8 h-8" />
             </button>
-            <button
-              onClick={nextPhoto}
-              className="absolute right-4 text-white p-2"
-            >
-              <ArrowRight className="w-8 h-8" />
-            </button>
-            <div className="relative w-full h-full max-w-7xl max-h-screen p-4 flex items-center justify-center">
+            <div className="relative w-full h-full max-w-6xl max-h-[80vh] flex items-center justify-center">
               <Image
                 src={propertyImages[fullScreenPhotoIndex]}
                 alt={`Two Cedars Kadenwood - Photo ${fullScreenPhotoIndex + 1}`}
                 fill
                 sizes="100vw"
                 style={{ objectFit: "contain" }}
+                priority
               />
               <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-full">
                 {fullScreenPhotoIndex + 1} / {propertyImages.length}
               </p>
             </div>
+            <button
+              onClick={nextPhoto}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white p-2 z-[60]"
+              aria-label="Next photo"
+            >
+              <ArrowRight className="w-8 h-8" />
+            </button>
           </div>
         )}
 

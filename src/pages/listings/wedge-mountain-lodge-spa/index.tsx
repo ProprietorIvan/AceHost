@@ -541,7 +541,6 @@ const WedgeMountainLodgeSpa = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">{photo.title}</p>
                   </div>
                 ))}
               </div>
