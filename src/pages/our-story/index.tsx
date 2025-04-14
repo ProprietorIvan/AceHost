@@ -20,19 +20,19 @@ const teamMembers: TeamMember[] = [
     name: "Ben Kirsh",
     role: "Founder & CEO",
     bio: "Ben founded AceHost with a vision to transform the vacation rental experience in Whistler. With over a decade of experience in luxury hospitality, he personally oversees each property to ensure it meets our premium standards.",
-    imagePath: "/photos/team/ben-kirsh.jpg",
+    imagePath: "/photos/homepage/about/Ben.jpg",
   },
   {
     name: "Max Korkh",
     role: "Co-Founder & Head of Operations",
     bio: "Max brings extensive operational expertise to AceHost, managing our day-to-day operations and ensuring each guest receives exceptional service. His attention to detail is unmatched in the industry.",
-    imagePath: "/photos/team/max-korkh.jpg",
+    imagePath: "/photos/homepage/about/Max.jpg",
   },
   {
     name: "Sally Fewson",
     role: "Director of Guest Experience",
     bio: "Sally's passion for creating unforgettable experiences drives our concierge services. She works closely with each guest to curate personalized itineraries that showcase the best of Whistler.",
-    imagePath: "/photos/team/sally-fewson.jpg",
+    imagePath: "/photos/homepage/about/Sally.jpeg",
   },
 ];
 

@@ -199,7 +199,7 @@ const ConciergeService = () => {
                       style={{ minHeight: "500px" }}
                     >
                       <iframe
-                        src="https://www.instagram.com/reel/DEp1OJ5uYZk/embed"
+                        src="https://www.instagram.com/reel/DEp1OJ5uYZk/embed?autoplay=1"
                         className="absolute inset-0 w-full h-full"
                         frameBorder="0"
                         scrolling="no"
@@ -212,8 +212,6 @@ const ConciergeService = () => {
                     <div className="p-3 border-t">
                       <a
                         href="https://www.instagram.com/acehost_whistler/"
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="text-blue-500 text-sm font-medium block mb-3"
                       >
                         View more on Instagram
@@ -291,10 +289,6 @@ const ConciergeService = () => {
                         you our favourite runs to give you an authentic
                         Whistler-Blackcomb experience.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -325,10 +319,6 @@ const ConciergeService = () => {
                         first-class heli trips led by certified ski guides.
                         Contact us to book your heli-skiing experience today.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -358,10 +348,6 @@ const ConciergeService = () => {
                         service offers a guided snowmobile tour through the
                         beautiful landscapes of Whistler-Blackcomb.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -395,10 +381,6 @@ const ConciergeService = () => {
                         ski goggles, available. The best part is the delivery
                         fee is included!
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -431,10 +413,6 @@ const ConciergeService = () => {
                         first-rate dining experience. Contact us to get a quote
                         for this experience.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -466,10 +444,6 @@ const ConciergeService = () => {
                         between. Personalize your trip and choose from a range
                         of scenic options.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -502,10 +476,6 @@ const ConciergeService = () => {
                         sure your experience on the mountain is comfortable and
                         safe.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -539,10 +509,6 @@ const ConciergeService = () => {
                         and dessert platters. Contact us for ice cave adventure
                         tour quote.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -573,10 +539,6 @@ const ConciergeService = () => {
                         winding trails, suitable for families looking to get
                         outdoors and soak in the beauty of local forests.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -596,7 +558,7 @@ const ConciergeService = () => {
                     <div className="p-5 card-content">
                       <h3 className="text-xl font-bold text-gray-900 mb-2 card-title">
                         <span className="service-icon">
-                          <FaHiking className="text-lg" />
+                          <FaMountain className="text-lg" />
                         </span>
                         Zipline Tours
                       </h3>
@@ -608,10 +570,6 @@ const ConciergeService = () => {
                         this experience year-round experience. Contact us to
                         book your zip-line tour today!
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -631,7 +589,7 @@ const ConciergeService = () => {
                     <div className="p-5 card-content">
                       <h3 className="text-xl font-bold text-gray-900 mb-2 card-title">
                         <span className="service-icon">
-                          <FaSnowflake className="text-lg" />
+                          <FaHiking className="text-lg" />
                         </span>
                         Vallea Illumina
                       </h3>
@@ -643,10 +601,6 @@ const ConciergeService = () => {
                         an evening excursion and be enchanted by the stories
                         about the legends of Whistler.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -720,10 +674,6 @@ const ConciergeService = () => {
                         a menu theme or simply let us know what you&apos;re
                         craving - our chefs will make it happen!
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -756,10 +706,6 @@ const ConciergeService = () => {
                         between, our skilled bartenders add a touch of
                         sophistication to any gathering.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -790,10 +736,6 @@ const ConciergeService = () => {
                         convenience and luxury that comes with having dedicated
                         staff to assist with your daily needs.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -824,10 +766,6 @@ const ConciergeService = () => {
                         restaurants and bars and can help you secure
                         reservations at the best venues in town.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -861,10 +799,6 @@ const ConciergeService = () => {
                         visit during your stay, simply send us the list and
                         we&apos;ll do our best to secure your reservations.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -898,10 +832,6 @@ const ConciergeService = () => {
                         highly recommended in combination with our private chef
                         service.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -933,10 +863,6 @@ const ConciergeService = () => {
                         beverages, we take care of the shopping so you can focus
                         on enjoying your vacation.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -968,10 +894,6 @@ const ConciergeService = () => {
                         meal tailored to your preferences, with each dish
                         presented and explained by the chef.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1004,10 +926,6 @@ const ConciergeService = () => {
                         tastings and educational sessions for those interested
                         in learning more about fine wines.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -1079,10 +997,6 @@ const ConciergeService = () => {
                         tissue or hot stone massages, with wonderful add-ons
                         such as foot & hair treatments or exfoliating scrubs.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1117,10 +1031,6 @@ const ConciergeService = () => {
                         instructors, and hairdressers. Contact us to arrange
                         your beauty & wellness services today.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1155,10 +1065,6 @@ const ConciergeService = () => {
                         first aid certificate, CPR training and a criminal
                         record check.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1192,10 +1098,6 @@ const ConciergeService = () => {
                         kitchen cleaning, fresh towels, and garbage removal.
                         Linen change is an additional charge.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1230,10 +1132,6 @@ const ConciergeService = () => {
                         aromatherapy sessions, and specialized massage therapy
                         directly in your chalet.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -1310,10 +1208,6 @@ const ConciergeService = () => {
                         luggage. Contact us to get a quote for transfers to and
                         from your luxury home in Whistler.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
 
@@ -1351,10 +1245,6 @@ const ConciergeService = () => {
                         luxury SUV can be pre-booked with a driver and can sit
                         up to 7+1 driver.
                       </p>
-                      <Link href="/contact" className="book-now-button">
-                        <FaCalendarCheck />
-                        Book Now
-                      </Link>
                     </div>
                   </div>
                 </div>

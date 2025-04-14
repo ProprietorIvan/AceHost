@@ -8,13 +8,14 @@ import Footer from "@/components/Footer";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { FaUser, FaBed, FaBath } from "react-icons/fa";
 
 const Home = () => {
   const { t } = useTranslation("common");
   const [activeFilter, setActiveFilter] = useState("whistler"); // Set Whistler as default
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  // Structured data for rich snippets
+  // Structured data for rich snippets - Enhanced for better SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -25,19 +26,98 @@ const Home = () => {
     logo: "https://acehost.ca/logo.png",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "4308 Main Street",
       addressLocality: "Whistler",
+      addressRegion: "BC",
+      postalCode: "V8E 1B2",
       addressCountry: "CA",
     },
     sameAs: [
-      "https://www.instagram.com/acehost",
+      "https://www.instagram.com/acehost_whistler",
       "https://www.youtube.com/acehost",
     ],
     offers: {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       description: "Luxury Vacation Rental Properties in Whistler Canada",
       areaServed: "Whistler, British Columbia",
+      offerCount: "15+",
+      priceCurrency: "CAD",
+    },
+    openingHours: "Mo,Tu,We,Th,Fr,Sa,Su 09:00-21:00",
+  };
+
+  // Website schema for search appearance
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "AceHost Whistler Luxury Rentals",
+    url: "https://acehost.ca",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://acehost.ca/properties?search={search_term_string}",
+      "query-input": "required name=search_term_string",
     },
   };
+
+  // Render optimized property card directly
+  const renderPropertyCard = (property: any) => (
+    <div
+      key={property.id}
+      className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+    >
+      <div className="relative h-64">
+        <Image
+          src={property.image}
+          alt={property.name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 400px"
+          className="object-cover"
+          loading="lazy"
+        />
+        <div className="absolute bottom-4 right-4">
+          <Link
+            href={property.link}
+            className="bg-white text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors"
+          >
+            Book Now
+          </Link>
+        </div>
+      </div>
+      <div className="p-6">
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md">
+            {property.guests} Guests
+          </span>
+          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+            {property.bedrooms} Bedrooms
+          </span>
+          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+            {property.beds} Beds
+          </span>
+          <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
+            {property.bathrooms} Bathrooms
+          </span>
+        </div>
+        <h3 className="text-xl font-medium mb-4 text-gray-900">
+          {property.name}
+        </h3>
+        <div className="space-y-2 mb-6">
+          <p className="text-gray-600">
+            Nightly Price Range: {property.priceRange}
+          </p>
+          <p className="text-gray-600">{property.winterPrice}</p>
+          <p className="text-gray-600">{property.holidayPrice}</p>
+        </div>
+        <Link
+          href={property.link}
+          className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors"
+        >
+          <span>View Property</span>
+          <ArrowRight size={18} className="ml-2" />
+        </Link>
+      </div>
+    </div>
+  );
 
   // Define all property listings
   const allListings = [
@@ -363,50 +443,72 @@ const Home = () => {
     <>
       <Head>
         <title>
-          Luxury Vacation Rental Properties in Whistler Canada | AceHost
+          AceHost | Luxury Vacation Rentals in Whistler BC | Property Management
         </title>
         <meta
           name="description"
-          content="AceHost offers luxury vacation rental properties in Whistler, Canada with premium amenities and VIP concierge services. Experience the ultimate in comfort and convenience."
+          content="AceHost offers premium luxury vacation rental properties in Whistler, BC. Discover our exclusive collection of ski chalets with VIP concierge services and property management."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <meta
           name="keywords"
-          content="luxury rentals, Whistler properties, vacation rental, ski chalets, concierge services, property management"
+          content="Whistler luxury rentals, ski chalets Whistler, vacation property management, luxury accommodations Whistler, VIP concierge services"
         />
-
-        {/* Open Graph tags */}
         <meta
           property="og:title"
-          content="Luxury Vacation Rental Properties in Whistler Canada | AceHost"
+          content="AceHost | Luxury Vacation Rentals in Whistler BC"
         />
         <meta
           property="og:description"
-          content="AceHost offers luxury vacation rental properties in Whistler, Canada with premium amenities and VIP concierge services."
+          content="Discover luxury vacation rental properties in Whistler with AceHost. Premium chalets, VIP concierge, and property management services."
         />
-        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://acehost.ca/photos/homepage/hero.jpg"
+        />
         <meta property="og:url" content="https://acehost.ca" />
-        <meta property="og:image" content="https://acehost.ca/og-image.jpg" />
-
-        {/* Twitter Card tags */}
+        <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Luxury Vacation Rental Properties in Whistler Canada | AceHost"
+          content="AceHost | Luxury Vacation Rentals in Whistler BC"
         />
         <meta
           name="twitter:description"
-          content="AceHost offers luxury vacation rental properties in Whistler, Canada with premium amenities and VIP concierge services."
+          content="Discover luxury vacation rental properties in Whistler with AceHost. Premium chalets, VIP concierge, and property management services."
         />
         <meta
           name="twitter:image"
-          content="https://acehost.ca/twitter-image.jpg"
+          content="https://acehost.ca/photos/homepage/hero.jpg"
         />
-
-        {/* Structured data */}
+        <link rel="canonical" href="https://acehost.ca" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="/fonts/main-font.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* Preconnect to required origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* Add more metadata as needed */}
       </Head>
 
       <div className="min-h-screen bg-white text-gray-900">
@@ -549,62 +651,9 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {displayedListings.map((property, index) => (
-                <div
-                  key={property.id}
-                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="relative h-64">
-                    <Image
-                      src={property.image}
-                      alt={property.name}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute bottom-4 right-4">
-                      <Link
-                        href={property.link}
-                        className="bg-white text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors"
-                      >
-                        Book Now
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="bg-gray-900 text-white px-3 py-1 text-sm font-medium rounded-md">
-                        {property.guests} Guests
-                      </span>
-                      <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-                        {property.bedrooms} Bedrooms
-                      </span>
-                      <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-                        {property.beds} Beds
-                      </span>
-                      <span className="bg-gray-200 text-gray-900 px-3 py-1 text-sm font-medium rounded-md">
-                        {property.bathrooms} Bathrooms
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-medium mb-4 text-gray-900">
-                      {property.name}
-                    </h3>
-                    <div className="space-y-2 mb-6">
-                      <p className="text-gray-600">
-                        Nightly Price Range: {property.priceRange}
-                      </p>
-                      <p className="text-gray-600">{property.winterPrice}</p>
-                      <p className="text-gray-600">{property.holidayPrice}</p>
-                    </div>
-                    <Link
-                      href={property.link}
-                      className="inline-flex items-center text-gray-900 font-medium hover:text-gray-600 transition-colors"
-                    >
-                      <span>View Property</span>
-                      <ArrowRight size={18} className="ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+              {displayedListings.map((property) =>
+                renderPropertyCard(property)
+              )}
             </div>
           </div>
         </section>
@@ -883,6 +932,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     props: {
       ...(await serverSideTranslations(locale || "en", ["common"])),
     },
+    // Add revalidation for ISR
+    revalidate: 3600, // Revalidate every hour
   };
 };
 
