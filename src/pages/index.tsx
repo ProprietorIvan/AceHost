@@ -261,7 +261,7 @@ const Home = () => {
     {
       id: "yacht-thailand",
       name: "Yacht Thailand Sea D",
-      image: "/photos/properties/worldwide/yacht-thailand.jpg",
+      image: "/photos/properties/Yacht Thailand Sea D/Bow WEB-1.jpg",
       guests: 12,
       bedrooms: 6,
       beds: 6,
@@ -275,7 +275,8 @@ const Home = () => {
     {
       id: "villa-aegean-greece",
       name: "Villa Aegean Mykonos Greece",
-      image: "/photos/properties/worldwide/villa-aegean-greece.jpg",
+      image:
+        "/photos/properties/Villa Aegean Mykonos Greece/Header2-TRG_5590.jpg",
       guests: 14,
       bedrooms: 7,
       beds: 10,
@@ -289,7 +290,7 @@ const Home = () => {
     {
       id: "punta-mita",
       name: "Punta Mita Luxury Villa",
-      image: "/photos/properties/worldwide/punta-mita.jpg",
+      image: "/photos/properties/Punta Mita/242608_2031 copy.jpg",
       guests: 16,
       bedrooms: 8,
       beds: 10,
