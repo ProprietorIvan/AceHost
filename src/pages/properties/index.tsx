@@ -61,10 +61,6 @@ export default function Properties() {
     amenities: [] as string[],
   });
   const [showFilters, setShowFilters] = useState(false);
-  const [selectedProperty, setSelectedProperty] =
-    useState<PropertyFeature | null>(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [isPropertyDetailOpen, setIsPropertyDetailOpen] = useState(false);
 
   // Structured data for SEO
   const structuredData = useMemo(
@@ -109,11 +105,11 @@ export default function Properties() {
             id: "altitude-retreat-kadenwood",
             name: "Altitude Retreat | Kadenwood | Private Butler",
             images: [
-              "/assets/properties/altitude-retreat/1.jpg",
-              "/assets/properties/altitude-retreat/2.jpg",
-              "/assets/properties/altitude-retreat/3.jpg",
-              "/assets/properties/altitude-retreat/4.jpg",
-              "/assets/properties/altitude-retreat/5.jpg",
+              "/photos/properties/altitude-retreat/1.jpg",
+              "/photos/properties/altitude-retreat/2.jpg",
+              "/photos/properties/altitude-retreat/3.jpg",
+              "/photos/properties/altitude-retreat/4.jpg",
+              "/photos/properties/altitude-retreat/5.jpg",
             ],
             guests: 18,
             bedrooms: 7,
@@ -335,10 +331,10 @@ export default function Properties() {
             id: "nordic-escape",
             name: "Nordic Escape | Family Friendly | Hot Tub",
             images: [
-              "/assets/properties/nordic-estate/1.jpg",
-              "/assets/properties/nordic-estate/2.jpg",
-              "/assets/properties/nordic-estate/3.jpg",
-              "/assets/properties/nordic-estate/4.jpg",
+              "/photos/properties/nordic-estate/1.jpg",
+              "/photos/properties/nordic-estate/2.jpg",
+              "/photos/properties/nordic-estate/3.jpg",
+              "/photos/properties/nordic-estate/4.jpg",
             ],
             guests: 10,
             bedrooms: 4,
@@ -770,10 +766,10 @@ export default function Properties() {
             id: "french-riviera-villa",
             name: "French Riviera Villa | Private Pool | Sea View",
             images: [
-              "/assets/properties/french-riviera/1.jpg",
-              "/assets/properties/french-riviera/2.jpg",
-              "/assets/properties/french-riviera/3.jpg",
-              "/assets/properties/french-riviera/4.jpg",
+              "/photos/properties/french-riviera/1.jpg",
+              "/photos/properties/french-riviera/2.jpg",
+              "/photos/properties/french-riviera/3.jpg",
+              "/photos/properties/french-riviera/4.jpg",
             ],
             guests: 12,
             bedrooms: 6,
@@ -949,19 +945,6 @@ export default function Properties() {
     "Pet Friendly",
   ];
 
-  // View property details
-  const viewPropertyDetails = (property: PropertyFeature) => {
-    setSelectedProperty(property);
-    setSelectedImageIndex(0);
-    setIsPropertyDetailOpen(true);
-  };
-
-  // Close property details
-  const closePropertyDetails = () => {
-    setSelectedProperty(null);
-    setIsPropertyDetailOpen(false);
-  };
-
   // Hero section update
   const Hero = () => {
     return (
@@ -988,175 +971,19 @@ export default function Properties() {
     );
   };
 
-  // PropertyDetail modal
-  const PropertyDetail = () => {
+  // PropertyCard with regular img tag - updated to navigate directly to property page
+  const PropertyCard = ({ property }: { property: PropertyFeature }) => {
+    const propertyUrl =
+      property.id.startsWith("whistler-") || property.id.startsWith("chalet-")
+        ? `/listings/${property.id}`
+        : property.id.startsWith("vancouver-")
+        ? `/vancouver-listings/${property.id}`
+        : `/worldwide-listings/${property.id}`;
+
     return (
-      <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto">
-        <div className="bg-white rounded-2xl max-w-4xl w-full overflow-hidden relative">
-          <button
-            onClick={closePropertyDetails}
-            className="absolute top-4 right-4 z-10 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
-          >
-            <X className="h-5 w-5" />
-          </button>
-
-          <div className="relative h-80 overflow-hidden">
-            {selectedProperty && (
-              <img
-                src={selectedProperty.images?.[selectedImageIndex] || ""}
-                alt={selectedProperty.name || ""}
-                className="w-full h-full object-cover"
-              />
-            )}
-
-            {selectedProperty?.images && selectedProperty.images.length > 1 && (
-              <>
-                <button
-                  onClick={() =>
-                    setSelectedImageIndex((prevIndex) =>
-                      prevIndex === 0
-                        ? (selectedProperty.images?.length || 1) - 1
-                        : prevIndex - 1
-                    )
-                  }
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() =>
-                    setSelectedImageIndex((prevIndex) =>
-                      prevIndex === (selectedProperty.images?.length || 1) - 1
-                        ? 0
-                        : prevIndex + 1
-                    )
-                  }
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                  {selectedProperty.images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedImageIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        selectedImageIndex === idx
-                          ? "bg-white"
-                          : "bg-white/50 hover:bg-white/80"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-2">
-              {selectedProperty?.name}
-            </h2>
-            <p className="flex items-center text-gray-600 mb-4">
-              <MapPin className="w-4 h-4 mr-2" />
-              {selectedProperty?.location}
-            </p>
-
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex gap-4">
-                <div className="flex items-center text-gray-600">
-                  <Bed className="w-4 h-4 mr-1" />
-                  <span>
-                    {selectedProperty?.bedrooms} Bedroom
-                    {selectedProperty?.bedrooms !== 1 ? "s" : ""}
-                  </span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Bath className="w-4 h-4 mr-1" />
-                  <span>
-                    {selectedProperty?.bathrooms} Bathroom
-                    {selectedProperty?.bathrooms !== 1 ? "s" : ""}
-                  </span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Users className="w-4 h-4 mr-1" />
-                  <span>Up to {selectedProperty?.guests} Guests</span>
-                </div>
-              </div>
-              {selectedProperty?.priceRange && (
-                <span className="text-xl font-bold">
-                  {selectedProperty.priceRange}
-                </span>
-              )}
-            </div>
-
-            <p className="text-gray-700 mb-6">
-              {selectedProperty?.description}
-            </p>
-
-            {selectedProperty?.highlights && (
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3">Highlights</h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProperty.highlights.map((highlight, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-gray-100 px-3 py-1 rounded-full text-sm"
-                    >
-                      {highlight}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {selectedProperty?.features && (
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3">Features</h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {selectedProperty.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <Check className="w-4 h-4 mr-2 text-green-500 mt-1" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <div className="flex justify-end">
-              <Link
-                href={
-                  selectedProperty?.id.startsWith("whistler-") ||
-                  selectedProperty?.id.startsWith("chalet-")
-                    ? `/listings/${selectedProperty?.id}`
-                    : selectedProperty?.id.startsWith("vancouver-")
-                    ? `/vancouver-listings/${selectedProperty?.id}`
-                    : `/worldwide-listings/${selectedProperty?.id}`
-                }
-                className="bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors flex items-center"
-              >
-                View Full Details
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // PropertyCard with regular img tag
-  const PropertyCard = ({
-    property,
-    onClick,
-  }: {
-    property: PropertyFeature;
-    onClick: () => void;
-  }) => {
-    return (
-      <div
-        className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group"
-        onClick={onClick}
+      <Link
+        href={propertyUrl}
+        className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group block"
       >
         <div className="relative h-64 overflow-hidden">
           <img
@@ -1192,7 +1019,7 @@ export default function Properties() {
             )}
           </div>
         </div>
-      </div>
+      </Link>
     );
   };
 
@@ -1447,11 +1274,7 @@ export default function Properties() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {category.properties.map((property) => (
-                      <PropertyCard
-                        key={property.id}
-                        property={property}
-                        onClick={() => viewPropertyDetails(property)}
-                      />
+                      <PropertyCard key={property.id} property={property} />
                     ))}
                   </div>
                 </div>
@@ -1459,9 +1282,6 @@ export default function Properties() {
             )}
           </div>
         </section>
-
-        {/* Property Detail Modal */}
-        {isPropertyDetailOpen && selectedProperty && <PropertyDetail />}
 
         {/* CTA Section */}
         <section className="bg-gray-900 text-white py-16">
