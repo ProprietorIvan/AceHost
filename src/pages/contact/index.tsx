@@ -383,56 +383,106 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="relative w-full h-80 mb-6 rounded-md overflow-hidden">
-                <Image
-                  src="/photos/homepage/apartment1/terrasse-1733152883.jpg"
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
+          <div className="flex flex-col space-y-16">
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-col md:flex-row md:items-start md:space-x-8">
+                <div className="w-full md:w-1/3 mb-4 md:mb-0">
+                  <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                    <Image
+                      src="/photos/homepage/about/Ben.jpg"
+                      alt="Ben Kirsh"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="w-full md:w-2/3">
+                  <h3 className="text-2xl font-bold">Ben Kirsh</h3>
+                  <p className="text-gray-600 font-medium mb-4">
+                    Founder & CEO
+                  </p>
+                  <div className="prose prose-lg">
+                    <p>
+                      Hello There, I&apos;m Ben, a Whistler local who has spent
+                      almost my whole life between Whistler and Vancouver.
+                      Having lived here since I was born, I have witnessed the
+                      changes and rapid growth the area has seen in recent
+                      years. I enjoy sharing my insider knowledge and contacts
+                      with guests so they can truly maximize their experiences
+                      here in Whistler. I enjoy connecting in English, Spanish,
+                      or French. Like most Whistler locals, I love the outdoors
+                      and the beautiful scenery our town offers.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Ben Johnson</h3>
-              <p className="text-gray-500 mb-4">Founder & CEO</p>
-              <p className="text-gray-600">
-                With over 15 years of experience in luxury hospitality, Ben
-                leads our team with passion and expertise.
-              </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="relative w-full h-80 mb-6 rounded-md overflow-hidden">
-                <Image
-                  src="/photos/homepage/apartment2/004-photopetit-140323-1679310750.jpg"
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-col md:flex-row md:items-start md:space-x-8">
+                <div className="w-full md:w-1/3 mb-4 md:mb-0">
+                  <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                    <Image
+                      src="/photos/homepage/about/Max.jpg"
+                      alt="Max Korkh"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="w-full md:w-2/3">
+                  <h3 className="text-2xl font-bold">Max Korkh</h3>
+                  <p className="text-gray-600 font-medium mb-4">
+                    Director of Operations & Concierge Team
+                  </p>
+                  <div className="prose prose-lg">
+                    <p>
+                      Hi there! My name is Max and I&apos;m a North Shore local.
+                      Born in Vancouver, I&apos;ve spent most of my life living
+                      between Vancouver and Moscow, where my family is
+                      originally from. AceHost brought me to Whistler in 2023,
+                      although I&apos;ve enjoyed many skiing holidays here in
+                      the past. I&apos;m looking forward to making the most of
+                      ample outdoor activities that Whistler has to offer all
+                      year round.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Sarah Miller</h3>
-              <p className="text-gray-500 mb-4">Property Manager</p>
-              <p className="text-gray-600">
-                Sarah ensures every property in our portfolio maintains the
-                highest standards of quality and guest satisfaction.
-              </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="relative w-full h-80 mb-6 rounded-md overflow-hidden">
-                <Image
-                  src="/photos/homepage/apartment2/057-photopetit-140323-1679310813.jpg"
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-col md:flex-row md:items-start md:space-x-8">
+                <div className="w-full md:w-1/3 mb-4 md:mb-0">
+                  <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                    <Image
+                      src="/photos/homepage/about/Sally.jpeg"
+                      alt="Sally Fewson"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="w-full md:w-2/3">
+                  <h3 className="text-2xl font-bold">Sally Fewson</h3>
+                  <p className="text-gray-600 font-medium mb-4">
+                    Executive Assistant / Lead Property Manager
+                  </p>
+                  <div className="prose prose-lg">
+                    <p>
+                      I&apos;m Sally, I was born and grew up in Surrey in the
+                      UK. The mountains and skiing brought me to Whistler in
+                      2019 and I haven&apos;t looked back since! I have spent
+                      the past several years working for UHNW individuals in
+                      service, housekeeping, kitchens, and personal assistant
+                      roles on super yachts and private residences. As a result,
+                      I am incredibly detail-orientated with high standards and
+                      always strive to provide the best guest experience
+                      possible that will exceed 5 star hotels.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Michael Chen</h3>
-              <p className="text-gray-500 mb-4">Concierge Director</p>
-              <p className="text-gray-600">
-                Michael coordinates our VIP concierge services, creating
-                unforgettable experiences for our guests.
-              </p>
             </div>
           </div>
         </div>

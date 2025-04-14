@@ -42,7 +42,7 @@ const OurStory = () => {
       <div className="relative bg-black text-white">
         <div className="absolute inset-0">
           <Image
-            src="/photos/homepage/1.jpg"
+            src="/photos/homepage/WhistlerVacationRental.jpg"
             alt="Whistler Mountain View"
             fill
             className="object-cover opacity-30"
@@ -86,29 +86,30 @@ const OurStory = () => {
           {/* Meet Our Team Section */}
           <div className="mt-20">
             <h2 className="text-4xl font-bold mb-12">Meet Our Team</h2>
-            <div className="space-y-16">
+            <div className="flex flex-col space-y-16">
               {teamMembers.map((member, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
-                >
-                  <div className="md:col-span-1">
-                    <div className="relative h-80 w-full rounded-lg overflow-hidden">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover"
-                      />
+                <div key={index} className="flex flex-col space-y-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:space-x-8">
+                    <div className="w-full md:w-1/3 mb-4 md:mb-0">
+                      <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold mt-4">{member.name}</h3>
-                    <p className="text-gray-600 font-medium">{member.role}</p>
-                  </div>
-                  <div className="md:col-span-2">
-                    <div className="prose prose-lg">
-                      {member.bio.split("\n\n").map((paragraph, i) => (
-                        <p key={i}>{paragraph}</p>
-                      ))}
+                    <div className="w-full md:w-2/3">
+                      <h3 className="text-2xl font-bold">{member.name}</h3>
+                      <p className="text-gray-600 font-medium mb-4">
+                        {member.role}
+                      </p>
+                      <div className="prose prose-lg">
+                        {member.bio.split("\n\n").map((paragraph, i) => (
+                          <p key={i}>{paragraph}</p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
