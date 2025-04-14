@@ -9,19 +9,19 @@ const OurStory = () => {
     {
       name: "Ben Kirsh",
       role: "Founder & CEO",
-      bio: "Ben Kirsh has been in the Whistler real estate scene for over a decade, managing high-end properties and developing a deep understanding of the local market. His vision for AceHost stems from recognizing the need for a truly premium property management service in Whistler – one that combines exceptional attention to detail with personalized service for both property owners and guests.",
+      bio: "Hello There, I'm Ben, a Whistler local who has spent almost my whole life between Whistler and Vancouver. Having lived here since I was born, I have witnessed the changes and rapid growth the area has seen in recent years. I enjoy sharing my insider knowledge and contacts with guests so they can truly maximize their experiences here in Whistler. I enjoy connecting in English, Spanish, or French. Like most Whistler locals, I love the outdoors and the beautiful scenery our town offers.\n\nPrior to playing semi-professional tennis, competing at the NCAA collegiate level and achieving All-American status, I was a member of the Whistler Ski Racing team, where I had the opportunity to participate in the famed Whistler Cup events. I enjoy going on road trips, exploring new lakes/mountains all around beautiful BC. Above all, I enjoy my food, so please ask me for recommendations.\n\nMy goal for AceHost is to provide homeowners with a seamless and profitable venture while providing guests with an unforgettable vacation. I am always around to answer any questions, and if time permits, to hit the slopes with guests.",
       image: "/photos/homepage/about/Ben.jpg",
     },
     {
       name: "Max Korkh",
-      role: "Director of Operations",
-      bio: "Max brings extensive experience in luxury hospitality from his previous roles at five-star hotels across Europe. His meticulous approach to operations ensures that every AceHost property maintains the highest standards of quality and service. Max oversees all operational aspects, from property maintenance to guest relations, ensuring seamless experiences for owners and visitors alike.",
+      role: "Director of Operations & Concierge Team",
+      bio: "Hi there! My name is Max and I'm a North Shore local. Born in Vancouver, I've spent most of my life living between Vancouver and Moscow, where my family is originally from. AceHost brought me to Whistler in 2023, although I've enjoyed many skiing holidays here in the past. I'm looking forward to making the most of ample outdoor activities that Whistler has to offer all year round.\n\nSimilar to Ben, I grew up playing tennis from the age of 5. After playing pro events and NCAA division 1 at the University of Montana, I stayed active in the tennis community, working as a club professional and the Director of Events at Tennis BC. I still love to smack that fuzzy yellow ball from time to time. When I'm not on court, I love to travel, ski, road bike and eat out.\n\nMy goal at AceHost is to deliver a first-rate experiences for both guests and homeowners. As our business ventures to new heights, it's important that we focus on small details in customer service, communication and administration to ensure healthy, sustainable growth.",
       image: "/photos/homepage/about/Max.jpg",
     },
     {
       name: "Sally Fewson",
-      role: "Executive Assistant",
-      bio: "With a background in both hospitality and administration, Sally expertly manages the day-to-day operations at AceHost. Her organizational skills and attention to detail are invaluable in coordinating property viewings, managing bookings, and ensuring smooth communication between owners, guests, and the AceHost team. Sally's warm personality makes her the perfect first point of contact for all AceHost inquiries.",
+      role: "Executive Assistant / Lead Property Manager",
+      bio: "I'm Sally, I was born and grew up in Surrey in the UK. The mountains and skiing brought me to Whistler in 2019 and I haven't looked back since! I have spent the past several years working for UHNW individuals in service, housekeeping, kitchens, and personal assistant roles on super yachts and private residences. As a result, I am incredibly detail-orientated with high standards and always strive to provide the best guest experience possible that will exceed 5 star hotels.\n\nWhistler has sucked me in and has since been unable to spit me out. I spend my time enjoying everything this town has to offer. Mountain biking, skiing, hiking, running, and like Ben, I love road tripping and exploring what else BC has to offer. I aim to ensure that your property is kept to the highest standard possible, attend to all guest needs, and make sure they have an incredible stay that will leave them wanting more. No ask is too big or small!",
       image: "/photos/homepage/about/Sally.jpeg",
     },
   ];
@@ -52,11 +52,8 @@ const OurStory = () => {
         <div className="relative max-w-7xl mx-auto px-4 py-24 sm:py-32">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Our <span className="text-amber-500">Story</span>
+              Shaping Your Experience
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8">
-              Redefining luxury property management in Whistler
-            </p>
           </div>
         </div>
       </div>
@@ -68,29 +65,20 @@ const OurStory = () => {
             <h2 className="text-4xl font-bold mb-8">About AceHost</h2>
             <div className="prose prose-lg max-w-none">
               <p>
-                Founded in 2020, AceHost was born from a vision to elevate the
-                standard of property management in Whistler. We recognized a gap
-                in the market for truly personalized, high-end property
-                management services that cater to the unique needs of luxury
-                property owners and their guests.
+                Ben Kirsh founded AceHost in 2021 with the goal of breathing
+                life into his vision of combining excellent service and rental
+                management. AceHost is known for working around the clock to
+                problem solve and ensure that both guests and homeowners have a
+                great experience in their dealings with the company. This
+                mindset helps AceHost build long lasting relationships with
+                homeowners and repeated guest bookings.
               </p>
               <p className="mt-4">
-                Our approach combines local expertise with exceptional attention
-                to detail. We understand that your Whistler property is not just
-                an investment – it&apos;s a cherished retreat that deserves the
-                highest level of care and management. Whether you&apos;re an
-                owner seeking hassle-free property management or a guest looking
-                for an extraordinary Whistler experience, AceHost delivers a
-                level of service that exceeds expectations.
-              </p>
-              <p className="mt-4">
-                What sets us apart is our commitment to personalization. Unlike
-                larger property management companies, we deliberately maintain a
-                select portfolio of premium properties, allowing us to provide
-                each owner and guest with dedicated, attentive service. We
-                don&apos;t just manage properties – we build lasting
-                relationships based on trust, transparency, and shared
-                appreciation for excellence.
+                We are committed to exceeding the expectations of its clients by
+                providing unparalleled quality of care. With the mission of
+                creating life-long customer relationships, we focus on offering
+                a luxurious accommodation experience for guests and a hands-off
+                property management service for homeowners.
               </p>
             </div>
           </div>
@@ -98,71 +86,33 @@ const OurStory = () => {
           {/* Meet Our Team Section */}
           <div className="mt-20">
             <h2 className="text-4xl font-bold mb-12">Meet Our Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="space-y-16">
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 rounded-xl overflow-hidden shadow-md"
+                  className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
                 >
-                  <div className="relative h-80 w-full">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="md:col-span-1">
+                    <div className="relative h-80 w-full rounded-lg overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold mt-4">{member.name}</h3>
+                    <p className="text-gray-600 font-medium">{member.role}</p>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold">{member.name}</h3>
-                    <p className="text-amber-600 font-medium mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-gray-700">{member.bio}</p>
+                  <div className="md:col-span-2">
+                    <div className="prose prose-lg">
+                      {member.bio.split("\n\n").map((paragraph, i) => (
+                        <p key={i}>{paragraph}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Our Values Section */}
-          <div className="mt-20">
-            <h2 className="text-4xl font-bold mb-8">Our Values</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Excellence</h3>
-                <p className="text-gray-700">
-                  We are committed to excellence in every aspect of our service,
-                  from property maintenance to guest experiences. We
-                  continuously strive to exceed expectations and set new
-                  standards in Whistler&apos;s luxury property management
-                  sector.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Personalization</h3>
-                <p className="text-gray-700">
-                  We recognize that each property and owner has unique needs.
-                  Our tailored approach ensures that we provide customized
-                  solutions rather than one-size-fits-all services.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Integrity</h3>
-                <p className="text-gray-700">
-                  We operate with complete transparency and honesty. Our clients
-                  can trust us to act in their best interests and to maintain
-                  the highest ethical standards in all our dealings.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Local Expertise</h3>
-                <p className="text-gray-700">
-                  Our deep knowledge of Whistler&apos;s market, regulations, and
-                  attractions allows us to provide informed advice and services
-                  that maximize your property&apos;s potential and enhance guest
-                  experiences.
-                </p>
-              </div>
             </div>
           </div>
         </div>

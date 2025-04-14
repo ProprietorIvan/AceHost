@@ -26,7 +26,7 @@ const Navigation = ({
     { text: "Luxury Properties For Rent", url: "/properties" },
     { text: "VIP Concierge Services", url: "/concierge-service" },
     { text: "Whistler Property Management", url: "/list-property" },
-    { text: "About AceHost", url: "/about" },
+    { text: "About AceHost", url: "/our-story" },
     { text: "Resources", url: "/resources" },
   ];
 

@@ -43,96 +43,6 @@ interface PropertyFeature {
   sqm?: number;
 }
 
-interface PropertyCategory {
-  title: string;
-  description: string;
-  properties: PropertyFeature[];
-}
-
-const propertyCategories: PropertyCategory[] = [
-  {
-    title: "Featured Properties",
-    description: "A glimpse of our exclusive property portfolio",
-    properties: [
-      {
-        id: "monaco-harbour",
-        name: "MONACO HARBOUR - LUXURY FLAT",
-        images: [
-          "/photos/homepage/apartment2/004-photopetit-140323-1679310750.jpg",
-          "/photos/homepage/apartment2/101-photopetit-140323-1679310824.jpg",
-          "/photos/homepage/apartment2/057-photopetit-140323-1679310813.jpg",
-        ],
-        guests: 10,
-        bedrooms: 5,
-        bathrooms: 5,
-        location: "Monaco Port",
-        sqm: 345,
-        description:
-          "Located on the port of Monaco in the 'Panorama' residence. This building benefits from a strategic location in the heart of the Principality. La Condamine is a dynamic and residential area. Close to all amenities (shops, schools, restaurants, transport). This unique one-storey flat has a panoramic view of the sea, the port and the Formula 1 Grand Prix.",
-        features: [
-          {
-            title: "Panoramic Views",
-            description:
-              "Enjoy breathtaking panoramic views of the Monaco harbour, sea, and Formula 1 Grand Prix circuit.",
-          },
-          {
-            title: "Spacious Terrace",
-            description:
-              "A 345 sqm terrace surrounds the flat, perfect for outdoor entertaining with stunning views.",
-          },
-          {
-            title: "Designer Interior",
-            description:
-              "Renovated with high quality materials and fully furnished by renowned interior designers.",
-          },
-          {
-            title: "Premium Amenities",
-            description:
-              "Features two master suites with bathrooms and dressing rooms, plus 4 additional bedrooms with bathrooms.",
-          },
-        ],
-      },
-      {
-        id: "beverly-palace",
-        name: "BEVERLY PALACE - RENOVATED FAMILY FLAT",
-        images: [
-          "/photos/homepage/apartment1/terrasse-1733152883.jpg",
-          "/photos/homepage/apartment1/vue-mer-zoom-1733152893.jpg",
-          "/photos/homepage/apartment1/vue-cap-martin-1733152890.jpg",
-        ],
-        guests: 6,
-        bedrooms: 3,
-        bathrooms: 3,
-        location: "Moneghetti, Monaco",
-        description:
-          "Located in the Moneghetti residential area, in a high-quality, recently refurbished residence with concierge. Just a stone's throw from the dynamic Condamine district and its many amenities, as well as the port of Monaco. This 3-bedroom flat is ideal for a family and has recently been tastefully renovated to a very high standard.",
-        features: [
-          {
-            title: "Sophisticated Design",
-            description:
-              "Recently renovated to a very high standard with tasteful, contemporary design elements.",
-          },
-          {
-            title: "Private Gym",
-            description:
-              "Features a converted loggia that now serves as a private gym space.",
-          },
-          {
-            title: "Summer Kitchen",
-            description:
-              "Enjoy a partially enclosed terrace with a summer kitchen on the south/west façade.",
-          },
-          {
-            title: "Optimized Storage",
-            description:
-              "Perfectly optimized with plenty of storage space throughout the apartment.",
-          },
-        ],
-      },
-    ],
-  },
-];
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -144,9 +54,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
-  const [selectedProperty, setSelectedProperty] =
-    useState<PropertyFeature | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -191,50 +98,13 @@ const Contact = () => {
     }
   };
 
-  const handlePropertyClick = (property: PropertyFeature) => {
-    setSelectedProperty(property);
-    setCurrentImageIndex(0);
-    document.body.style.overflow = "hidden";
-  };
-
-  const handleCloseGallery = () => {
-    setSelectedProperty(null);
-    document.body.style.overflow = "";
-  };
-
-  const handlePrevImage = () => {
-    if (!selectedProperty) return;
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? selectedProperty.images.length - 1 : prev - 1
-    );
-  };
-
-  const handleNextImage = () => {
-    if (!selectedProperty) return;
-    setCurrentImageIndex((prev) =>
-      prev === selectedProperty.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  // Keyboard navigation for the gallery
+  // Keyboard navigation for the gallery - removed
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedProperty) return;
-
-      if (e.key === "ArrowRight") {
-        handleNextImage();
-      } else if (e.key === "ArrowLeft") {
-        handlePrevImage();
-      } else if (e.key === "Escape") {
-        handleCloseGallery();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
+    // Clean up event listeners
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      // No event listeners to clean up
     };
-  }, [selectedProperty, handleNextImage, handlePrevImage, handleCloseGallery]);
+  }, []);
 
   return (
     <>
@@ -564,66 +434,6 @@ const Contact = () => {
                 unforgettable experiences for our guests.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Properties Section: Just show featured properties */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Featured Properties
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              A glimpse of our exclusive property portfolio
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {propertyCategories[0].properties.map((property) => (
-              <div
-                key={property.id}
-                className="bg-white overflow-hidden rounded-lg shadow-sm border border-gray-200"
-              >
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={property.images[0]}
-                    alt={property.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{property.name}</h3>
-                  <div className="flex items-center text-gray-600 mb-4">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    <span className="text-sm">{property.location}</span>
-                  </div>
-                  <div className="flex space-x-4 mb-4 text-sm text-gray-600">
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-1" />
-                      <span>{property.guests} Guests</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Bed className="h-4 w-4 mr-1" />
-                      <span>{property.bedrooms} Beds</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Bath className="h-4 w-4 mr-1" />
-                      <span>{property.bathrooms} Baths</span>
-                    </div>
-                  </div>
-                  <Link
-                    href={`/properties/${property.id}`}
-                    className="mt-4 inline-flex items-center text-black font-medium hover:underline"
-                  >
-                    <span>View Property</span>
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
