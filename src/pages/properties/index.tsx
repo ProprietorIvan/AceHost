@@ -105,11 +105,11 @@ export default function Properties() {
             id: "altitude-retreat-kadenwood",
             name: "Altitude Retreat | Kadenwood | Private Butler",
             images: [
-              "/photos/properties/altitude-retreat/1.jpg",
-              "/photos/properties/altitude-retreat/2.jpg",
-              "/photos/properties/altitude-retreat/3.jpg",
-              "/photos/properties/altitude-retreat/4.jpg",
-              "/photos/properties/altitude-retreat/5.jpg",
+              "/photos/properties/Altitude New Photos Best/1.jpg",
+              "/photos/properties/Altitude New Photos Best/2.jpg",
+              "/photos/properties/Altitude New Photos Best/3.jpg",
+              "/photos/properties/Altitude New Photos Best/4.jpg",
+              "/photos/properties/Altitude New Photos Best/5.jpg",
             ],
             guests: 18,
             bedrooms: 7,
@@ -990,6 +990,30 @@ export default function Properties() {
             src={property.images[0]}
             alt={property.name}
             className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              // Get property folder name from the ID
+              const propertyId = property.id;
+
+              // Try folder variants - check if image exists at typical locations
+              let paths = [
+                // Using a directory name matching property name patterns
+                `/photos/properties/${propertyId}/1.jpg`,
+                // Try capitalized first letter
+                `/photos/properties/${
+                  propertyId.charAt(0).toUpperCase() + propertyId.slice(1)
+                }/1.jpg`,
+                // Specific override for common properties
+                `/photos/properties/Altitude New Photos Best/altitude retreat-12.jpg`,
+                `/photos/properties/Chalet La Forja/hero00002.jpg`,
+                `/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg`,
+                `/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg`,
+                // Fallback to a default image
+                `/photos/homepage/WhistlerVacationRental.jpg`,
+              ];
+
+              // Try the first image path
+              e.currentTarget.src = paths[paths.length - 1]; // Default to the last (fallback) option
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         </div>
