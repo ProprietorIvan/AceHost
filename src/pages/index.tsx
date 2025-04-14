@@ -257,6 +257,49 @@ const Home = () => {
       location: "whistler",
       link: "/listings/marquise-2-bed-ski-in-ski-out",
     },
+    // Worldwide Properties
+    {
+      id: "yacht-thailand",
+      name: "Yacht Thailand Sea D",
+      image: "/photos/properties/worldwide/yacht-thailand.jpg",
+      guests: 12,
+      bedrooms: 6,
+      beds: 6,
+      bathrooms: 6,
+      priceRange: "On Request",
+      winterPrice: "",
+      holidayPrice: "",
+      location: "worldwide",
+      link: "/worldwide-listings/yacht-thailand-sea-d",
+    },
+    {
+      id: "villa-aegean-greece",
+      name: "Villa Aegean Mykonos Greece",
+      image: "/photos/properties/worldwide/villa-aegean-greece.jpg",
+      guests: 14,
+      bedrooms: 7,
+      beds: 10,
+      bathrooms: 7,
+      priceRange: "On Request",
+      winterPrice: "",
+      holidayPrice: "",
+      location: "worldwide",
+      link: "/worldwide-listings/villa-aegean-mykonos-greece",
+    },
+    {
+      id: "punta-mita",
+      name: "Punta Mita Luxury Villa",
+      image: "/photos/properties/worldwide/punta-mita.jpg",
+      guests: 16,
+      bedrooms: 8,
+      beds: 10,
+      bathrooms: 8,
+      priceRange: "On Request",
+      winterPrice: "",
+      holidayPrice: "",
+      location: "worldwide",
+      link: "/worldwide-listings/punta-mita-luxury-villa",
+    },
   ];
 
   // Filter properties based on active filter
@@ -402,12 +445,12 @@ const Home = () => {
               </Link>
             </div>
             <div className="mt-10 md:mt-0 md:w-1/2 lg:w-1/2">
-              <div className="aspect-video w-full h-full overflow-hidden rounded-lg shadow-xl">
+              <div className="relative aspect-video w-full h-full overflow-hidden rounded-lg">
                 <iframe
-                  src="https://player.vimeo.com/video/1053582724?autoplay=1&loop=1&title=0"
+                  src="https://player.vimeo.com/video/1053582724?title=0&byline=0&portrait=0"
                   className="w-full h-full"
                   frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  allow="fullscreen; picture-in-picture"
                   title="AceHost Whistler Concierge Experience"
                 ></iframe>
               </div>
@@ -561,6 +604,92 @@ const Home = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* YouTube Videos Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">
+                Experience Whistler Luxury
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Watch our videos to see the AceHost experience and discover the
+                beauty of Whistler luxury properties.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Video 1 */}
+              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <div className="relative aspect-video">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/BKK5X_LPd8k"
+                    title="Dream Whistler Vacation"
+                    frameBorder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">
+                    Dream Whistler Vacation
+                  </h3>
+                  <p className="text-gray-600">
+                    Experience the ultimate Whistler vacation with our luxury
+                    accommodations and exclusive services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Video 2 */}
+              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <div className="relative aspect-video">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/GOzVT9x08sc"
+                    title="Whistler Chef"
+                    frameBorder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">
+                    Whistler Chef Experience
+                  </h3>
+                  <p className="text-gray-600">
+                    Enjoy exceptional culinary experiences with our private chef
+                    services in your luxury Whistler rental.
+                  </p>
+                </div>
+              </div>
+
+              {/* Video 3 */}
+              <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <div className="relative aspect-video">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/cNHhE2B8Zeo"
+                    title="The Ultimate Luxury Whistler Chalet Winter Road Trip Experience"
+                    frameBorder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">
+                    Ultimate Luxury Winter Road Trip
+                  </h3>
+                  <p className="text-gray-600">
+                    Discover the perfect winter road trip experience with luxury
+                    chalets and breathtaking mountain views.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

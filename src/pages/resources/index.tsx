@@ -118,7 +118,7 @@ const Resources = () => {
             {resourceCategories.map((category, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-white"
               >
                 <div className="flex flex-col items-center text-center">
                   <category.icon className="w-12 h-12 text-black mb-4" />

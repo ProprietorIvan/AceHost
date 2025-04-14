@@ -31,13 +31,13 @@ const Navigation = ({
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className={`${transparent ? "bg-transparent" : "bg-white"} shadow-md`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
-              <div className="w-48 h-48 relative">
+              <div className="w-40 h-16 relative">
                 <Image
                   src="/logo.png"
                   alt="AceHost Logo"
@@ -50,12 +50,16 @@ const Navigation = ({
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center space-x-2">
               {navLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
-                  className="text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:text-black transition-colors mx-1"
+                  className={`px-4 py-2 rounded-md text-sm font-semibold ${
+                    currentPage === link.url
+                      ? "text-black border-b-2 border-black"
+                      : "text-gray-700 hover:text-black hover:border-b-2 hover:border-black transition-all duration-200"
+                  }`}
                 >
                   {link.text}
                 </Link>
@@ -63,7 +67,7 @@ const Navigation = ({
 
               <Link
                 href="/contact"
-                className="text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:text-black transition-colors mx-1"
+                className="ml-2 px-5 py-2 bg-black text-white rounded-md text-sm font-semibold hover:bg-gray-800 transition-colors"
               >
                 <span>Contact Us</span>
               </Link>
@@ -94,7 +98,11 @@ const Navigation = ({
                   key={index}
                   href={link.url}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block py-2 px-3 mt-2 text-gray-700 hover:text-black transition-colors"
+                  className={`block py-2 px-3 mt-2 rounded-md ${
+                    currentPage === link.url
+                      ? "text-black font-semibold"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50 transition-all"
+                  }`}
                 >
                   {link.text}
                 </Link>
@@ -103,7 +111,7 @@ const Navigation = ({
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="block py-2 px-3 mt-2 text-gray-700 hover:text-black transition-colors"
+                className="block py-2 px-3 mt-3 text-center bg-black text-white rounded-md"
               >
                 <span>Contact Us</span>
               </Link>
