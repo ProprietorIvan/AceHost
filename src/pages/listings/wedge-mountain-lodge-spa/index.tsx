@@ -343,7 +343,7 @@ const WedgeMountainLodgeSpa = () => {
                 Wedge Mountain Lodge & Spa is nestled in a beautiful location in
                 Whistler, providing privacy and stunning views. The property
                 offers a serene setting while still being accessible to
-                Whistler's amenities and attractions.
+                Whistler&apos;s amenities and attractions.
               </p>
             </div>
           </div>
