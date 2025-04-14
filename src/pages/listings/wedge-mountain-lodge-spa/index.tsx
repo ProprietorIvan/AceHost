@@ -15,61 +15,220 @@ const WedgeMountainLodgeSpa = () => {
   );
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Property photos
+  // Property photos with descriptive titles
   const photos = [
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 3 with model.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 3.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 4.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 5.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 6.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 7.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 8.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 9.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room Long Table.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Dining.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Wine Cellar.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Elevator and Wine Room.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Entry Way 1.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Entry way 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Mudroom a.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Reading Loft.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 1 Bunks.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 4.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 5.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 5 Deck.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 6.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 7.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 8.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 9.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 1.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 5.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 8a.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom Powder Room.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa 1.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa _ Towel Detail.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa _ Yoga.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Massage Room 1 .jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Massage Room 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Sauna HUM.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Sauna_Day bed with models.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Cold Plunge with model.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Gym 1.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Movie Theatre 2.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Games Room.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Kids Playroom.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Driveway (Looking North).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Firepit (Looking West).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Firepit at Night.jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Garden (Looking East).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Great Room (looking North).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Great Room (Looking South).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Pool Deck (Looking South).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Pool Deck (Looking South West).jpg",
-    "/photos/properties/Wedge Mountain Lodge Spa/WML Spa Room (Looking South).jpg",
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
+      title: "Grand Main Entrance",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 2.jpg",
+      title: "Exterior View at Dusk",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 3 with model.jpg",
+      title: "Exterior with Garden View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 2.jpg",
+      title: "Spacious Great Room",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 3.jpg",
+      title: "Great Room with Fireplace",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 4.jpg",
+      title: "Great Room Seating Area",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 5.jpg",
+      title: "Great Room with Mountain Views",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 6.jpg",
+      title: "Great Room Lounge Area",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 7.jpg",
+      title: "Great Room from Staircase",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 8.jpg",
+      title: "Great Room Full View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room 9.jpg",
+      title: "Great Room with Windows",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Great Room Long Table.jpg",
+      title: "Great Room Dining Table",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Dining.jpg",
+      title: "Formal Dining Area",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Wine Cellar.jpg",
+      title: "Wine Cellar",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Elevator and Wine Room.jpg",
+      title: "Elevator and Wine Room",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Entry Way 1.jpg",
+      title: "Main Entry Way",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Entry way 2.jpg",
+      title: "Secondary Entry Way",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Mudroom a.jpg",
+      title: "Mudroom",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Reading Loft.jpg",
+      title: "Reading Loft",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 1 Bunks.jpg",
+      title: "Bedroom 1 with Bunk Beds",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 2.jpg",
+      title: "Bedroom 2",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 4.jpg",
+      title: "Bedroom 4",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 5.jpg",
+      title: "Bedroom 5",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 5 Deck.jpg",
+      title: "Bedroom 5 Private Deck",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 6.jpg",
+      title: "Bedroom 6",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 7.jpg",
+      title: "Bedroom 7",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 8.jpg",
+      title: "Bedroom 8",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bedroom 9.jpg",
+      title: "Bedroom 9",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 1.jpg",
+      title: "Luxury Bathroom 1",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 5.jpg",
+      title: "Luxury Bathroom 5",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom 8a.jpg",
+      title: "Luxury Bathroom 8",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Bathroom Powder Room.jpg",
+      title: "Powder Room",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa 1.jpg",
+      title: "Spa Area",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa _ Towel Detail.jpg",
+      title: "Spa Towel Detail",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Spa _ Yoga.jpg",
+      title: "Yoga Studio",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Massage Room 1 .jpg",
+      title: "Massage Room 1",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Massage Room 2.jpg",
+      title: "Massage Room 2",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Sauna HUM.jpg",
+      title: "Sauna",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Sauna_Day bed with models.jpg",
+      title: "Sauna with Day Bed",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Cold Plunge with model.jpg",
+      title: "Cold Plunge Pool",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Gym 1.jpg",
+      title: "Fitness Center",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Movie Theatre 2.jpg",
+      title: "Movie Theatre",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Games Room.jpg",
+      title: "Games Room",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa _ Kids Playroom.jpg",
+      title: "Kids Playroom",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Driveway (Looking North).jpg",
+      title: "Driveway View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Firepit (Looking West).jpg",
+      title: "Firepit Area",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Firepit at Night.jpg",
+      title: "Firepit at Night",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Garden (Looking East).jpg",
+      title: "Garden View East",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Great Room (looking North).jpg",
+      title: "Great Room North View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Great Room (Looking South).jpg",
+      title: "Great Room South View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Pool Deck (Looking South).jpg",
+      title: "Pool Deck South View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Pool Deck (Looking South West).jpg",
+      title: "Pool Deck Southwest View",
+    },
+    {
+      src: "/photos/properties/Wedge Mountain Lodge Spa/WML Spa Room (Looking South).jpg",
+      title: "Spa Room South View",
+    },
   ];
 
   const handlePhotoClick = (index: number) => {
@@ -173,8 +332,8 @@ const WedgeMountainLodgeSpa = () => {
                   onClick={() => handlePhotoClick(index)}
                 >
                   <Image
-                    src={photo}
-                    alt={`Wedge Mountain Lodge & Spa ${index + 1}`}
+                    src={photo.src}
+                    alt={photo.title}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
@@ -210,8 +369,8 @@ const WedgeMountainLodgeSpa = () => {
               <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
                 <div className="relative aspect-[4/3] mb-2">
                   <Image
-                    src={photos[3]}
-                    alt="Wedge Mountain Lodge & Spa Interior"
+                    src={photos[3].src}
+                    alt={photos[3].title}
                     fill
                     className="object-cover"
                   />
@@ -262,8 +421,8 @@ const WedgeMountainLodgeSpa = () => {
               <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0 order-1 md:order-2">
                 <div className="relative aspect-[4/3] mb-2">
                   <Image
-                    src={photos[32]}
-                    alt="Wedge Mountain Lodge & Spa Facilities"
+                    src={photos[32].src}
+                    alt={photos[32].title}
                     fill
                     className="object-cover"
                   />
@@ -373,8 +532,8 @@ const WedgeMountainLodgeSpa = () => {
                       onClick={() => handlePhotoClick(index)}
                     >
                       <Image
-                        src={photo}
-                        alt={`Wedge Mountain Lodge & Spa ${index + 1}`}
+                        src={photo.src}
+                        alt={photo.title}
                         fill
                         sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
                         className="object-cover hover:scale-105 transition-transform duration-300"
@@ -382,9 +541,7 @@ const WedgeMountainLodgeSpa = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      Wedge Mountain Lodge & Spa {index + 1}
-                    </p>
+                    <p className="text-white text-sm mt-2">{photo.title}</p>
                   </div>
                 ))}
               </div>
@@ -414,10 +571,8 @@ const WedgeMountainLodgeSpa = () => {
             <div className="relative w-full h-full max-w-6xl max-h-[80vh] mx-auto px-4">
               <div className="relative w-full h-full">
                 <Image
-                  src={photos[selectedPhotoIndex]}
-                  alt={`Wedge Mountain Lodge & Spa full view ${
-                    selectedPhotoIndex + 1
-                  }`}
+                  src={photos[selectedPhotoIndex].src}
+                  alt={photos[selectedPhotoIndex].title}
                   fill
                   priority
                   className="object-contain"
