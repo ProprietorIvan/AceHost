@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Navigation from "@/components/Navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
@@ -18,6 +17,7 @@ import {
   Wifi,
   Car,
   ChevronLeft,
+  Check,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Head from "next/head";
@@ -63,6 +63,8 @@ export default function Properties() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedProperty, setSelectedProperty] =
     useState<PropertyFeature | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isPropertyDetailOpen, setIsPropertyDetailOpen] = useState(false);
 
   // Structured data for SEO
   const structuredData = useMemo(
@@ -630,11 +632,9 @@ export default function Properties() {
             id: "vancouver-house-corner-unit-30th-floor",
             name: "The Vancouver House, Corner Unit | 30th Floor",
             images: [
-              "/photos/properties/vancouver-house/645adc4aca79d22167763483_Vancouver_House-03.jpg",
-              "/photos/properties/vancouver-house/645adc49fb32ea8384334e2e_Vancouver_House-05.jpg",
-              "/photos/properties/vancouver-house/645adc48fb32ea2543334d52_Vancouver_House-13.jpg",
               "/photos/properties/vancouver-house/645adc480342565cb5e2cac6_Vancouver_House-12.jpg",
               "/photos/properties/vancouver-house/645adc4803425681d3e2cab2_Vancouver_House-15.jpg",
+              "/photos/properties/vancouver-house/645adc4a8fd51115efee7fd0_Vancouver_House-20.jpg",
             ],
             guests: 4,
             bedrooms: 2,
@@ -660,40 +660,7 @@ export default function Properties() {
               "Steps to Seawall",
               "Luxury Building Amenities",
             ],
-            priceRange: "$400-$700",
-          },
-          {
-            id: "coal-harbour-penthouse",
-            name: "Coal Harbour Penthouse | City & Ocean Views",
-            images: [
-              "/assets/properties/coal-harbour/1.jpg",
-              "/assets/properties/coal-harbour/2.jpg",
-              "/assets/properties/coal-harbour/3.jpg",
-              "/assets/properties/coal-harbour/4.jpg",
-            ],
-            guests: 6,
-            bedrooms: 3,
-            bathrooms: 2,
-            location: "Coal Harbour, Vancouver",
-            description:
-              "Stunning penthouse in the heart of Coal Harbour with panoramic views of the ocean, mountains, and city skyline. This contemporary space features floor-to-ceiling windows, a gourmet kitchen, and luxury finishes throughout.",
-            features: [
-              "Panoramic Ocean & Mountain Views",
-              "Private Rooftop Terrace",
-              "Gourmet Chef's Kitchen",
-              "Floor-to-Ceiling Windows",
-              "Concierge Service",
-              "Fitness Center Access",
-              "Secure Parking",
-              "Steps to Seawall",
-            ],
-            highlights: [
-              "Breathtaking Views",
-              "Private Rooftop Terrace",
-              "Central Location",
-              "Luxury Finishes",
-            ],
-            priceRange: "$600-$1,200",
+            priceRange: "$750/night",
           },
         ],
       },
@@ -985,15 +952,248 @@ export default function Properties() {
   // View property details
   const viewPropertyDetails = (property: PropertyFeature) => {
     setSelectedProperty(property);
-    // Use history.pushState to update URL without navigation
-    window.history.pushState({}, "", `/properties/${property.id}`);
+    setSelectedImageIndex(0);
+    setIsPropertyDetailOpen(true);
   };
 
   // Close property details
   const closePropertyDetails = () => {
     setSelectedProperty(null);
-    // Reset URL
-    window.history.pushState({}, "", "/properties");
+    setIsPropertyDetailOpen(false);
+  };
+
+  // Hero section update
+  const Hero = () => {
+    return (
+      <div className="relative h-80 lg:h-96 w-full overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80"
+          style={{
+            backgroundImage: "url(/photos/homepage/mountainview.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-2xl mb-4">
+            Discover Our Premium Properties
+          </h1>
+          <p className="text-white/90 max-w-xl text-lg md:text-xl">
+            Explore our curated collection of luxury properties in the most
+            desirable locations
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  // PropertyDetail modal
+  const PropertyDetail = () => {
+    return (
+      <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div className="bg-white rounded-2xl max-w-4xl w-full overflow-hidden relative">
+          <button
+            onClick={closePropertyDetails}
+            className="absolute top-4 right-4 z-10 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div className="relative h-80 overflow-hidden">
+            {selectedProperty && (
+              <img
+                src={selectedProperty.images?.[selectedImageIndex] || ""}
+                alt={selectedProperty.name || ""}
+                className="w-full h-full object-cover"
+              />
+            )}
+
+            {selectedProperty?.images && selectedProperty.images.length > 1 && (
+              <>
+                <button
+                  onClick={() =>
+                    setSelectedImageIndex((prevIndex) =>
+                      prevIndex === 0
+                        ? (selectedProperty.images?.length || 1) - 1
+                        : prevIndex - 1
+                    )
+                  }
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() =>
+                    setSelectedImageIndex((prevIndex) =>
+                      prevIndex === (selectedProperty.images?.length || 1) - 1
+                        ? 0
+                        : prevIndex + 1
+                    )
+                  }
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition-colors"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                  {selectedProperty.images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImageIndex(idx)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        selectedImageIndex === idx
+                          ? "bg-white"
+                          : "bg-white/50 hover:bg-white/80"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-2">
+              {selectedProperty?.name}
+            </h2>
+            <p className="flex items-center text-gray-600 mb-4">
+              <MapPin className="w-4 h-4 mr-2" />
+              {selectedProperty?.location}
+            </p>
+
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex gap-4">
+                <div className="flex items-center text-gray-600">
+                  <Bed className="w-4 h-4 mr-1" />
+                  <span>
+                    {selectedProperty?.bedrooms} Bedroom
+                    {selectedProperty?.bedrooms !== 1 ? "s" : ""}
+                  </span>
+                </div>
+                <div className="flex items-center text-gray-600">
+                  <Bath className="w-4 h-4 mr-1" />
+                  <span>
+                    {selectedProperty?.bathrooms} Bathroom
+                    {selectedProperty?.bathrooms !== 1 ? "s" : ""}
+                  </span>
+                </div>
+                <div className="flex items-center text-gray-600">
+                  <Users className="w-4 h-4 mr-1" />
+                  <span>Up to {selectedProperty?.guests} Guests</span>
+                </div>
+              </div>
+              {selectedProperty?.priceRange && (
+                <span className="text-xl font-bold">
+                  {selectedProperty.priceRange}
+                </span>
+              )}
+            </div>
+
+            <p className="text-gray-700 mb-6">
+              {selectedProperty?.description}
+            </p>
+
+            {selectedProperty?.highlights && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Highlights</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProperty.highlights.map((highlight, idx) => (
+                    <span
+                      key={idx}
+                      className="bg-gray-100 px-3 py-1 rounded-full text-sm"
+                    >
+                      {highlight}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {selectedProperty?.features && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Features</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {selectedProperty.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <Check className="w-4 h-4 mr-2 text-green-500 mt-1" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="flex justify-end">
+              <Link
+                href={
+                  selectedProperty?.id.startsWith("whistler-") ||
+                  selectedProperty?.id.startsWith("chalet-")
+                    ? `/listings/${selectedProperty?.id}`
+                    : selectedProperty?.id.startsWith("vancouver-")
+                    ? `/vancouver-listings/${selectedProperty?.id}`
+                    : `/worldwide-listings/${selectedProperty?.id}`
+                }
+                className="bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors flex items-center"
+              >
+                View Full Details
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // PropertyCard with regular img tag
+  const PropertyCard = ({
+    property,
+    onClick,
+  }: {
+    property: PropertyFeature;
+    onClick: () => void;
+  }) => {
+    return (
+      <div
+        className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group"
+        onClick={onClick}
+      >
+        <div className="relative h-64 overflow-hidden">
+          <img
+            src={property.images[0]}
+            alt={property.name}
+            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 className="text-xl font-bold mb-1 line-clamp-2">
+            {property.name}
+          </h3>
+          <p className="flex items-center text-sm mb-2">
+            <MapPin className="w-4 h-4 mr-1" />
+            {property.location}
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex gap-2">
+              <div className="flex items-center text-xs bg-white/20 px-2 py-1 rounded">
+                <Bed className="w-3 h-3 mr-1" /> {property.bedrooms}
+              </div>
+              <div className="flex items-center text-xs bg-white/20 px-2 py-1 rounded">
+                <Bath className="w-3 h-3 mr-1" /> {property.bathrooms}
+              </div>
+              <div className="flex items-center text-xs bg-white/20 px-2 py-1 rounded">
+                <Users className="w-3 h-3 mr-1" /> {property.guests}
+              </div>
+            </div>
+            {property.priceRange && (
+              <span className="text-sm font-medium">{property.priceRange}</span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -1034,12 +1234,10 @@ export default function Properties() {
         {/* Hero Section */}
         <section className="relative py-16 bg-gray-900 text-white">
           <div className="absolute inset-0">
-            <Image
+            <img
               src="/photos/homepage/1.jpg"
               alt="Luxury Properties"
-              fill
-              className="object-cover opacity-30"
-              priority
+              className="object-cover opacity-30 w-full h-full"
             />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1249,103 +1447,11 @@ export default function Properties() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {category.properties.map((property) => (
-                      <div
+                      <PropertyCard
                         key={property.id}
-                        className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100"
-                      >
-                        <div className="relative">
-                          <div className="relative h-72 overflow-hidden">
-                            <Image
-                              src={property.images[0]}
-                              alt={property.name}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-700"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-6 left-6">
-                              <span className="bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-                                {property.location}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Property features overlay */}
-                          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end pointer-events-none">
-                            <div className="flex flex-wrap gap-2">
-                              {property.highlights
-                                ?.slice(0, 3)
-                                .map((highlight, idx) => (
-                                  <span
-                                    key={idx}
-                                    className="bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs"
-                                  >
-                                    {highlight}
-                                  </span>
-                                ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="p-6">
-                          <h3 className="text-xl font-medium mb-4 text-gray-900 line-clamp-2 h-[3.5rem]">
-                            {property.name}
-                          </h3>
-
-                          <div className="flex items-center justify-between mb-6">
-                            <div className="flex items-center space-x-4">
-                              <div className="flex items-center text-gray-700">
-                                <Users className="h-4 w-4 mr-1" />
-                                <span>{property.guests}</span>
-                              </div>
-                              <div className="flex items-center text-gray-700">
-                                <Bed className="h-4 w-4 mr-1" />
-                                <span>{property.bedrooms}</span>
-                              </div>
-                              <div className="flex items-center text-gray-700">
-                                <Bath className="h-4 w-4 mr-1" />
-                                <span>{property.bathrooms}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <p className="text-gray-600 text-sm line-clamp-3 mb-4 h-[4.5rem]">
-                            {property.description.slice(0, 150)}...
-                          </p>
-
-                          {property.priceRange && (
-                            <p className="text-gray-900 font-semibold mb-4">
-                              {property.priceRange}{" "}
-                              <span className="text-gray-500 font-normal text-sm">
-                                / night
-                              </span>
-                            </p>
-                          )}
-
-                          <div className="flex space-x-3">
-                            <Link
-                              href={
-                                category.id === "whistler"
-                                  ? `/listings/${property.id}`
-                                  : category.id === "vancouver"
-                                  ? `/vancouver-listings/${property.id}`
-                                  : `/worldwide-listings/${property.id}`
-                              }
-                              className="flex-1 py-3 px-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center"
-                            >
-                              <span>View Property</span>
-                              <ChevronRight className="ml-2 h-4 w-4" />
-                            </Link>
-
-                            <button
-                              onClick={() => viewPropertyDetails(property)}
-                              className="p-3 border border-black text-black rounded-lg hover:bg-black hover:text-white transition-colors flex items-center justify-center"
-                            >
-                              <Search className="h-5 w-5" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+                        property={property}
+                        onClick={() => viewPropertyDetails(property)}
+                      />
                     ))}
                   </div>
                 </div>
@@ -1355,163 +1461,7 @@ export default function Properties() {
         </section>
 
         {/* Property Detail Modal */}
-        {selectedProperty && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 flex items-center justify-center p-4">
-            <div className="relative bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl">
-              <button
-                onClick={closePropertyDetails}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-2"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                {/* Image Gallery */}
-                <div className="relative h-[60vh] lg:h-[90vh] overflow-hidden">
-                  <Image
-                    src={selectedProperty.images[0]}
-                    alt={selectedProperty.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 flex items-center justify-between px-4">
-                    <button
-                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600 transition-colors"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Previous image logic
-                      }}
-                    >
-                      <ChevronLeft size={24} />
-                    </button>
-                    <button
-                      className="bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-gray-600 transition-colors"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Next image logic
-                      }}
-                    >
-                      <ChevronRight size={24} />
-                    </button>
-                  </div>
-
-                  {/* Property tag and location */}
-                  <div className="absolute top-6 left-6 flex flex-col gap-2">
-                    <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-medium">
-                      Featured Property
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8 overflow-y-auto max-h-[90vh]">
-                  <div className="mb-6">
-                    <div className="flex items-center mb-2">
-                      <MapPin className="h-5 w-5 text-gray-600 mr-2" />
-                      <span className="text-gray-600">
-                        {selectedProperty.location}
-                      </span>
-                    </div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                      {selectedProperty.name}
-                    </h2>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
-                      <Users className="h-5 w-5 text-gray-700 mr-2" />
-                      <span>{selectedProperty.guests} guests</span>
-                    </div>
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
-                      <Bed className="h-5 w-5 text-gray-700 mr-2" />
-                      <span>{selectedProperty.bedrooms} bedrooms</span>
-                    </div>
-                    <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
-                      <Bath className="h-5 w-5 text-gray-700 mr-2" />
-                      <span>{selectedProperty.bathrooms} bathrooms</span>
-                    </div>
-                  </div>
-
-                  {selectedProperty.priceRange && (
-                    <div className="mb-6 bg-gray-50 p-4 rounded-xl border border-gray-100">
-                      <p className="font-semibold text-xl">
-                        {selectedProperty.priceRange}{" "}
-                        <span className="text-gray-500 font-normal text-sm">
-                          / night
-                        </span>
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                      About This Property
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {selectedProperty.description}
-                    </p>
-                  </div>
-
-                  {selectedProperty.highlights && (
-                    <div className="mb-6">
-                      <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                        Highlights
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProperty.highlights.map((highlight, idx) => (
-                          <span
-                            key={idx}
-                            className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                      Property Features
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {selectedProperty.features.map((feature, index) => (
-                        <div key={index} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col space-y-3">
-                    <Link
-                      href={
-                        activeCategory === "whistler"
-                          ? `/listings/${selectedProperty.id}`
-                          : activeCategory === "vancouver"
-                          ? `/vancouver-listings/${selectedProperty.id}`
-                          : `/worldwide-listings/${selectedProperty.id}`
-                      }
-                      className="block text-center bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors font-medium"
-                    >
-                      View Full Details & Book
-                    </Link>
-
-                    <Link
-                      href="/contact"
-                      className="block text-center border border-black text-black py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors font-medium"
-                    >
-                      Contact Us About This Property
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {isPropertyDetailOpen && selectedProperty && <PropertyDetail />}
 
         {/* CTA Section */}
         <section className="bg-gray-900 text-white py-16">
