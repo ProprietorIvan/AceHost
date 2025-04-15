@@ -368,22 +368,6 @@ const Home = () => {
         "https://www.airbnb.ca/rooms/50025973?guests=1&adults=1&s=67&unique_share_id=04ceb090-1b8e-4e32-972f-d616b380a0a8",
     },
     {
-      id: "le-chamoix",
-      name: "Le Chamoix | Ski-in/Ski-out | 2 Bedroom",
-      image: "/photos/properties/default-property.jpg",
-      guests: 4,
-      bedrooms: 2,
-      beds: 2,
-      bathrooms: 2,
-      priceRange: "$350-$900",
-      winterPrice: "$500-$900 Nightly | Winter",
-      holidayPrice: "",
-      location: "whistler",
-      link: "/listings/le-chamoix",
-      airbnbLink:
-        "https://www.airbnb.ca/rooms/1015303987589924725?guests=1&adults=1&s=67&unique_share_id=70e4858b-6c89-41b1-bcfb-fef3fd327b52",
-    },
-    {
       id: "dream-log-chalet",
       name: "Dream Log Chalet | 5-Bed | 4-Bath | Creekside",
       image:

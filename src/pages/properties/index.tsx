@@ -487,38 +487,6 @@ export default function Properties() {
             priceRange: "$750-$2,200+",
           },
           {
-            id: "le-chamoix",
-            name: "Le Chamoix | Ski-in/Ski-out | 2 Bedroom",
-            images: [
-              "/photos/properties/default-property.jpg",
-              "/photos/properties/default-property.jpg",
-              "/photos/properties/default-property.jpg",
-            ],
-            guests: 4,
-            bedrooms: 2,
-            bathrooms: 2,
-            location: "Whistler Village, Whistler",
-            description:
-              "A comfortable and cozy ski-in/ski-out condo offering convenient access to the slopes and village. Features modern amenities and mountain views.",
-            features: [
-              "Ski-in/Ski-out Access",
-              "Village Location",
-              "Mountain Views",
-              "Modern Amenities",
-              "Fully Equipped Kitchen",
-              "Cozy Fireplace",
-              "Balcony",
-              "Shared Hot Tub Access",
-            ],
-            highlights: [
-              "True Ski-in/Ski-out",
-              "Village Convenience",
-              "Cozy Mountain Retreat",
-              "Excellent Value",
-            ],
-            priceRange: "$350-$900",
-          },
-          {
             id: "dream-log-chalet-5-bedroom-4-bath-creekside",
             name: "Dream Log Chalet | 5-Bed | 4-Bath | Creekside",
             images: [
@@ -914,7 +882,6 @@ export default function Properties() {
         "snow-pine",
         "wedge-mountain-lodge-spa",
         "luxe-cozy-3-bed-whistler-village",
-        "le-chamoix",
         "dream-log-chalet-5-bedroom-4-bath-creekside",
         "whispering-pines-ski-in-ski-out",
         "marquise-2-bed-ski-in-ski-out",
@@ -946,8 +913,6 @@ export default function Properties() {
         "https://www.airbnb.ca/rooms/763259660349118016?guests=1&adults=1&s=67&unique_share_id=d18218f6-da74-4763-a199-d5a1dc8c85ff",
       "snow-pine":
         "https://www.airbnb.ca/rooms/744832560480313027?guests=1&adults=1&s=67&unique_share_id=50412c76-d839-4753-bf56-19310f38a4ef",
-      "le-chamoix":
-        "https://www.airbnb.ca/rooms/1015303987589924725?guests=1&adults=1&s=67&unique_share_id=70e4858b-6c89-41b1-bcfb-fef3fd327b52",
       "whispering-pines-ski-in-ski-out":
         "https://www.airbnb.com/rooms/1072474554447345991?guests=1&adults=1&s=67&unique_share_id=e556b35c-05b5-40b6-91e1-5304ffafc23b",
       "whistler-village-views":
