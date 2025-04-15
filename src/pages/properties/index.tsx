@@ -899,7 +899,26 @@ export default function Properties() {
   // PropertyCard with regular img tag - updated to navigate directly to property page
   const PropertyCard = ({ property }: { property: PropertyFeature }) => {
     const propertyUrl =
-      property.id.startsWith("whistler-") || property.id.startsWith("chalet-")
+      property.id.startsWith("whistler-") ||
+      property.id.startsWith("chalet-") ||
+      [
+        "altitude-retreat-kadenwood",
+        "two-cedars-kadenwood",
+        "chalet-la-forja-kadenwood",
+        "slopeside-villa-kadenwood",
+        "panoramic-estate-kadenwood",
+        "heron-views-whistler-village",
+        "ravens-nest-ski-in-ski-out-views",
+        "falcon-blueberry-drive",
+        "the-nest-ski-in-ski-out",
+        "snow-pine",
+        "wedge-mountain-lodge-spa",
+        "luxe-cozy-3-bed-whistler-village",
+        "le-chamoix",
+        "dream-log-chalet-5-bedroom-4-bath-creekside",
+        "whispering-pines-ski-in-ski-out",
+        "marquise-2-bed-ski-in-ski-out",
+      ].includes(property.id)
         ? `/listings/${property.id}`
         : property.id.startsWith("vancouver-")
         ? `/vancouver-listings/${property.id}`
