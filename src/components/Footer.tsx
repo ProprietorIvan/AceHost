@@ -30,7 +30,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.instagram.com/acehostwhistler/"
+                href="https://www.instagram.com/acehost_whistler/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-800 transition-colors"
@@ -39,7 +39,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a
-                href="https://www.youtube.com/@acehostwhistler"
+                href="https://www.youtube.com/@acehost_Whistler/videos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-800 transition-colors"
@@ -130,7 +130,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://www.instagram.com/acehostwhistler/"
+                  href="https://www.instagram.com/acehost_whistler/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -140,7 +140,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.youtube.com/@acehostwhistler"
+                  href="https://www.youtube.com/@acehost_Whistler/videos"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
