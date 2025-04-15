@@ -271,29 +271,28 @@ const Home = () => {
     },
     {
       id: "the-nest",
-      name: "The Nest | Ski in-Ski out",
-      image: "/photos/properties/Wolverine Crescent/01-2627 Wolverine-01.jpg",
-      guests: 10,
-      bedrooms: 5,
-      beds: 6,
-      bathrooms: 6,
-      priceRange: "Monthly Price Range: $18,000-$29,000",
-      winterPrice: "90+ day minimum",
-      holidayPrice: "$29,000 Monthly | Winter (Booked until June 15, 2025)",
+      name: "The Nest | Ski in Ski out",
+      image: "/photos/properties/Wolverine Crescent/06-2627 Wolverine-06.jpg",
+      guests: 8,
+      bedrooms: 3,
+      beds: 4,
+      bathrooms: 3,
+      priceRange: "$1,800-$4,000+",
+      winterPrice: "$1,800-$2,800+ Nightly | Winter",
+      holidayPrice: "$3,000-$4,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/the-nest-ski-in-ski-out",
     },
     {
       id: "snow-pine",
       name: "Snowpine | Creekside",
-      image: "/photos/properties/Snowpine 3-bed Saul/01-2040 Karen Cres-01.jpg",
+      image: "/photos/properties/Snowpine 3-bed Saul/02-2040 Karen Cres-02.jpg",
       guests: 6,
       bedrooms: 3,
       beds: 3,
       bathrooms: 3.5,
-      priceRange: "Monthly Price Range: $10,000 - $12,000",
-      winterPrice: "90 night minimum",
-      holidayPrice: "$30,000 - 3 months | $40,000- 4 months",
+      priceRange: "Monthly Pricing: $10,000-$12,000",
+      winterPrice: "$10,000-$12,000 Monthly | Winter",
       location: "whistler",
       link: "/listings/snow-pine",
     },
@@ -313,33 +312,32 @@ const Home = () => {
       link: "/listings/wedge-mountain-lodge-spa",
     },
     {
-      id: "luxe-cozy",
-      name: "Luxe-Cozy 3-Bed Whistler Village",
+      id: "luxe-cozy-3-bed-whistler-village",
+      name: "Luxe Cozy 3-Bed Whistler Village",
       image:
-        "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
-      guests: 6,
+        "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/02-1 4668 Blackcomb Way 02-Edit.jpg",
+      guests: 8,
       bedrooms: 3,
-      beds: 3,
-      bathrooms: 2.5,
-      priceRange: "Nightly Price Range: $400-$1,700+",
-      winterPrice: "",
-      holidayPrice: "",
+      beds: 5,
+      bathrooms: 3,
+      priceRange: "$750-$2,200+",
+      winterPrice: "$750-$1,500+ Nightly | Winter",
+      holidayPrice: "$1,800-$2,200+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/luxe-cozy-3-bed-whistler-village",
     },
     {
       id: "dream-log-chalet",
-      name: "Dream Log Chalet | 5 Bedroom | 4 Bath | Creekside",
+      name: "Dream Log Chalet | 5-Bed | 4-Bath | Creekside",
       image:
-        "/photos/properties/Dream Log 5-bedroom Chalet/Dream Log Chalet interior 33.jpg",
-      guests: 12,
+        "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00333.jpg",
+      guests: 11,
       bedrooms: 5,
-      beds: 6,
+      beds: 5,
       bathrooms: 4,
-      priceRange: "6-12 Month Minimum (booked 2025)",
-      winterPrice: "90 Nights: $20,000 per month",
-      holidayPrice:
-        "6-months Winter: $17,000 monthly | 12+ months: $14,000 monthly",
+      priceRange: "$1,450-$3,500+",
+      winterPrice: "$1,500-$3,000+ Nightly | Winter",
+      holidayPrice: "$3,000-$3,500+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/dream-log-chalet-5-bedroom-4-bath-creekside",
     },
@@ -584,7 +582,7 @@ const Home = () => {
         <section className="relative py-16 bg-white">
           <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="md:w-1/3 lg:w-1/3 pr-4">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
                 Luxury Vacation
                 <br />
                 Rental Properties in
@@ -596,7 +594,7 @@ const Home = () => {
                 <br />
                 Concierge Services
               </h1>
-              <p className="text-base text-gray-700 mb-8 max-w-xl">
+              <p className="text-sm text-gray-700 mb-6 max-w-xl">
                 AceHost is a leading Whistler luxury property management
                 company. We proudly offer an array of magnificent vacation
                 rental homes in Whistler, British Columbia. Offering a seamless
@@ -608,12 +606,12 @@ const Home = () => {
               </p>
               <Link
                 href="/properties"
-                className="inline-block bg-black text-white px-8 py-4 rounded-md hover:bg-gray-800 transition-colors text-base font-medium"
+                className="inline-block bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors text-sm font-medium"
               >
                 View Luxury Rental Properties
               </Link>
             </div>
-            <div className="mt-10 md:mt-0 md:w-2/3 lg:w-2/3">
+            <div className="mt-8 md:mt-0 md:w-2/3 lg:w-2/3">
               <div className="relative aspect-video w-full h-full overflow-hidden rounded-lg">
                 <iframe
                   src="https://player.vimeo.com/video/1053582724?title=0&byline=0&portrait=0"
