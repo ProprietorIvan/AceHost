@@ -21,7 +21,7 @@ const nextConfig = {
     // Enable image optimization for better performance
     unoptimized: false,
     // Set image domains that are allowed to be optimized
-    domains: ['acehost.ca', 'acehost.vercel.app'],
+    domains: ['acehost.ca', 'acehost.vercel.app', 'img.youtube.com'],
     // Set reasonable device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     // Set image sizes for the Image component

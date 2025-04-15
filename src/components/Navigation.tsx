@@ -155,9 +155,11 @@ const Navigation = ({
                         </h3>
                         <div className="mb-8">
                           <div className="mb-4 rounded-md overflow-hidden">
-                            <img
+                            <Image
                               src="/photos/homepage/resources/FindYour.jpg"
                               alt="Luxury chalet"
+                              width={400}
+                              height={192}
                               className="w-full h-48 object-cover"
                             />
                           </div>
@@ -205,9 +207,11 @@ const Navigation = ({
                           {/* Blog 1 */}
                           <div className="flex gap-5">
                             <div className="flex-shrink-0 w-32">
-                              <img
+                              <Image
                                 src="/photos/homepage/resources/WhisterPropertyManagment.jpg"
                                 alt="Whistler Property"
+                                width={128}
+                                height={96}
                                 className="w-full h-24 object-cover rounded-md"
                               />
                             </div>
@@ -227,9 +231,11 @@ const Navigation = ({
                           {/* Blog 2 */}
                           <div className="flex gap-5">
                             <div className="flex-shrink-0 w-32">
-                              <img
+                              <Image
                                 src="/photos/homepage/resources/DiscoverUltimate.jpg"
                                 alt="Ski Chalet"
+                                width={128}
+                                height={96}
                                 className="w-full h-24 object-cover rounded-md"
                               />
                             </div>
@@ -253,9 +259,11 @@ const Navigation = ({
                           {/* Blog 3 */}
                           <div className="flex gap-5">
                             <div className="flex-shrink-0 w-32">
-                              <img
+                              <Image
                                 src="/photos/homepage/resources/LuxuryWhistlerRedefined.jpg"
                                 alt="Luxury Whistler"
+                                width={128}
+                                height={96}
                                 className="w-full h-24 object-cover rounded-md"
                               />
                             </div>
@@ -286,9 +294,11 @@ const Navigation = ({
                             className="group block"
                           >
                             <div className="relative rounded-md overflow-hidden mb-2">
-                              <img
+                              <Image
                                 src="https://img.youtube.com/vi/BKK5X_LPd8k/maxresdefault.jpg"
                                 alt="Dream Whistler Vacation"
+                                width={200}
+                                height={112}
                                 className="w-full h-28 object-cover"
                               />
                               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
@@ -314,9 +324,11 @@ const Navigation = ({
                             className="group block"
                           >
                             <div className="relative rounded-md overflow-hidden mb-2">
-                              <img
+                              <Image
                                 src="https://img.youtube.com/vi/GOzVT9x08sc/maxresdefault.jpg"
                                 alt="Whistler Chef Experience"
+                                width={200}
+                                height={112}
                                 className="w-full h-28 object-cover"
                               />
                               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
@@ -341,9 +353,11 @@ const Navigation = ({
                             className="group block"
                           >
                             <div className="relative rounded-md overflow-hidden mb-2">
-                              <img
+                              <Image
                                 src="https://img.youtube.com/vi/cNHhE2B8Zeo/maxresdefault.jpg"
                                 alt="Ultimate Luxury Winter Road Trip"
+                                width={200}
+                                height={112}
                                 className="w-full h-28 object-cover"
                               />
                               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
