@@ -112,7 +112,7 @@ export default function Properties() {
             ],
             guests: 18,
             bedrooms: 7,
-            bathrooms: 5,
+            bathrooms: 5.5,
             location: "Kadenwood, Whistler",
             description:
               "Altitude Retreat is situated in the most prestigious ski-in ski-out neighbourhood in Whistler. Located just a stone's throw away from the exclusive Kadenwood residence only gondola makes this property the perfect location for your Whistler vacation! This well equipped property features everything you need for an indulgent stay.",
@@ -135,16 +135,48 @@ export default function Properties() {
             priceRange: "$7,500-$10,000+",
           },
           {
+            id: "two-cedars-kadenwood",
+            name: "Two Cedars | Kadenwood | Private Butler",
+            images: [
+              "/photos/properties/Two Cedars New/OSA_AncientCW1248.jpg",
+              "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
+              "/photos/properties/Two Cedars New/OSA_AncientCW1248.jpg",
+            ],
+            guests: 17,
+            bedrooms: 7,
+            bathrooms: 8.5,
+            location: "Kadenwood, Whistler",
+            description:
+              "Set in exclusive Kadenwood, Two Cedars offers ski-in/ski-out access and breathtaking panoramic views. This premium mountain home features elegant design, a private hot tub, and luxury amenities throughout.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Private Hot Tub",
+              "Panoramic Views",
+              "Gourmet Kitchen",
+              "Multiple Fireplaces",
+              "Large Deck",
+              "Media Room",
+              "Heated Floors",
+            ],
+            highlights: [
+              "Exclusive Kadenwood Location",
+              "Panoramic Mountain Views",
+              "Private Hot Tub",
+              "Ski-in/Ski-out Access",
+            ],
+            priceRange: "$6,500-$9,500+",
+          },
+          {
             id: "chalet-la-forja-kadenwood",
-            name: "Chalet La Forja | Kadenwood | Private Hot Tub",
+            name: "Chalet La Forja | Kadenwood | Private Butler",
             images: [
               "/photos/properties/Chalet La Forja/hero00001.jpg",
               "/photos/properties/Chalet La Forja/hero00002.jpg",
               "/photos/properties/Chalet La Forja/Forja-3 copy.jpg",
             ],
             guests: 12,
-            bedrooms: 5,
-            bathrooms: 5.5,
+            bedrooms: 7.5,
+            bathrooms: 8,
             location: "Kadenwood, Whistler",
             description:
               "Chalet La Forja is a magnificent mountain retreat situated in Whistler's prestigious Kadenwood neighborhood. This luxurious ski-in/ski-out property offers breathtaking views, elegant design, and premium amenities for an unforgettable Whistler experience.",
@@ -164,212 +196,51 @@ export default function Properties() {
               "Hot Tub with Mountain Views",
               "Luxury Design",
             ],
-            priceRange: "$2,500-$5,000",
+            priceRange: "$7,000-11,000+ | Private Butler Included",
           },
           {
-            id: "dream-log-chalet-5-bedroom-4-bath-creekside",
-            name: "Dream Log Chalet | 5 Bedroom | Creekside",
+            id: "slopeside-villa-kadenwood",
+            name: "Slope Slide Chalet | Kadenwood",
             images: [
-              "/photos/properties/Dream Log 5-bedroom Chalet/Dream Log Chalet interior 33.jpg",
-              "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
-              "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00620.jpg",
+              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
+              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
+              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
             ],
-            guests: 10,
-            bedrooms: 5,
-            bathrooms: 4,
-            location: "Creekside, Whistler",
+            guests: 16,
+            bedrooms: 7,
+            bathrooms: 7.5,
+            location: "Kadenwood, Whistler",
             description:
-              "Authentic log cabin charm meets modern luxury in this beautiful 5-bedroom chalet in Whistler's Creekside area. Features vaulted ceilings, a stone fireplace, and convenient access to Creekside Village and lifts.",
+              "Experience the height of alpine luxury in this magnificent Kadenwood estate. With direct ski-in/ski-out access and spectacular mountain views, this residence combines exceptional design with premium comfort.",
             features: [
-              "Authentic Log Construction",
-              "Stone Fireplace",
-              "Hot Tub",
-              "Chef's Kitchen",
-              "Large Deck",
-              "Close to Creekside Gondola",
-              "Vaulted Ceilings",
-              "Mountain Views",
-            ],
-            highlights: [
-              "Authentic Log Cabin Design",
-              "5 Minutes to Creekside Gondola",
-              "Family-Friendly Layout",
+              "Direct Ski-in/Ski-out Access",
               "Private Hot Tub",
-            ],
-            priceRange: "$900-$2,200",
-          },
-          {
-            id: "falcon-blueberry-drive",
-            name: "Falcon Estate | Blueberry | Hot Tub",
-            images: [
-              "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
-              "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
-              "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
-            ],
-            guests: 12,
-            bedrooms: 5,
-            bathrooms: 4.5,
-            location: "Blueberry Hill, Whistler",
-            description:
-              "Perched on Whistler's prestigious Blueberry Hill, Falcon Estate offers panoramic mountain and valley views in a private setting. This spacious mountain home combines luxury with comfort.",
-            features: [
-              "Private Hot Tub",
-              "Panoramic Views",
+              "Outdoor Firepit",
               "Home Theater",
               "Wine Cellar",
-              "Large Deck",
               "Gourmet Kitchen",
-              "Wood-Burning Fireplace",
               "Designer Furnishings",
+              "Multiple Fireplaces",
             ],
             highlights: [
-              "Panoramic Valley Views",
-              "Prestigious Blueberry Location",
-              "Home Theater Room",
-              "Private Setting",
+              "Exclusive Kadenwood Estate",
+              "Direct Slope Access",
+              "Luxury Design & Finishes",
+              "Panoramic Mountain Views",
             ],
-            priceRange: "$1,500-$3,500",
-          },
-          {
-            id: "heron-views-whistler-village",
-            name: "Heron Views | Whistler Village | Walk to Lifts",
-            images: [
-              "/photos/properties/3445-Heron-Place/19-3445 Heron Place 19.jpg",
-              "/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg",
-              "/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg",
-            ],
-            guests: 8,
-            bedrooms: 3,
-            bathrooms: 3,
-            location: "Whistler Village, Whistler",
-            description:
-              "Located in the heart of Whistler Village, this beautifully updated condo offers unparalleled convenience with stunning mountain views. Just steps away from the lifts, restaurants, and village attractions.",
-            features: [
-              "Village Central Location",
-              "Mountain Views",
-              "Walk to Lifts",
-              "Balcony",
-              "Gas Fireplace",
-              "Updated Kitchen",
-              "Secure Underground Parking",
-              "Shared Hot Tub",
-            ],
-            highlights: [
-              "Walk to Whistler & Blackcomb Lifts",
-              "Heart of Whistler Village",
-              "Mountain Views",
-              "Recently Renovated",
-            ],
-            priceRange: "$650-$1,500",
-          },
-          {
-            id: "luxe-cozy-3-bed-whistler-village",
-            name: "Luxe & Cozy | 3 Bed | Whistler Village",
-            images: [
-              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
-              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
-              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
-            ],
-            guests: 6,
-            bedrooms: 3,
-            bathrooms: 2,
-            location: "Whistler Village, Whistler",
-            description:
-              "This stylish and recently renovated 3-bedroom condo in Whistler Village combines convenient location with modern comfort. Tastefully decorated with a cozy mountain aesthetic and just minutes from the gondolas.",
-            features: [
-              "Recently Renovated",
-              "Modern Design",
-              "Village Location",
-              "Walk to Lifts",
-              "Gas Fireplace",
-              "Designer Furnishings",
-              "Open Concept Living",
-              "Mountain Views",
-            ],
-            highlights: [
-              "Stylish Modern Interior",
-              "Steps to Village Restaurants",
-              "5-Minute Walk to Gondolas",
-              "Fully Equipped Kitchen",
-            ],
-            priceRange: "$450-$1,100",
-          },
-          {
-            id: "marquise-2-bed-ski-in-ski-out",
-            name: "Marquise | 2 Bed | Ski-in/Ski-out",
-            images: [
-              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
-              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
-              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
-            ],
-            guests: 6,
-            bedrooms: 2,
-            bathrooms: 2,
-            location: "Blackcomb Base, Whistler",
-            description:
-              "Enjoy true ski-in/ski-out convenience at this welcoming 2-bedroom condo in the desirable Marquise complex at Blackcomb Base. Features a private balcony, gas fireplace, and access to shared pool and hot tub.",
-            features: [
-              "Ski-in/Ski-out Access",
-              "Shared Pool & Hot Tub",
-              "Private Balcony",
-              "Gas Fireplace",
-              "Fully Equipped Kitchen",
-              "Mountain Views",
-              "Secure Underground Parking",
-              "Ideal Blackcomb Location",
-            ],
-            highlights: [
-              "True Ski-in/Ski-out",
-              "Pool & Hot Tub",
-              "Easy Access to Blackcomb Base",
-              "Cozy Mountain Retreat",
-            ],
-            priceRange: "$350-$900",
-          },
-          {
-            id: "nordic-escape",
-            name: "Nordic Escape | Family Friendly | Hot Tub",
-            images: [
-              "/photos/properties/Scandinave Retreat/hero00001.jpg",
-              "/photos/properties/Scandinave Retreat/hero00001.jpg",
-              "/photos/properties/Scandinave Retreat/hero00001.jpg",
-              "/photos/properties/Scandinave Retreat/hero00001.jpg",
-            ],
-            guests: 10,
-            bedrooms: 4,
-            bathrooms: 3,
-            location: "Nordic Estates, Whistler",
-            description:
-              "Located in the desirable Nordic Estates neighborhood, this spacious family-friendly home offers mountain views, a private hot tub, and easy access to Whistler's trails and amenities. Perfect for larger families or groups looking for comfort and convenience.",
-            features: [
-              "Private Hot Tub",
-              "Family Room with Fireplace",
-              "Fully Equipped Kitchen",
-              "Spacious Deck",
-              "Mountain Views",
-              "5-minute Drive to Whistler Village",
-              "Free Parking",
-              "High-Speed WiFi",
-            ],
-            highlights: [
-              "Family Friendly Layout",
-              "Private Hot Tub",
-              "Close to Valley Trail",
-              "Mountain Views",
-            ],
-            priceRange: "$800-$2,500",
+            priceRange: "$2,600-$6,000",
           },
           {
             id: "panoramic-estate-kadenwood",
-            name: "Panoramic Estate | Kadenwood | Luxury",
+            name: "Panoramic Estate | Kadenwood",
             images: [
               "/photos/properties/Panoramic Estate/Panoramic Estate.jpg",
               "/photos/properties/Panoramic Estate/Panoramic Estate.jpg",
               "/photos/properties/Panoramic Estate/Panoramic Estate.jpg",
             ],
-            guests: 14,
-            bedrooms: 6,
-            bathrooms: 6.5,
+            guests: 17,
+            bedrooms: 8,
+            bathrooms: 7,
             location: "Kadenwood, Whistler",
             description:
               "This stunning mountain estate in exclusive Kadenwood offers unparalleled luxury and breathtaking panoramic views. With over 6,500 sq. ft. of living space, this architectural masterpiece features high-end finishes and amenities throughout.",
@@ -389,17 +260,49 @@ export default function Properties() {
               "Ski-in/Ski-out Access",
               "Ultimate Luxury Experience",
             ],
-            priceRange: "$5,000-$12,000+",
+            priceRange: "$5,800-$9,000+",
+          },
+          {
+            id: "heron-views-whistler-village",
+            name: "Heron Views | Whistler Village",
+            images: [
+              "/photos/properties/3445-Heron-Place/36-3445 Heron Place 36.jpg",
+              "/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg",
+              "/photos/properties/3445-Heron-Place/01-3445 Heron Place 01.jpg",
+            ],
+            guests: 11,
+            bedrooms: 5,
+            bathrooms: 6,
+            location: "Whistler Village, Whistler",
+            description:
+              "Located in the heart of Whistler Village, this beautifully updated condo offers unparalleled convenience with stunning mountain views. Just steps away from the lifts, restaurants, and village attractions.",
+            features: [
+              "Village Central Location",
+              "Mountain Views",
+              "Walk to Lifts",
+              "Balcony",
+              "Gas Fireplace",
+              "Updated Kitchen",
+              "Secure Underground Parking",
+              "Shared Hot Tub",
+            ],
+            highlights: [
+              "Walk to Whistler & Blackcomb Lifts",
+              "Heart of Whistler Village",
+              "Mountain Views",
+              "Recently Renovated",
+            ],
+            priceRange: "$1,200-$3,500",
           },
           {
             id: "ravens-nest-ski-in-ski-out-views",
-            name: "Raven's Nest | Ski-in/Ski-out | Views",
+            name: "Raven's Nest | Ski in Ski out | Views",
             images: [
-              "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05566.jpg",
+              "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05349.jpg",
               "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05566.jpg",
               "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05566.jpg",
             ],
-            guests: 8,
+            guests: 6,
             bedrooms: 3,
             bathrooms: 3,
             location: "Creekside, Whistler",
@@ -421,77 +324,45 @@ export default function Properties() {
               "Private Hot Tub",
               "Creekside Convenience",
             ],
-            priceRange: "$750-$1,800",
+            priceRange: "$2,000-$3,500",
           },
           {
-            id: "slopeside-villa-kadenwood",
-            name: "Slopeside Villa | Kadenwood | Luxury",
+            id: "falcon-blueberry-drive",
+            name: "Falcon | Blueberry Drive",
             images: [
-              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
-              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
-              "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
+              "/photos/properties/Falcon/15-3595 Falcon Cres-15.jpg",
+              "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
+              "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
             ],
-            guests: 12,
-            bedrooms: 5,
-            bathrooms: 5.5,
-            location: "Kadenwood, Whistler",
+            guests: 15,
+            bedrooms: 7,
+            bathrooms: 3.5,
+            location: "Blueberry Hill, Whistler",
             description:
-              "Experience the height of alpine luxury in this magnificent Kadenwood estate. With direct ski-in/ski-out access and spectacular mountain views, this residence combines exceptional design with premium comfort.",
+              "Perched on Whistler's prestigious Blueberry Hill, Falcon Estate offers panoramic mountain and valley views in a private setting. This spacious mountain home combines luxury with comfort.",
             features: [
-              "Direct Ski-in/Ski-out Access",
               "Private Hot Tub",
-              "Outdoor Firepit",
+              "Panoramic Views",
               "Home Theater",
               "Wine Cellar",
-              "Gourmet Kitchen",
-              "Designer Furnishings",
-              "Multiple Fireplaces",
-            ],
-            highlights: [
-              "Exclusive Kadenwood Estate",
-              "Direct Slope Access",
-              "Luxury Design & Finishes",
-              "Panoramic Mountain Views",
-            ],
-            priceRange: "$4,000-$9,000+",
-          },
-          {
-            id: "snow-pine",
-            name: "Snow Pine | Alpine Elegance | Hot Tub",
-            images: [
-              "/photos/properties/Snowpine 3-bed Saul/01-2040 Karen Cres-01.jpg",
-              "/photos/properties/Snowpine 3-bed Saul/01-2040 Karen Cres-01.jpg",
-              "/photos/properties/Snowpine 3-bed Saul/01-2040 Karen Cres-01.jpg",
-            ],
-            guests: 8,
-            bedrooms: 4,
-            bathrooms: 3.5,
-            location: "White Gold, Whistler",
-            description:
-              "This elegant alpine retreat in Whistler's White Gold neighborhood combines luxury with convenience. Just a short walk to the Village and lifts, this beautiful mountain home features high ceilings, a gourmet kitchen, and a private hot tub.",
-            features: [
-              "Private Hot Tub",
-              "Gourmet Kitchen",
-              "High Ceilings",
-              "Wood-Burning Fireplace",
               "Large Deck",
-              "Walk to Village & Lifts",
-              "Mountain Views",
-              "Heated Floors",
+              "Gourmet Kitchen",
+              "Wood-Burning Fireplace",
+              "Designer Furnishings",
             ],
             highlights: [
-              "10-Minute Walk to Village",
-              "Private Hot Tub",
-              "Spacious Mountain Home",
-              "Quiet Neighborhood",
+              "Panoramic Valley Views",
+              "Prestigious Blueberry Location",
+              "Home Theater Room",
+              "Private Setting",
             ],
-            priceRange: "$800-$2,000",
+            priceRange: "$1,300-$3,500",
           },
           {
             id: "the-nest-ski-in-ski-out",
-            name: "The Nest | Ski-in/Ski-out | Luxury Views",
+            name: "The Nest | Ski in Ski out",
             images: [
-              "/photos/properties/Wolverine Crescent/01-2627 Wolverine-01.jpg",
+              "/photos/properties/Wolverine Crescent/06-2627 Wolverine-06.jpg",
               "/photos/properties/Wolverine Crescent/01-2627 Wolverine-01.jpg",
               "/photos/properties/Wolverine Crescent/01-2627 Wolverine-01.jpg",
             ],
@@ -517,51 +388,51 @@ export default function Properties() {
               "Private Hot Tub",
               "Blackcomb Base Location",
             ],
-            priceRange: "$900-$2,200",
+            priceRange: "$1,800-$4,000+",
           },
           {
-            id: "two-cedars-kadenwood",
-            name: "Two Cedars | Kadenwood | Hot Tub & Views",
+            id: "snow-pine",
+            name: "Snowpine | Creekside",
             images: [
-              "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
-              "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
-              "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
+              "/photos/properties/Snowpine 3-bed Saul/02-2040 Karen Cres-02.jpg",
+              "/photos/properties/Snowpine 3-bed Saul/02-2040 Karen Cres-02.jpg",
+              "/photos/properties/Snowpine 3-bed Saul/02-2040 Karen Cres-02.jpg",
             ],
-            guests: 10,
-            bedrooms: 4,
-            bathrooms: 4.5,
-            location: "Kadenwood, Whistler",
+            guests: 6,
+            bedrooms: 3,
+            bathrooms: 3.5,
+            location: "White Gold, Whistler",
             description:
-              "Set in exclusive Kadenwood, Two Cedars offers ski-in/ski-out access and breathtaking panoramic views. This premium mountain home features elegant design, a private hot tub, and luxury amenities throughout.",
+              "This elegant alpine retreat in Whistler's White Gold neighborhood combines luxury with convenience. Just a short walk to the Village and lifts, this beautiful mountain home features high ceilings, a gourmet kitchen, and a private hot tub.",
             features: [
-              "Ski-in/Ski-out Access",
               "Private Hot Tub",
-              "Panoramic Views",
               "Gourmet Kitchen",
-              "Multiple Fireplaces",
+              "High Ceilings",
+              "Wood-Burning Fireplace",
               "Large Deck",
-              "Media Room",
+              "Walk to Village & Lifts",
+              "Mountain Views",
               "Heated Floors",
             ],
             highlights: [
-              "Exclusive Kadenwood Location",
-              "Panoramic Mountain Views",
+              "10-Minute Walk to Village",
               "Private Hot Tub",
-              "Ski-in/Ski-out Access",
+              "Spacious Mountain Home",
+              "Quiet Neighborhood",
             ],
-            priceRange: "$3,000-$7,000+",
+            priceRange: "Monthly Pricing: $10,000-$12,000",
           },
           {
             id: "wedge-mountain-lodge-spa",
-            name: "Wedge Mountain Lodge & Spa | Private Chef",
+            name: "Wedge Mountain Lodge & Spa",
             images: [
               "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
               "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
               "/photos/properties/Wedge Mountain Lodge Spa/Wedge Mountain Lodge & Spa - Exterior 1.jpg",
             ],
-            guests: 16,
-            bedrooms: 6,
-            bathrooms: 7,
+            guests: 26,
+            bedrooms: 10,
+            bathrooms: 13,
             location: "Stonebridge, Whistler",
             description:
               "This spectacular mountain lodge in exclusive Stonebridge offers the ultimate in luxury and privacy. With 8,500 sq. ft. of living space, it features a private spa, home theater, and the option for private chef service.",
@@ -581,19 +452,115 @@ export default function Properties() {
               "Heated Outdoor Pool",
               "Ultimate Luxury Experience",
             ],
-            priceRange: "$6,000-$15,000+",
+            priceRange: "$8,000-$11,500+ per night",
+          },
+          {
+            id: "luxe-cozy-3-bed-whistler-village",
+            name: "Luxe Cozy 3-Bed Whistler Village",
+            images: [
+              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/02-1 4668 Blackcomb Way 02-Edit.jpg",
+              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
+              "/photos/properties/Cozy Luxe 3-Bed in Whistler Village/01-1 4668 Blackcomb Way 01-Edit.jpg",
+            ],
+            guests: 8,
+            bedrooms: 3,
+            bathrooms: 3,
+            location: "Whistler Village, Whistler",
+            description:
+              "This stylish and recently renovated 3-bedroom condo in Whistler Village combines convenient location with modern comfort. Tastefully decorated with a cozy mountain aesthetic and just minutes from the gondolas.",
+            features: [
+              "Recently Renovated",
+              "Modern Design",
+              "Village Location",
+              "Walk to Lifts",
+              "Gas Fireplace",
+              "Designer Furnishings",
+              "Open Concept Living",
+              "Mountain Views",
+            ],
+            highlights: [
+              "Stylish Modern Interior",
+              "Steps to Village Restaurants",
+              "5-Minute Walk to Gondolas",
+              "Fully Equipped Kitchen",
+            ],
+            priceRange: "$750-$2,200+",
+          },
+          {
+            id: "le-chamoix",
+            name: "Le Chamoix | Ski-in/Ski-out | 2 Bedroom",
+            images: [
+              "/photos/properties/default-property.jpg",
+              "/photos/properties/default-property.jpg",
+              "/photos/properties/default-property.jpg",
+            ],
+            guests: 4,
+            bedrooms: 2,
+            bathrooms: 2,
+            location: "Whistler Village, Whistler",
+            description:
+              "A comfortable and cozy ski-in/ski-out condo offering convenient access to the slopes and village. Features modern amenities and mountain views.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Village Location",
+              "Mountain Views",
+              "Modern Amenities",
+              "Fully Equipped Kitchen",
+              "Cozy Fireplace",
+              "Balcony",
+              "Shared Hot Tub Access",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Village Convenience",
+              "Cozy Mountain Retreat",
+              "Excellent Value",
+            ],
+            priceRange: "$350-$900",
+          },
+          {
+            id: "dream-log-chalet-5-bedroom-4-bath-creekside",
+            name: "Dream Log Chalet | 5-Bed | 4-Bath | Creekside",
+            images: [
+              "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00333.jpg",
+              "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00635.jpg",
+              "/photos/properties/Dream Log 5-bedroom Chalet/20240930 A7M3 01 A1_00620.jpg",
+            ],
+            guests: 11,
+            bedrooms: 5,
+            bathrooms: 4,
+            location: "Creekside, Whistler",
+            description:
+              "Authentic log cabin charm meets modern luxury in this beautiful 5-bedroom chalet in Whistler's Creekside area. Features vaulted ceilings, a stone fireplace, and convenient access to Creekside Village and lifts.",
+            features: [
+              "Authentic Log Construction",
+              "Stone Fireplace",
+              "Hot Tub",
+              "Chef's Kitchen",
+              "Large Deck",
+              "Close to Creekside Gondola",
+              "Vaulted Ceilings",
+              "Mountain Views",
+            ],
+            highlights: [
+              "Authentic Log Cabin Design",
+              "5 Minutes to Creekside Gondola",
+              "Family-Friendly Layout",
+              "Private Hot Tub",
+            ],
+            priceRange: "$1,450-$3,500+",
           },
           {
             id: "whispering-pines-ski-in-ski-out",
-            name: "Whispering Pines | Ski-in/Ski-out | Hot Tub",
+            name: "The Aspens | Luxe 2-Bed Ski in/Out | On Slopes",
             images: [
               "/photos/properties/The Aspens/4800-Spearhead-Drive-31.JPG",
               "/photos/properties/The Aspens/4800-Spearhead-Drive-31.JPG",
               "/photos/properties/The Aspens/4800-Spearhead-Drive-31.JPG",
             ],
-            guests: 10,
-            bedrooms: 4,
-            bathrooms: 4,
+            guests: 4,
+            bedrooms: 2,
+            bathrooms: 2,
             location: "Horstman Estates, Whistler",
             description:
               "Located in prestigious Horstman Estates on Blackcomb Mountain, this luxury ski-in/ski-out chalet offers direct access to the slopes and stunning views. Features include a private hot tub, vaulted ceilings, and elegant alpine design.",
@@ -613,7 +580,39 @@ export default function Properties() {
               "Private Hot Tub",
               "Luxury Alpine Design",
             ],
-            priceRange: "$1,200-$3,000",
+            priceRange: "Nightly Price Range: $350-$1,300",
+          },
+          {
+            id: "marquise-2-bed-ski-in-ski-out",
+            name: "Marquise | 2 Bed | Ski-in/Ski-out",
+            images: [
+              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
+              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
+              "/photos/properties/Marquise 2-bed/Marquise-1.jpg",
+            ],
+            guests: 4,
+            bedrooms: 1,
+            bathrooms: 1,
+            location: "Blackcomb Base, Whistler",
+            description:
+              "Enjoy true ski-in/ski-out convenience at this welcoming 2-bedroom condo in the desirable Marquise complex at Blackcomb Base. Features a private balcony, gas fireplace, and access to shared pool and hot tub.",
+            features: [
+              "Ski-in/Ski-out Access",
+              "Shared Pool & Hot Tub",
+              "Private Balcony",
+              "Gas Fireplace",
+              "Fully Equipped Kitchen",
+              "Mountain Views",
+              "Secure Underground Parking",
+              "Ideal Blackcomb Location",
+            ],
+            highlights: [
+              "True Ski-in/Ski-out",
+              "Pool & Hot Tub",
+              "Easy Access to Blackcomb Base",
+              "Cozy Mountain Retreat",
+            ],
+            priceRange: "Nightly Price Range: $160-450",
           },
         ],
       },
@@ -761,42 +760,8 @@ export default function Properties() {
             ],
             priceRange: "$3,000-$7,000",
           },
-          {
-            id: "french-riviera-villa",
-            name: "French Riviera Villa | Private Pool | Sea View",
-            images: [
-              "/photos/properties/worldwide/1.jpg",
-              "/photos/properties/worldwide/2.jpg",
-              "/photos/properties/worldwide/3.jpg",
-              "/photos/properties/worldwide/4.jpg",
-            ],
-            guests: 12,
-            bedrooms: 6,
-            bathrooms: 6,
-            location: "Saint-Jean-Cap-Ferrat, French Riviera",
-            description:
-              "Exquisite Mediterranean villa nestled on the prestigious Cap Ferrat peninsula with breathtaking sea views, lush gardens, and a private infinity pool. This luxurious property offers the ultimate Côte d'Azur experience.",
-            features: [
-              "Panoramic Mediterranean Views",
-              "Private Infinity Pool",
-              "Landscaped Gardens",
-              "Outdoor Dining Area",
-              "Wine Cellar",
-              "Home Cinema",
-              "Private Beach Access",
-              "Full Staff Available",
-            ],
-            highlights: [
-              "Prestigious Location",
-              "Mediterranean Sea Views",
-              "Private Infinity Pool",
-              "Full Staff Service Available",
-            ],
-            priceRange: "$2,400-$5,600",
-          },
         ],
       },
-      // Keep other property categories
     ],
     []
   );
@@ -1156,111 +1121,7 @@ export default function Properties() {
                   available
                 </p>
               </div>
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center justify-center sm:justify-start space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 w-full sm:w-auto"
-              >
-                <Filter size={18} />
-                <span>Filter Properties</span>
-              </button>
             </div>
-
-            {/* Filter Sidebar */}
-            {showFilters && (
-              <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-8 shadow-sm">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-lg font-medium">Filter Properties</h3>
-                  <button
-                    onClick={() => setShowFilters(false)}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                  {/* Bedrooms Filter */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Bedrooms
-                    </label>
-                    <div className="grid grid-cols-5 gap-2">
-                      {[1, 2, 3, 4, "5+"].map((num, index) => (
-                        <button
-                          key={index}
-                          className={`py-2 px-3 sm:px-4 border rounded-md text-sm ${
-                            filters.minBedrooms ===
-                            (index === 4 ? 5 : Number(num))
-                              ? "bg-black text-white border-black"
-                              : "bg-white border-gray-300 hover:border-gray-400"
-                          }`}
-                          onClick={() =>
-                            setFilters({
-                              ...filters,
-                              minBedrooms: index === 4 ? 5 : Number(num),
-                            })
-                          }
-                        >
-                          {num}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Guests Filter */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Guests
-                    </label>
-                    <div className="grid grid-cols-5 gap-2">
-                      {[2, 4, 6, 10, "12+"].map((num, index) => (
-                        <button
-                          key={index}
-                          className={`py-2 px-4 border rounded-md ${
-                            filters.minGuests ===
-                            (index === 4 ? 12 : Number(num))
-                              ? "bg-black text-white border-black"
-                              : "bg-white border-gray-300 hover:border-gray-400"
-                          }`}
-                          onClick={() =>
-                            setFilters({
-                              ...filters,
-                              minGuests: index === 4 ? 12 : Number(num),
-                            })
-                          }
-                        >
-                          {num}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Amenities Filter */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Amenities
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {commonAmenities.map((amenity) => (
-                        <button
-                          key={amenity}
-                          className={`py-2 px-4 border rounded-md text-left flex items-center ${
-                            filters.amenities.includes(amenity)
-                              ? "bg-black text-white border-black"
-                              : "bg-white border-gray-300 hover:border-gray-400"
-                          }`}
-                          onClick={() => toggleAmenityFilter(amenity)}
-                        >
-                          {filters.amenities.includes(amenity) ? (
-                            <CheckCircle className="mr-2 h-4 w-4" />
-                          ) : null}
-                          {amenity}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
 
             {/* Property Listings */}
             <div className="w-full">
