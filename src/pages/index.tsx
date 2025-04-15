@@ -465,6 +465,22 @@ const Home = () => {
         "https://www.airbnb.ca/rooms/763259660349118016?guests=1&adults=1&s=67&unique_share_id=d18218f6-da74-4763-a199-d5a1dc8c85ff",
       isPetFriendly: true,
     },
+    {
+      id: "ski-in-ski-out-walk-to-lifts-2-bed",
+      name: "Le Chamois 2 Bed | Walk to Lifts",
+      image:
+        "/photos/properties/ski-in-ski-out-walk-to-lifts-2-bed/Le chamois.jpg",
+      guests: 4,
+      bedrooms: 2,
+      beds: 2,
+      bathrooms: 2,
+      priceRange: "Nightly Price Range: $350-$1,050",
+      winterPrice: "",
+      holidayPrice: "",
+      location: "whistler",
+      link: "/listings/ski-in-ski-out-walk-to-lifts-2-bed",
+      airbnbLink: "https://www.airbnb.com",
+    },
     // Worldwide Properties
     {
       id: "yacht-thailand",
@@ -903,151 +919,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-white border-t border-gray-100 py-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between mb-16">
-              <div className="mb-8 md:mb-0">
-                <Link href="/" className="flex items-center mb-6">
-                  <span className="text-4xl font-bold">AceHost</span>
-                </Link>
-                <p className="text-gray-600 max-w-xs mb-6">
-                  AceHost is a leading Whistler luxury property management
-                  company offering magnificent vacation rental homes in
-                  Whistler, British Columbia.
-                </p>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://www.instagram.com/acehost_whistler/"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <Instagram size={24} />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@acehost_Whistler/videos"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <Youtube size={24} />
-                  </a>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <h3 className="text-gray-900 font-medium mb-4">Properties</h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/concierge"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Concierge Services
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/properties"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Luxury Properties
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/management"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Property Management
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-gray-900 font-medium mb-4">Resources</h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/blogs"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/faq"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        FAQ&apos;s
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/about"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Our Story
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/contact"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-gray-900 font-medium mb-4">Social</h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="https://www.instagram.com/acehost_whistler/"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Instagram
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/@acehost_Whistler/videos"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                      >
-                        Youtube
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-100 pt-8">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                  © 2021 AceHost Whistler. All rights reserved.
-                </p>
-                <div className="flex space-x-6">
-                  <Link
-                    href="/privacy"
-                    className="text-gray-500 text-sm hover:text-gray-700"
-                  >
-                    Privacy Policy
-                  </Link>
-                  <Link
-                    href="/terms"
-                    className="text-gray-500 text-sm hover:text-gray-700"
-                  >
-                    Terms of Service
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
