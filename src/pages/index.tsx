@@ -229,7 +229,7 @@ const Home = () => {
     {
       id: "heron-views",
       name: "Heron Views | Whistler Village",
-      image: "/photos/properties/3445-Heron-Place/19-3445 Heron Place 19.jpg",
+      image: "/photos/properties/3445-Heron-Place/36-3445 Heron Place 36.jpg",
       guests: 11,
       bedrooms: 5,
       beds: 6,
@@ -244,7 +244,7 @@ const Home = () => {
       id: "ravens-nest",
       name: "Raven's Nest | Ski in Ski out | Views",
       image:
-        "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05566.jpg",
+        "/photos/properties/Raven_s Nest 3-Bedroom/20241125 A7M3 01 A1_05349.jpg",
       guests: 6,
       bedrooms: 3,
       beds: 3,
@@ -258,7 +258,7 @@ const Home = () => {
     {
       id: "falcon-blueberry",
       name: "Falcon | Blueberry Drive",
-      image: "/photos/properties/Falcon/01-3595 Falcon Cres-01.jpg",
+      image: "/photos/properties/Falcon/15-3595 Falcon Cres-15.jpg",
       guests: 15,
       bedrooms: 7,
       beds: 13,
@@ -583,8 +583,8 @@ const Home = () => {
         {/* Hero Section */}
         <section className="relative py-16 bg-white">
           <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="md:w-1/2 lg:w-1/2 pr-8">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <div className="md:w-1/3 lg:w-1/3 pr-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                 Luxury Vacation
                 <br />
                 Rental Properties in
@@ -596,7 +596,7 @@ const Home = () => {
                 <br />
                 Concierge Services
               </h1>
-              <p className="text-lg text-gray-700 mb-10 max-w-xl">
+              <p className="text-base text-gray-700 mb-8 max-w-xl">
                 AceHost is a leading Whistler luxury property management
                 company. We proudly offer an array of magnificent vacation
                 rental homes in Whistler, British Columbia. Offering a seamless
@@ -613,7 +613,7 @@ const Home = () => {
                 View Luxury Rental Properties
               </Link>
             </div>
-            <div className="mt-10 md:mt-0 md:w-1/2 lg:w-1/2">
+            <div className="mt-10 md:mt-0 md:w-2/3 lg:w-2/3">
               <div className="relative aspect-video w-full h-full overflow-hidden rounded-lg">
                 <iframe
                   src="https://player.vimeo.com/video/1053582724?title=0&byline=0&portrait=0"
