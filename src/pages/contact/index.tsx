@@ -49,6 +49,10 @@ const Contact = () => {
     email: "",
     phone: "",
     message: "",
+    inquiryType: "",
+    dates: "",
+    propertyInterest: "",
+    guests: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -89,6 +93,10 @@ const Contact = () => {
         email: "",
         phone: "",
         message: "",
+        inquiryType: "",
+        dates: "",
+        propertyInterest: "",
+        guests: "",
       });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -306,7 +314,7 @@ const Contact = () => {
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
@@ -314,6 +322,89 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="inquiryType"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    What are you inquiring about? *
+                  </label>
+                  <select
+                    id="inquiryType"
+                    name="inquiryType"
+                    value={formData.inquiryType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  >
+                    <option value="">Please select</option>
+                    <option value="Property Rental">Property Rental</option>
+                    <option value="Property Management">
+                      Property Management
+                    </option>
+                    <option value="VIP Concierge Services">
+                      VIP Concierge Services
+                    </option>
+                    <option value="Corporate Retreat">Corporate Retreat</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="dates"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    What dates are you interested in?
+                  </label>
+                  <input
+                    type="text"
+                    id="dates"
+                    name="dates"
+                    value={formData.dates}
+                    onChange={handleChange}
+                    placeholder="e.g., Dec 20, 2024 - Jan 3, 2025"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="guests"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Number of Guests
+                  </label>
+                  <input
+                    type="text"
+                    id="guests"
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleChange}
+                    placeholder="e.g., 4 adults, 2 children"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="propertyInterest"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Which property are you interested in?
+                  </label>
+                  <input
+                    type="text"
+                    id="propertyInterest"
+                    name="propertyInterest"
+                    value={formData.propertyInterest}
+                    onChange={handleChange}
+                    placeholder="e.g., Altitude Retreat, or any 4-bedroom property"
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   />
                 </div>
@@ -323,7 +414,7 @@ const Contact = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Message *
+                    Additional Information *
                   </label>
                   <textarea
                     id="message"
@@ -333,7 +424,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                    placeholder="How can we help you?"
+                    placeholder="Please provide any additional details about your inquiry. For property management inquiries, please include your property address and details."
                   ></textarea>
                 </div>
 

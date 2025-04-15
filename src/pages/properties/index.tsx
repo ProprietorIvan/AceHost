@@ -51,8 +51,7 @@ export default function Properties() {
   const { t } = useTranslation("common");
   const router = useRouter();
   const { category: queryCategoryId } = router.query;
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string>("whistler");
   const [filters, setFilters] = useState({
     minBedrooms: 0,
     maxBedrooms: 20,
@@ -804,84 +803,46 @@ export default function Properties() {
 
   // Update active category based on URL query parameter
   useEffect(() => {
-    if (queryCategoryId) {
-      const categoryId = Array.isArray(queryCategoryId)
-        ? queryCategoryId[0]
-        : queryCategoryId;
-      setActiveCategory(categoryId);
+    // Set category from query parameter if available, otherwise default to "whistler"
+    if (queryCategoryId && typeof queryCategoryId === "string") {
+      setActiveCategory(queryCategoryId);
     } else {
-      setActiveCategory("all");
+      setActiveCategory("whistler");
     }
   }, [queryCategoryId]);
 
-  // Filter properties based on activeCategory and search filters
-  const filteredCategories = useMemo(() => {
-    let results = [...propertyCategories];
+  // Filter properties based on active filter
+  const filteredListings =
+    activeCategory === "all"
+      ? propertyCategories
+      : propertyCategories.filter((category) => category.id === activeCategory);
 
-    // Filter by category
-    if (activeCategory !== "all") {
-      results = results.filter((category) => category.id === activeCategory);
-    }
+  // Apply all filters (except search which is removed)
+  const displayProperties = filteredListings.map((category) => {
+    const filteredProperties = category.properties.filter((property) => {
+      const bedroomsMatch =
+        property.bedrooms >= filters.minBedrooms &&
+        property.bedrooms <= filters.maxBedrooms;
+      const guestsMatch =
+        property.guests >= filters.minGuests &&
+        property.guests <= filters.maxGuests;
+      const amenitiesMatch =
+        filters.amenities.length === 0 ||
+        filters.amenities.every((amenity) =>
+          property.features.some((feature) =>
+            feature.toLowerCase().includes(amenity.toLowerCase())
+          )
+        );
 
-    // Apply search term and other filters to properties within categories
-    results = results.map((category) => {
-      const filteredProperties = category.properties.filter((property) => {
-        // Apply search term
-        if (
-          searchTerm &&
-          !property.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-          !property.location.toLowerCase().includes(searchTerm.toLowerCase()) &&
-          !property.description.toLowerCase().includes(searchTerm.toLowerCase())
-        ) {
-          return false;
-        }
-
-        // Apply bedroom filter
-        if (
-          property.bedrooms < filters.minBedrooms ||
-          property.bedrooms > filters.maxBedrooms
-        ) {
-          return false;
-        }
-
-        // Apply guest filter
-        if (
-          property.guests < filters.minGuests ||
-          property.guests > filters.maxGuests
-        ) {
-          return false;
-        }
-
-        // Apply amenity filters if any are selected
-        if (filters.amenities.length > 0) {
-          const propertyFeatures = property.features.map((f) =>
-            f.toLowerCase()
-          );
-          const hasAllAmenities = filters.amenities.every((amenity) =>
-            propertyFeatures.some((feature) =>
-              feature.includes(amenity.toLowerCase())
-            )
-          );
-          if (!hasAllAmenities) {
-            return false;
-          }
-        }
-
-        return true;
-      });
-
-      return { ...category, properties: filteredProperties };
+      return bedroomsMatch && guestsMatch && amenitiesMatch;
     });
 
-    // Remove empty categories
-    results = results.filter((category) => category.properties.length > 0);
-
-    return results;
-  }, [propertyCategories, activeCategory, searchTerm, filters]);
+    return { ...category, properties: filteredProperties };
+  });
 
   // Populate structured data with filtered properties for SEO
   useEffect(() => {
-    const allProperties = filteredCategories.flatMap(
+    const allProperties = displayProperties.flatMap(
       (category) => category.properties
     );
 
@@ -906,7 +867,7 @@ export default function Properties() {
         },
       },
     }));
-  }, [filteredCategories, structuredData]);
+  }, [displayProperties, structuredData]);
 
   // Add/remove amenity filter
   const toggleAmenityFilter = (amenity: string) => {
@@ -931,7 +892,6 @@ export default function Properties() {
       maxGuests: 50,
       amenities: [],
     });
-    setSearchTerm("");
   };
 
   // Common amenities for filter options
@@ -1050,240 +1010,209 @@ export default function Properties() {
   return (
     <>
       <Head>
-        <title>Luxury Vacation Properties | AceHost Whistler</title>
+        <title>Luxury Vacation Rental Properties | AceHost Whistler</title>
         <meta
           name="description"
-          content="Explore our exclusive collection of luxury vacation rental properties in Whistler, Vancouver, and worldwide destinations. Find your perfect getaway with AceHost."
+          content="Browse our exclusive collection of luxury vacation rental properties in Whistler. From ski-in/ski-out chalets to village condos, find your perfect mountain getaway."
         />
-        <meta
-          name="keywords"
-          content="luxury vacation rentals, Whistler chalets, Vancouver properties, ski-in ski-out, luxury accommodations"
-        />
-        <meta
-          property="og:title"
-          content="Luxury Vacation Properties | AceHost Whistler"
-        />
-        <meta
-          property="og:description"
-          content="Explore our exclusive collection of luxury vacation rental properties in Whistler, Vancouver, and worldwide destinations."
-        />
-        <meta
-          property="og:image"
-          content="https://acehost.ca/photos/homepage/hero.jpg"
-        />
-        <meta property="og:url" content="https://acehost.ca/properties" />
-        <link rel="canonical" href="https://acehost.ca/properties" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </Head>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen">
         <Navigation transparent={false} />
 
         {/* Hero Section */}
-        <section className="relative py-16 bg-gray-900 text-white">
-          <div className="absolute inset-0">
-            <img
-              src="/photos/homepage/1.jpg"
-              alt="Luxury Properties"
-              className="object-cover opacity-30 w-full h-full"
-            />
-          </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Discover Your Perfect Luxury Retreat
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                Luxury Vacation Rental Properties
               </h1>
-              <p className="text-xl text-gray-200 mb-8">
-                Explore our curated collection of extraordinary vacation
-                properties in Whistler, Vancouver, and exclusive global
-                destinations.
+              <p className="text-lg text-gray-600 mb-8">
+                Browse our exclusive collection of luxury vacation rental
+                properties in Whistler. From ski-in/ski-out chalets to village
+                condos, find your perfect mountain getaway.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="relative flex-1">
-                  <input
-                    type="text"
-                    placeholder="Search properties..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-5 py-4 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-black"
-                  />
-                  <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                </div>
+              <div className="flex flex-wrap justify-center gap-2">
                 <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="px-6 py-4 bg-white text-gray-900 rounded-md hover:bg-gray-100 transition-colors flex items-center justify-center"
-                >
-                  <Filter className="mr-2" />
-                  Filters
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Category Tabs */}
-        <section className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex overflow-x-auto py-4 -mb-px space-x-8 scrollbar-hide">
-              <button
-                className={`whitespace-nowrap px-1 py-4 border-b-2 font-medium text-sm ${
-                  activeCategory === "all"
-                    ? "border-black text-black"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                }`}
-                onClick={() => {
-                  setActiveCategory("all");
-                  router.push("/properties", undefined, { shallow: true });
-                }}
-              >
-                All Properties
-              </button>
-              {propertyCategories.map((category) => (
-                <button
-                  key={category.id}
-                  className={`whitespace-nowrap px-1 py-4 border-b-2 font-medium text-sm ${
-                    activeCategory === category.id
-                      ? "border-black text-black"
-                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  onClick={() => setActiveCategory("all")}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === "all"
+                      ? "bg-black text-white"
+                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                   }`}
-                  onClick={() => {
-                    setActiveCategory(category.id);
-                    router.push(
-                      `/properties?category=${category.id}`,
-                      undefined,
-                      { shallow: true }
-                    );
-                  }}
                 >
-                  {category.title}
+                  All Properties
                 </button>
-              ))}
+                <button
+                  onClick={() => setActiveCategory("whistler")}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === "whistler"
+                      ? "bg-black text-white"
+                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  }`}
+                >
+                  Whistler
+                </button>
+                <button
+                  onClick={() => setActiveCategory("vancouver")}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === "vancouver"
+                      ? "bg-black text-white"
+                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  }`}
+                >
+                  Vancouver
+                </button>
+                <button
+                  onClick={() => setActiveCategory("worldwide")}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === "worldwide"
+                      ? "bg-black text-white"
+                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  }`}
+                >
+                  Worldwide
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Filter Panel */}
-        {showFilters && (
-          <section className="bg-gray-50 py-6 border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-medium">Refine Your Search</h3>
-                <button
-                  onClick={resetFilters}
-                  className="text-sm text-gray-600 hover:text-black underline"
-                >
-                  Reset All Filters
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Bedrooms Filter */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Bedrooms
-                  </label>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[1, 2, 3, 4, "5+"].map((num, index) => (
-                      <button
-                        key={index}
-                        className={`py-2 px-4 border rounded-md ${
-                          filters.minBedrooms ===
-                          (index === 4 ? 5 : Number(num))
-                            ? "bg-black text-white border-black"
-                            : "bg-white border-gray-300 hover:border-gray-400"
-                        }`}
-                        onClick={() =>
-                          setFilters({
-                            ...filters,
-                            minBedrooms: index === 4 ? 5 : Number(num),
-                          })
-                        }
-                      >
-                        {num}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Guests Filter */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Guests
-                  </label>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[2, 4, 6, 10, "12+"].map((num, index) => (
-                      <button
-                        key={index}
-                        className={`py-2 px-4 border rounded-md ${
-                          filters.minGuests === (index === 4 ? 12 : Number(num))
-                            ? "bg-black text-white border-black"
-                            : "bg-white border-gray-300 hover:border-gray-400"
-                        }`}
-                        onClick={() =>
-                          setFilters({
-                            ...filters,
-                            minGuests: index === 4 ? 12 : Number(num),
-                          })
-                        }
-                      >
-                        {num}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Amenities Filter */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Amenities
-                  </label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {commonAmenities.map((amenity) => (
-                      <button
-                        key={amenity}
-                        className={`py-2 px-4 border rounded-md text-left flex items-center ${
-                          filters.amenities.includes(amenity)
-                            ? "bg-black text-white border-black"
-                            : "bg-white border-gray-300 hover:border-gray-400"
-                        }`}
-                        onClick={() => toggleAmenityFilter(amenity)}
-                      >
-                        {filters.amenities.includes(amenity) ? (
-                          <CheckCircle className="mr-2 h-4 w-4" />
-                        ) : null}
-                        {amenity}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Property Listings */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {filteredCategories.length === 0 ? (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-medium mb-4">
-                  No properties found
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  We couldn&apos;t find any properties matching your criteria.
+        {/* Filters and Properties Grid */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <h2 className="text-2xl font-semibold">
+                  {activeCategory === "all"
+                    ? "All Properties"
+                    : activeCategory === "whistler"
+                    ? "Whistler Properties"
+                    : activeCategory === "vancouver"
+                    ? "Vancouver Properties"
+                    : "Worldwide Properties"}
+                </h2>
+                <p className="text-gray-600 mt-1">
+                  {displayProperties.length}{" "}
+                  {displayProperties.length === 1 ? "property" : "properties"}{" "}
+                  available
                 </p>
-                <button
-                  onClick={resetFilters}
-                  className="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
-                >
-                  Reset Filters
-                </button>
               </div>
-            ) : (
-              filteredCategories.map((category) => (
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+              >
+                <Filter size={18} />
+                <span>Filter</span>
+              </button>
+            </div>
+
+            {/* Filter Sidebar */}
+            {showFilters && (
+              <div className="bg-gray-50 rounded-lg p-6 mb-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-lg font-medium">Filter Properties</h3>
+                  <button
+                    onClick={() => setShowFilters(false)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Bedrooms Filter */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Bedrooms
+                    </label>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[1, 2, 3, 4, "5+"].map((num, index) => (
+                        <button
+                          key={index}
+                          className={`py-2 px-4 border rounded-md ${
+                            filters.minBedrooms ===
+                            (index === 4 ? 5 : Number(num))
+                              ? "bg-black text-white border-black"
+                              : "bg-white border-gray-300 hover:border-gray-400"
+                          }`}
+                          onClick={() =>
+                            setFilters({
+                              ...filters,
+                              minBedrooms: index === 4 ? 5 : Number(num),
+                            })
+                          }
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Guests Filter */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Guests
+                    </label>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[2, 4, 6, 10, "12+"].map((num, index) => (
+                        <button
+                          key={index}
+                          className={`py-2 px-4 border rounded-md ${
+                            filters.minGuests ===
+                            (index === 4 ? 12 : Number(num))
+                              ? "bg-black text-white border-black"
+                              : "bg-white border-gray-300 hover:border-gray-400"
+                          }`}
+                          onClick={() =>
+                            setFilters({
+                              ...filters,
+                              minGuests: index === 4 ? 12 : Number(num),
+                            })
+                          }
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Amenities Filter */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Amenities
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {commonAmenities.map((amenity) => (
+                        <button
+                          key={amenity}
+                          className={`py-2 px-4 border rounded-md text-left flex items-center ${
+                            filters.amenities.includes(amenity)
+                              ? "bg-black text-white border-black"
+                              : "bg-white border-gray-300 hover:border-gray-400"
+                          }`}
+                          onClick={() => toggleAmenityFilter(amenity)}
+                        >
+                          {filters.amenities.includes(amenity) ? (
+                            <CheckCircle className="mr-2 h-4 w-4" />
+                          ) : null}
+                          {amenity}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Property Listings */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {displayProperties.map((category) => (
                 <div key={category.id} className="mb-20">
                   <div className="mb-10">
                     <h2 className="text-3xl font-light mb-4 text-gray-900">
@@ -1302,8 +1231,8 @@ export default function Properties() {
                     ))}
                   </div>
                 </div>
-              ))
-            )}
+              ))}
+            </div>
           </div>
         </section>
 
