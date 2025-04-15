@@ -872,7 +872,7 @@ const Home = () => {
                   <ul className="space-y-2">
                     <li>
                       <Link
-                        href="/blog"
+                        href="/blogs"
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                       >
                         Blog

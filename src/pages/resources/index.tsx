@@ -311,7 +311,7 @@ const Resources = () => {
                 <div className="w-24 h-1 bg-black mb-6"></div>
               </div>
               <Link
-                href="/blog"
+                href="/blogs"
                 className="inline-flex items-center text-black font-medium hover:text-gray-700 transition-colors mt-4 md:mt-0"
               >
                 <span>View All Articles</span>

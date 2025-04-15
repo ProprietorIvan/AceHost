@@ -188,7 +188,7 @@ export default function BlogPost() {
               </h3>
 
               <p>
-                Bar Oso – &quot;oso&quot; meaning &quot;bear&quot; in Spanish,
+                Bar Oso &quot;oso&quot; meaning &quot;bear&quot; in Spanish,
                 pays homage to Whistler&apos;s natural inhabitants with its
                 Spanish-influenced small plates and handcrafted cocktails. This
                 intimate space is perfect for savouring tapas, charcuterie, and
