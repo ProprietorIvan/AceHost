@@ -322,7 +322,7 @@ const WhisperingPines = () => {
                     >
                       <Image
                         src={photo}
-                        alt={`The Aspens interior ${index + 1}`}
+                        alt={`The Aspens ${index + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover"
@@ -330,9 +330,6 @@ const WhisperingPines = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      The Aspens interior {index + 1}
-                    </p>
                   </div>
                 ))}
               </div>

@@ -381,17 +381,14 @@ const DreamLogChalet = () => {
                     >
                       <Image
                         src={photo}
-                        alt={`Dream Log Chalet interior ${index + 1}`}
+                        alt={`Dream Log Chalet ${index + 1}`}
                         fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
-                        className="object-cover hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
                         priority={index < 6}
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      Dream Log Chalet interior {index + 1}
-                    </p>
                   </div>
                 ))}
               </div>

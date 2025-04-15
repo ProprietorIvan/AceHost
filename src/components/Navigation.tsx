@@ -65,7 +65,7 @@ const Navigation = ({
   }, [resourcesRef, mobileMenuRef]);
 
   const resourcesDropdownItems = [
-    { text: "All Blogs", url: "/blog" },
+    { text: "All Blogs", url: "/blogs" },
     { text: "FAQ's", url: "/faq" },
     { text: "More Resources", url: "/resources" },
   ];
@@ -168,7 +168,7 @@ const Navigation = ({
                           <li className="flex items-center">
                             <ChevronRight className="h-4 w-4 text-gray-400 mr-2" />
                             <Link
-                              href="/blog"
+                              href="/blogs"
                               className="text-sm text-gray-600 hover:text-gray-900"
                               onClick={() => setShowResourcesDropdown(false)}
                             >
@@ -439,7 +439,7 @@ const Navigation = ({
                 {showMobileResourcesDropdown && (
                   <div className="mt-1 ml-4 pl-4 border-l-2 border-gray-100 space-y-2">
                     <Link
-                      href="/blog"
+                      href="/blogs"
                       onClick={() => {
                         setShowMobileResourcesDropdown(false);
                         setIsMenuOpen(false);

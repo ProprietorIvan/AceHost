@@ -67,15 +67,17 @@ const Home = () => {
       className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
     >
       <div className="relative h-64">
-        <Image
-          src={property.image}
-          alt={property.title || property.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading={index < 3 ? "eager" : "lazy"}
-          quality={85}
-        />
+        <Link href={property.link}>
+          <Image
+            src={property.image}
+            alt={property.title || property.name}
+            fill
+            className="object-cover cursor-pointer"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading={index < 3 ? "eager" : "lazy"}
+            quality={85}
+          />
+        </Link>
         <div className="absolute bottom-4 right-4">
           <Link
             href={property.link}
@@ -413,6 +415,37 @@ const Home = () => {
       location: "worldwide",
       link: "/worldwide-listings/punta-mita---casa-juntos",
     },
+    // Vancouver Properties
+    {
+      id: "vancouver-house",
+      name: "The Vancouver House, Corner Unit | 30th Floor",
+      image:
+        "/photos/properties/vancouver-house/645adc4aca79d22167763483_Vancouver_House-03.jpg",
+      guests: 4,
+      bedrooms: 2,
+      beds: 2,
+      bathrooms: 2,
+      priceRange: "Nightly Price Range: $400-$700",
+      winterPrice: "",
+      holidayPrice: "",
+      location: "vancouver",
+      link: "/vancouver-listings/vancouver-house-corner-unit-30th-floor",
+    },
+    // Beverly Hills Property
+    {
+      id: "beverly-hills-luxury-estate",
+      name: "Beverly Hills Luxury Estate | Pool | Private Garden",
+      image: "/photos/properties/worldwide/1.jpg", // Using placeholder image
+      guests: 12,
+      bedrooms: 6,
+      beds: 8,
+      bathrooms: 7.5,
+      priceRange: "Nightly Price Range: $3,500-$6,000",
+      winterPrice: "$4,500-$6,000 Nightly | Winter",
+      holidayPrice: "$7,000-$10,000 Nightly | Holiday Season",
+      location: "worldwide",
+      link: "/worldwide-listings/beverly-hills-luxury-estate",
+    },
   ];
 
   // Filter properties based on active filter
@@ -614,10 +647,11 @@ const Home = () => {
             <div className="mt-8 md:mt-0 md:w-2/3 lg:w-2/3">
               <div className="relative aspect-video w-full h-full overflow-hidden rounded-lg">
                 <iframe
-                  src="https://player.vimeo.com/video/1053582724?title=0&byline=0&portrait=0"
+                  src="https://player.vimeo.com/video/1053582724?title=0&byline=0&portrait=0&autoplay=0&loop=1&background=0"
                   className="w-full h-full"
                   frameBorder="0"
-                  allow="fullscreen; picture-in-picture"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
                   title="AceHost Whistler Concierge Experience"
                   loading="lazy"
                 ></iframe>
@@ -632,11 +666,13 @@ const Home = () => {
             {sections.map((section, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
                 <div className="mb-6 h-48 relative overflow-hidden rounded-lg">
-                  <img
-                    src={section.image}
-                    alt={section.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <Link href="/properties">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="w-full h-full object-cover cursor-pointer"
+                    />
+                  </Link>
                 </div>
                 <h3 className="text-2xl font-medium mb-4 text-gray-900">
                   {section.title}
@@ -786,13 +822,13 @@ const Home = () => {
                 </p>
                 <div className="flex space-x-4">
                   <a
-                    href="https://instagram.com/acehost"
+                    href="https://www.instagram.com/acehost_whistler/"
                     className="text-gray-400 hover:text-gray-600 transition-colors"
                   >
                     <Instagram size={24} />
                   </a>
                   <a
-                    href="https://youtube.com/acehost"
+                    href="https://www.youtube.com/@acehost_Whistler/videos"
                     className="text-gray-400 hover:text-gray-600 transition-colors"
                   >
                     <Youtube size={24} />
@@ -874,7 +910,7 @@ const Home = () => {
                   <ul className="space-y-2">
                     <li>
                       <a
-                        href="https://instagram.com/acehost"
+                        href="https://www.instagram.com/acehost_whistler/"
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                       >
                         Instagram
@@ -882,7 +918,7 @@ const Home = () => {
                     </li>
                     <li>
                       <a
-                        href="https://youtube.com/acehost"
+                        href="https://www.youtube.com/@acehost_Whistler/videos"
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                       >
                         Youtube
@@ -894,9 +930,25 @@ const Home = () => {
             </div>
 
             <div className="border-t border-gray-100 pt-8">
-              <p className="text-gray-500 text-sm">
-                © 2021 AceHost Whistler. All rights reserved.
-              </p>
+              <div className="flex flex-col md:flex-row justify-between items-center">
+                <p className="text-gray-500 text-sm mb-4 md:mb-0">
+                  © 2021 AceHost Whistler. All rights reserved.
+                </p>
+                <div className="flex space-x-6">
+                  <Link
+                    href="/privacy"
+                    className="text-gray-500 text-sm hover:text-gray-700"
+                  >
+                    Privacy Policy
+                  </Link>
+                  <Link
+                    href="/terms"
+                    className="text-gray-500 text-sm hover:text-gray-700"
+                  >
+                    Terms of Service
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </footer>

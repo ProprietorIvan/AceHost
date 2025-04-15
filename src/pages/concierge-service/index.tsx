@@ -199,13 +199,14 @@ const ConciergeService = () => {
                       style={{ minHeight: "500px" }}
                     >
                       <iframe
-                        src="https://www.instagram.com/reel/DEp1OJ5uYZk/embed?autoplay=1"
+                        src="https://www.instagram.com/reel/DEp1OJ5uYZk/embed/?cr=1&amp;rd=https%3A%2F%2Facehost.ca&amp;v=14&autoplay=1&mute=0"
                         className="absolute inset-0 w-full h-full"
                         frameBorder="0"
                         scrolling="no"
-                        // @ts-ignore
-                        allowtransparency="true"
+                        allowFullScreen
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        title="Instagram video player"
+                        referrerPolicy="no-referrer"
                       ></iframe>
                     </div>
 

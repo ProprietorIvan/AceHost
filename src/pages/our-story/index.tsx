@@ -75,15 +75,6 @@ const OurStory = () => {
 
       {/* Hero Section */}
       <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/photos/homepage/1.jpg"
-            alt="Our Story Hero"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-        </div>
         <div className="relative max-w-7xl mx-auto px-4 py-24 sm:py-32">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">

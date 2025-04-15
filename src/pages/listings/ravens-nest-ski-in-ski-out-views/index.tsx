@@ -381,9 +381,6 @@ const RavensNest = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      Raven&apos;s Nest interior {index + 1}
-                    </p>
                   </div>
                 ))}
               </div>

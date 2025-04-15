@@ -940,12 +940,47 @@ export default function Properties() {
         ? `/vancouver-listings/${property.id}`
         : `/worldwide-listings/${property.id}`;
 
+    // Mapping property IDs to Airbnb links
+    const airbnbLinks: Record<string, string> = {
+      "altitude-retreat-kadenwood":
+        "https://www.airbnb.ca/rooms/771060491470943213?guests=1&adults=1&s=67&unique_share_id=a8ff5a7a-4bda-4cc7-aaad-e99b178f3a5d",
+      "chalet-la-forja-kadenwood":
+        "https://www.airbnb.ca/rooms/52655503?guests=1&adults=1&s=67&unique_share_id=f1bb5c2c-51f9-4a82-9aa4-670fb8caa71d",
+      "two-cedars-kadenwood":
+        "https://www.airbnb.ca/rooms/666613336620375768?guests=1&adults=1&s=67&unique_share_id=0d8a1725-cb02-487a-a033-7cc2940692e4",
+      "slopeside-villa-kadenwood":
+        "https://www.airbnb.ca/rooms/826226399590812184?guests=1&adults=1&s=67&unique_share_id=aab7fbd3-669a-461d-b913-c15cf257b4c0",
+      "panoramic-estate-kadenwood":
+        "https://www.airbnb.ca/rooms/1104637821836596397?guests=1&adults=1&s=67&unique_share_id=67164555-993c-40dc-b188-23ffe0755654",
+      "heron-views-whistler-village":
+        "https://www.airbnb.ca/rooms/1168163637007998550?guests=1&adults=1&s=67&unique_share_id=8227e964-920d-4bc0-8073-13043963151f",
+      "ravens-nest-ski-in-ski-out-views":
+        "https://www.airbnb.ca/rooms/1300258964918876012?guests=1&adults=1&s=67&unique_share_id=41b635e9-00a9-441c-a134-056b2b3814ac",
+      "falcon-blueberry-drive":
+        "https://www.airbnb.ca/rooms/18060329?guests=1&adults=1&s=67&unique_share_id=0759b67e-0517-4127-9de1-842265c53ff7",
+      "the-nest-ski-in-ski-out":
+        "https://www.airbnb.ca/rooms/763259660349118016?guests=1&adults=1&s=67&unique_share_id=d18218f6-da74-4763-a199-d5a1dc8c85ff",
+      "snow-pine":
+        "https://www.airbnb.ca/rooms/744832560480313027?guests=1&adults=1&s=67&unique_share_id=50412c76-d839-4753-bf56-19310f38a4ef",
+      "le-chamoix":
+        "https://www.airbnb.ca/rooms/1015303987589924725?guests=1&adults=1&s=67&unique_share_id=70e4858b-6c89-41b1-bcfb-fef3fd327b52",
+      "whispering-pines-ski-in-ski-out":
+        "https://www.airbnb.com/rooms/1072474554447345991?guests=1&adults=1&s=67&unique_share_id=e556b35c-05b5-40b6-91e1-5304ffafc23b",
+      "whistler-village-views":
+        "https://www.airbnb.ca/rooms/50025973?guests=1&adults=1&s=67&unique_share_id=04ceb090-1b8e-4e32-972f-d616b380a0a8",
+      "marquise-2-bed-ski-in-ski-out":
+        "https://www.airbnb.ca/rooms/1370367404602078616?guests=1&adults=1&s=67&unique_share_id=eb381b39-e67d-44ea-9d7c-2de2e1b5fa20",
+    };
+
+    const airbnbLink = airbnbLinks[property.id];
+
     return (
       <Link
         href={propertyUrl}
-        className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group block"
+        className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group block h-full"
       >
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-64 sm:h-72 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={property.images[0]}
             alt={property.name}
@@ -976,18 +1011,33 @@ export default function Properties() {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+          {/* Book Now Button - only shown if airbnbLink exists */}
+          {airbnbLink && (
+            <div className="absolute top-4 right-4 z-10">
+              <a
+                href={airbnbLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors"
+              >
+                Book Now
+              </a>
+            </div>
+          )}
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <h3 className="text-xl font-bold mb-1 line-clamp-2">
+          <h3 className="text-lg sm:text-xl font-bold mb-1 line-clamp-2">
             {property.name}
           </h3>
           <p className="flex items-center text-sm mb-2">
-            <MapPin className="w-4 h-4 mr-1" />
-            {property.location}
+            <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
+            <span className="line-clamp-1">{property.location}</span>
           </p>
           <div className="flex items-center justify-between">
-            <div className="flex gap-2">
+            <div className="flex gap-1 sm:gap-2 flex-wrap">
               <div className="flex items-center text-xs bg-white/20 px-2 py-1 rounded">
                 <Bed className="w-3 h-3 mr-1" /> {property.bedrooms}
               </div>
@@ -999,7 +1049,9 @@ export default function Properties() {
               </div>
             </div>
             {property.priceRange && (
-              <span className="text-sm font-medium">{property.priceRange}</span>
+              <span className="text-xs sm:text-sm font-medium whitespace-nowrap">
+                {property.priceRange}
+              </span>
             )}
           </div>
         </div>
@@ -1087,7 +1139,7 @@ export default function Properties() {
         {/* Filters and Properties Grid */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
               <div>
                 <h2 className="text-2xl font-semibold">
                   {activeCategory === "all"
@@ -1106,16 +1158,16 @@ export default function Properties() {
               </div>
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+                className="flex items-center justify-center sm:justify-start space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 w-full sm:w-auto"
               >
                 <Filter size={18} />
-                <span>Filter</span>
+                <span>Filter Properties</span>
               </button>
             </div>
 
             {/* Filter Sidebar */}
             {showFilters && (
-              <div className="bg-gray-50 rounded-lg p-6 mb-8">
+              <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-8 shadow-sm">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-medium">Filter Properties</h3>
                   <button
@@ -1125,7 +1177,7 @@ export default function Properties() {
                     <X size={20} />
                   </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                   {/* Bedrooms Filter */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1135,7 +1187,7 @@ export default function Properties() {
                       {[1, 2, 3, 4, "5+"].map((num, index) => (
                         <button
                           key={index}
-                          className={`py-2 px-4 border rounded-md ${
+                          className={`py-2 px-3 sm:px-4 border rounded-md text-sm ${
                             filters.minBedrooms ===
                             (index === 4 ? 5 : Number(num))
                               ? "bg-black text-white border-black"
@@ -1211,21 +1263,21 @@ export default function Properties() {
             )}
 
             {/* Property Listings */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="w-full">
               {displayProperties.map((category) => (
-                <div key={category.id} className="mb-20">
-                  <div className="mb-10">
-                    <h2 className="text-3xl font-light mb-4 text-gray-900">
+                <div key={category.id} className="mb-16 sm:mb-20">
+                  <div className="mb-8 sm:mb-10">
+                    <h2 className="text-2xl sm:text-3xl font-light mb-3 sm:mb-4 text-gray-900">
                       {category.title}
                     </h2>
                     {category.description && (
-                      <p className="text-lg text-gray-600 max-w-4xl">
+                      <p className="text-base sm:text-lg text-gray-600 max-w-4xl">
                         {category.description}
                       </p>
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {category.properties.map((property) => (
                       <PropertyCard key={property.id} property={property} />
                     ))}

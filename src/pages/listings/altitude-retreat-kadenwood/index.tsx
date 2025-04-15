@@ -222,7 +222,7 @@ const AltitudeRetreat = () => {
                     src={photo}
                     alt={`Altitude Retreat interior ${index + 1}`}
                     fill
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
                     priority={index < 4}
                   />
@@ -462,7 +462,7 @@ const AltitudeRetreat = () => {
                     >
                       <Image
                         src={photo}
-                        alt={`Altitude Retreat interior ${index + 1}`}
+                        alt={`Altitude Retreat ${index + 1}`}
                         fill
                         sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
                         className="object-cover hover:scale-105 transition-transform duration-300"
@@ -470,9 +470,6 @@ const AltitudeRetreat = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      Altitude Retreat interior {index + 1}
-                    </p>
                   </div>
                 ))}
               </div>

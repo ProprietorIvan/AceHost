@@ -193,30 +193,31 @@ const ListProperty = () => {
 
       {/* Hero Section - Full height with gradient overlay and centered content */}
       <div className="relative w-full h-[90vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
         <Image
           src="/photos/homepage/WhistlerVacationRental.jpg"
           alt="Luxury Whistler Property"
           fill
-          className="object-cover object-center"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-            Luxury Whistler Property
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mb-12 leading-relaxed font-light">
-            AceHost offers vacation rental property management services in
-            Whistler, specializing in luxury homes. We handle everything from
-            guest management to property maintenance, leveraging our exclusive
-            marketing strategies to maximize your bookings.
-          </p>
-          <Link
-            href="#contact"
-            className="bg-white text-black px-10 py-5 rounded-full text-lg font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-          >
-            List Your Property
-          </Link>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <div className="max-w-4xl bg-black/40 p-8 rounded-xl backdrop-blur-sm">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              List Your Luxury Property With AceHost
+            </h1>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Partner with Whistler&apos;s premier luxury property management
+              company to maximize your rental income and provide exceptional
+              guest experiences.
+            </p>
+            <Link
+              href="#contact"
+              className="inline-block bg-white text-black px-8 py-4 rounded-md hover:bg-gray-100 transition-colors font-medium"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </div>
 

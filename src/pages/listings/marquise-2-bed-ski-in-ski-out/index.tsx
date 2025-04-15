@@ -263,7 +263,7 @@ const MarquiseSkiInSkiOut = () => {
                       >
                         <Image
                           src={photo}
-                          alt={`Marquise Ski-in Ski-out interior ${index + 1}`}
+                          alt={`Marquise ${index + 1}`}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover"
@@ -271,9 +271,6 @@ const MarquiseSkiInSkiOut = () => {
                           loading={index < 6 ? "eager" : "lazy"}
                         />
                       </div>
-                      <p className="text-white text-sm mt-2">
-                        Marquise Ski-in Ski-out interior {index + 1}
-                      </p>
                     </div>
                   ))}
                 </div>

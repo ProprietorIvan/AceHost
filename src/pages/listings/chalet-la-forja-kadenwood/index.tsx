@@ -462,7 +462,7 @@ const ChaletLaForja = () => {
                     >
                       <Image
                         src={photo}
-                        alt={`Chalet La Forja interior ${index + 1}`}
+                        alt={`Chalet La Forja ${index + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover"
@@ -470,9 +470,6 @@ const ChaletLaForja = () => {
                         loading={index < 6 ? "eager" : "lazy"}
                       />
                     </div>
-                    <p className="text-white text-sm mt-2">
-                      Chalet La Forja interior {index + 1}
-                    </p>
                   </div>
                 ))}
               </div>
