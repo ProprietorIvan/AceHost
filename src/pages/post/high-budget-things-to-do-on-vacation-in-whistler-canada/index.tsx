@@ -58,7 +58,7 @@ export default function BlogPost() {
               </div>
               <div className="relative w-full aspect-[16/9] mb-8 rounded-xl overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/hero.jpg"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/hero.png"
                   alt="Luxury vacation activities in Whistler, Canada"
                   fill
                   className="object-cover"
@@ -113,7 +113,7 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/1.jpg"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/1.png"
                   alt="Helicopter tour over Whistler mountains"
                   fill
                   className="object-cover"
@@ -160,7 +160,7 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/2.jpg"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/2.jpeg"
                   alt="Steve Aoki at the Longhorns Saloon in Whistler, 2022"
                   fill
                   className="object-cover"
@@ -215,8 +215,8 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/3.jpg"
-                  alt="Luxury seafood tower at a Whistler restaurant"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/3.png"
+                  alt="Seafood tower from a Whistler restaurant"
                   fill
                   className="object-cover"
                 />
@@ -236,8 +236,8 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/4.jpg"
-                  alt="Snowmobiling tour in Whistler mountains"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/4.png"
+                  alt="Private chef experience in Whistler"
                   fill
                   className="object-cover"
                 />
@@ -255,8 +255,8 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/5.jpg"
-                  alt="Dog sledding adventure in Callaghan Valley"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/5.jpeg"
+                  alt="Luxury spa treatment in Whistler"
                   fill
                   className="object-cover"
                 />
@@ -277,14 +277,11 @@ export default function BlogPost() {
 
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
-                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/6.jpg"
-                  alt="Bearfoot Bistro Vodka Room"
+                  src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/6.jpeg"
+                  alt="Shopping in Whistler Village"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-3">
-                  <p className="text-sm">Bearfoot Bistro Vodka Room</p>
-                </div>
               </div>
 
               <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
@@ -303,7 +300,7 @@ export default function BlogPost() {
               <div className="relative aspect-[16/9] my-10 rounded-lg overflow-hidden">
                 <Image
                   src="/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/7.jpg"
-                  alt="Private chef preparing gourmet meal in luxury chalet"
+                  alt="Luxury transportation in Whistler"
                   fill
                   className="object-cover"
                 />

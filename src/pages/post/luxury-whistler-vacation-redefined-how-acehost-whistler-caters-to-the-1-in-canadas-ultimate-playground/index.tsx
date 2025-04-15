@@ -506,18 +506,6 @@ const LuxuryWhistlerVacation = () => {
           </div>
         </main>
 
-        <section className="bg-gray-100 py-16">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <h3 className="text-2xl font-bold mb-6">Get in-touch with us!</h3>
-            <Link
-              href="/contact"
-              className="inline-block bg-black text-white px-8 py-4 rounded-md hover:bg-gray-800 transition-colors text-lg font-medium"
-            >
-              Contact us
-            </Link>
-          </div>
-        </section>
-
         <Footer />
       </div>
     </>

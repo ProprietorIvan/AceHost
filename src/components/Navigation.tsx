@@ -108,13 +108,16 @@ const Navigation = ({
                 <Link
                   key={index}
                   href={link.url}
-                  className={`px-4 py-2 rounded-md text-sm font-semibold ${
+                  className={`px-4 py-2 rounded-md text-sm font-semibold relative ${
                     currentPage === link.url
                       ? "text-black border-b-2 border-black"
-                      : "text-gray-700 hover:text-black hover:bg-gray-50 hover:border-b-2 hover:border-black transition-all duration-300 ease-in-out transform hover:scale-105"
+                      : "text-gray-700 hover:text-black transition-colors duration-300 group"
                   }`}
                 >
                   {link.text}
+                  {currentPage !== link.url && (
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                  )}
                 </Link>
               ))}
 
@@ -125,14 +128,17 @@ const Navigation = ({
                   onClick={() =>
                     setShowResourcesDropdown(!showResourcesDropdown)
                   }
-                  className={`px-4 py-2 rounded-md text-sm font-semibold flex items-center ${
+                  className={`px-4 py-2 rounded-md text-sm font-semibold flex items-center relative ${
                     currentPage === "/resources"
                       ? "text-black border-b-2 border-black"
-                      : "text-gray-700 hover:text-black hover:bg-gray-50 hover:border-b-2 hover:border-black transition-all duration-300 ease-in-out transform hover:scale-105"
+                      : "text-gray-700 hover:text-black transition-colors duration-300 group"
                   }`}
                 >
                   Resources
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                  {currentPage !== "/resources" && (
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                  )}
                 </button>
 
                 {/* Desktop Dropdown */}

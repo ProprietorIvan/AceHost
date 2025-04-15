@@ -380,22 +380,6 @@ const PropertyManagementBlog = () => {
                 ))}
               </div>
             </div>
-
-            {/* Contact Section */}
-            <div className="bg-gray-50 rounded-xl p-8 my-16 shadow-sm border border-gray-200">
-              <h2 className="text-2xl font-bold mb-4 text-center">
-                Get in-touch with us!
-              </h2>
-              <div className="flex justify-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center bg-black text-white px-6 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Contact us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
-            </div>
           </div>
         </main>
 

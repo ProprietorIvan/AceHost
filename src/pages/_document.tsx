@@ -58,12 +58,6 @@ export default function Document() {
         {/* Preload critical assets */}
         <link rel="preload" href="/logo.png" as="image" type="image/png" />
 
-        {/* Add responsive viewport meta tags */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
-
         {/* Add favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link

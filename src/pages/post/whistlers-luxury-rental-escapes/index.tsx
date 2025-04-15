@@ -778,19 +778,6 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              {/* Call to Action */}
-              <div className="mt-16 bg-blue-50 rounded-xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Get in-touch with us!
-                </h3>
-                <Link
-                  href="/contact"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
-                >
-                  Contact us
-                </Link>
-              </div>
-
               {/* Footer Links */}
               <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-6 text-sm">
                 <div>

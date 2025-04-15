@@ -30,7 +30,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/acehost"
+                href="https://www.instagram.com/acehostwhistler/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-800 transition-colors"
@@ -39,7 +39,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a
-                href="https://youtube.com/acehost"
+                href="https://www.youtube.com/@acehostwhistler"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-800 transition-colors"
@@ -130,7 +130,9 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://instagram.com/acehost"
+                  href="https://www.instagram.com/acehostwhistler/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Instagram
@@ -138,7 +140,9 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://youtube.com/acehost"
+                  href="https://www.youtube.com/@acehostwhistler"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Youtube
@@ -149,8 +153,17 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-gray-100 text-center">
-          <p className="text-gray-500">
-            © {currentYear} AceHost Whistler. All rights reserved.
+          <p className="text-gray-500 flex items-center justify-center">
+            © {currentYear}
+            <span className="inline-block mx-2 relative w-24 h-8">
+              <Image
+                src="/logo.png"
+                alt="AceHost Logo"
+                fill
+                className="object-contain"
+              />
+            </span>
+            All rights reserved.
           </p>
         </div>
       </div>

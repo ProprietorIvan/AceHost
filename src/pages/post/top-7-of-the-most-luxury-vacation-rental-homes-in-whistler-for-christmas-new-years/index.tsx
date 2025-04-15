@@ -85,10 +85,10 @@ const LuxuryChristmasRentals = () => {
 
           {/* Hero Image */}
           <div className="max-w-5xl mx-auto mb-16 px-4 sm:px-6">
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full aspect-[16/9] mb-8 rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/hero.jpg"
-                alt="Luxury Whistler vacation rental home with holiday decorations"
+                src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/Hero.png"
+                alt="Luxury vacation rental home in Whistler for Christmas and New Year"
                 fill
                 className="object-cover"
                 priority
@@ -123,10 +123,10 @@ const LuxuryChristmasRentals = () => {
                 Years 16,000+. 4-7 night minimum
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/panoramic-estate.jpg"
-                  alt="Panoramic Estate"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/1.png"
+                  alt="Kadenwood Estate with Hot Tub"
                   fill
                   className="object-cover"
                 />
@@ -187,10 +187,10 @@ const LuxuryChristmasRentals = () => {
                 <strong>Private butler included</strong>
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/two-cedars.jpg"
-                  alt="Two Cedars"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/2.png"
+                  alt="Luxury Whistler Estate"
                   fill
                   className="object-cover"
                 />
@@ -266,10 +266,10 @@ const LuxuryChristmasRentals = () => {
                 <strong>Private butler included</strong>
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/altitude-retreat.jpg"
-                  alt="Altitude Retreat"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/3.png"
+                  alt="Pinnacle Ridge Chalet"
                   fill
                   className="object-cover"
                 />
@@ -330,10 +330,10 @@ const LuxuryChristmasRentals = () => {
                 </strong>
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/chalet-la-forja.jpg"
-                  alt="Chalet La Forja"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/4.png"
+                  alt="Luxury Forest Lodge"
                   fill
                   className="object-cover"
                 />
@@ -383,10 +383,10 @@ const LuxuryChristmasRentals = () => {
                 <strong>Steam Shower</strong>
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/slopeside.jpg"
-                  alt="SlopeSide Chalet"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/5.png"
+                  alt="Whistler Peak View Suite"
                   fill
                   className="object-cover"
                 />
@@ -429,10 +429,10 @@ const LuxuryChristmasRentals = () => {
                 minimum, 3 Winter minimum
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/heron-views.jpg"
-                  alt="Heron Views"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/6.png"
+                  alt="Modern Alpine Residence"
                   fill
                   className="object-cover"
                 />
@@ -474,10 +474,10 @@ const LuxuryChristmasRentals = () => {
                 minimum Festive, 2-3 Winter minimum
               </p>
 
-              <div className="relative aspect-video my-12 rounded-lg overflow-hidden">
+              <div className="my-10 relative aspect-[16/9] rounded-xl overflow-hidden shadow-md">
                 <Image
-                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/falcon.jpg"
-                  alt="Falcon | Whistler Village"
+                  src="/photos/post/top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years/7.png"
+                  alt="Luxury Ski Chalet"
                   fill
                   className="object-cover"
                 />
@@ -560,18 +560,6 @@ const LuxuryChristmasRentals = () => {
             </div>
           </div>
         </main>
-
-        <section className="bg-gray-100 py-16">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <h3 className="text-2xl font-bold mb-6">Get in-touch with us!</h3>
-            <Link
-              href="/contact"
-              className="inline-block bg-black text-white px-8 py-4 rounded-md hover:bg-gray-800 transition-colors text-lg font-medium"
-            >
-              Contact us
-            </Link>
-          </div>
-        </section>
 
         <Footer />
       </div>
