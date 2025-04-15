@@ -28,7 +28,7 @@ const WhistlerSnowReport = () => {
         "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas and New Year&apos;s",
       category: "Travel Christmas",
       description:
-        "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas & New Year's" New Year&apos;s",
+        "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas & New Year&apos;s",
       readTime: "15 min read",
       link: "#",
     },
