@@ -92,17 +92,20 @@ const blogPostsData: BlogPost[] = [
       "/photos/post/the-best-restaurants-in-whistler-canada-food-coffee-cocktails-more/hero.jpeg",
   },
   {
+    slug: "the-best-restaurants-in-whistler-canada-food-coffee-cocktails-and-more",
+    title:
+      "The Best Restaurants in Whistler, Canada | Food, Coffee, Cocktails And More",
+    category: "Food/Restaurants",
+    readTime: "18 min read",
+    heroImage:
+      "/photos/post/the-best-restaurants-in-whistler-canada-food-coffee-cocktails-and-more/hero.jpeg",
+  },
+  {
     slug: "acehost-whistler-vip-concierge-services",
     title: "AceHost Whistler VIP Concierge Services",
     category: "VIP Concierge, Luxury Accommodations",
     readTime: "14 min read",
     heroImage: "/photos/post/acehost-whistler-vip-concierge-services/hero.png",
-  },
-  {
-    slug: "acehost-whistler-property-management-services",
-    title: "Acehost Whistler Property Management Services",
-    category: "Property Management, Vacation Rentals",
-    readTime: "13 min read",
   },
   {
     slug: "high-budget-things-to-do-on-vacation-in-whistler-canada",
@@ -120,26 +123,32 @@ const blogPostsData: BlogPost[] = [
     readTime: "15 min read",
   },
   {
-    slug: "whistler-celebrity-and-influencer-marketing-in-whistler-luxury-home-marketing-strategies",
+    slug: "whistler-luxury-home-marketing-strategies",
     title:
       "Whistler Celebrity & Influencer Marketing in Whistler | Luxury Home Marketing Strategies",
     category: "Travel and celebrity marketing",
     readTime: "14 min read",
   },
   {
-    slug: "whistler-luxury-vacation-haven-20-reasons-to-visit-whistler",
+    slug: "whistler-luxury-vacation-haven",
     title: "Whistler: Luxury Vacation Haven | 20 reasons to visit Whistler",
     category: "Travel and Destination Guides",
     readTime: "10 min read",
   },
   {
-    slug: "top-5-luxury-vacation-rental-homes-airbnbs-in-whistler-canada",
+    slug: "luxury-property-management-investment-opportunities-in-whistler",
+    title: "Luxury Property Management & Investment Opportunities in Whistler",
+    category: "Property Management",
+    readTime: "13 min read",
+  },
+  {
+    slug: "whistlers-dream-rental-homes",
     title: "Top 5 Luxury Vacation Rental Homes/airbnbs in Whistler Canada",
     category: "Travel and Accommodation",
     readTime: "13 min read",
   },
   {
-    slug: "whistlers-luxury-rental-escapes-choosing-a-luxury-airbnb-vacation",
+    slug: "whistlers-luxury-rental-escapes",
     title:
       "Whistler&apos;s Luxury Rental Escapes | Choosing a Luxury Airbnb Vacation",
     category: "Travel and Accommodation",
