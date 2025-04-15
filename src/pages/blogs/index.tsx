@@ -109,6 +109,8 @@ const blogPostsData: BlogPost[] = [
     title: "High Budget Things to do on Vacation in Whistler Canada",
     category: "Luxury Travel Experiences",
     readTime: "14 min read",
+    heroImage:
+      "/photos/post/high-budget-things-to-do-on-vacation-in-whistler-canada/hero.png",
   },
   {
     slug: "10-reasons-why-you-must-visit-whistler-canada-for-your-next-winter-ski-vacation",
