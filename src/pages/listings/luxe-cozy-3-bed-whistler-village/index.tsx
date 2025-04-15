@@ -61,9 +61,20 @@ const LuxeCozyWhistlerVillage = () => {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
               Luxe-Cozy 3-Bed Whistler Village
             </h1>
+
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    Nightly Price Range: $400-$1,700+
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="flex flex-wrap justify-center gap-4 mb-10">
               <button

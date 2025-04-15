@@ -141,6 +141,23 @@ const PanoramicEstate = () => {
               Panoramic Estate | Kadenwood
             </h1>
 
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    $5,800-$9,000+
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $8,500-$10,000+ | Winter
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $16,000+ Nightly | Christmas & NY
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
               <button
                 onClick={() => setShowAllPhotos(true)}

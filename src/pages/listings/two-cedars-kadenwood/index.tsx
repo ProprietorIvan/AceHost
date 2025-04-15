@@ -98,9 +98,27 @@ export default function TwoCedarsKadenwood() {
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
               Two Cedars | Kadenwood | Private Butler
             </h1>
+
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    $6,500-$9,500+
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $8,500-$10,000+ Nightly | Winter
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $17,500-$21,000+ Nightly | Christmas & NY
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <p className="text-xl mb-4">7 Bedroom | 8.5 Bath | Kadenwood</p>
             <div className="flex flex-wrap gap-4 mb-4">
               <div className="flex items-center gap-2">
@@ -113,7 +131,6 @@ export default function TwoCedarsKadenwood() {
                 <span className="font-semibold">Bathrooms:</span> 8.5
               </div>
             </div>
-            <p className="text-lg font-semibold">$6,500-$9,500+ per night</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <button

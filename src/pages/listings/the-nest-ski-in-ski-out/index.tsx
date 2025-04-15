@@ -98,6 +98,21 @@ const TheNest = () => {
               The Nest | Ski in-Ski out
             </h1>
 
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    Monthly Price Range: $18,000-$29,000
+                  </p>
+                  <p className="text-gray-800 text-center">90+ day minimum</p>
+                  <p className="text-gray-800 text-center">
+                    $29,000 Monthly | Winter (Booked until June 15, 2025)
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
               <button
                 onClick={() => setShowAllPhotos(true)}
