@@ -35,7 +35,7 @@ const blogPostsData: BlogPost[] = [
   {
     slug: "luxury-whistler-vacation-redefined-how-acehost-whistler-caters-to-the-1-in-canadas-ultimate-playground",
     title:
-      "Luxury Whistler Vacation Redefined: How AceHost Whistler Caters to the 1% in Canada&apos;s Ultimate Playground",
+      "Luxury Whistler Vacation Redefined: How AceHost Whistler Caters to the 1% in Canada's Ultimate Playground",
     category: "VIP Concierge | Luxury Vacation",
     readTime: "20 min",
     heroImage: "/photos/post/Luxury Whistler Vacation/Hero.jpg",
@@ -51,7 +51,7 @@ const blogPostsData: BlogPost[] = [
   {
     slug: "top-7-of-the-most-luxury-vacation-rental-homes-in-whistler-for-christmas-new-years",
     title:
-      "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas and New Year&apos;s",
+      "Top 7 of the Most Luxury Vacation Rental Homes in Whistler | Christmas and New Year's",
     category: "Travel Christmas",
     readTime: "15 min read",
     heroImage:
@@ -60,7 +60,7 @@ const blogPostsData: BlogPost[] = [
   {
     slug: "whistlers-winter-outlook-2024-from-el-nino-challenges-to-la-nina-promises",
     title:
-      "Whistler&apos;s Winter Outlook 2024: From El Niño Challenges to La Niña Promises",
+      "Whistler's Winter Outlook 2024: From El Niño Challenges to La Niña Promises",
     category: "Snow Forecast",
     readTime: "15 min read",
     heroImage:
@@ -73,7 +73,7 @@ const blogPostsData: BlogPost[] = [
     category: "Property Management",
     readTime: "15 min read",
     heroImage:
-      "/photos/post/highlighting-the-importance-of-a-property-management-company-for-your-whistler-investment-home/Hero.jpg",
+      "/photos/post/highlighting-the-importance-of-a-property-management-company-for-your-whistler-investment-home/hero.jpg",
   },
   {
     slug: "discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada",
@@ -82,7 +82,7 @@ const blogPostsData: BlogPost[] = [
     category: "Ski in Ski out/Travel",
     readTime: "12 min read",
     heroImage:
-      "/photos/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada/Hero.jpg",
+      "/photos/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada/hero.jpg",
   },
   {
     slug: "the-best-restaurants-in-whistler-canada-food-coffee-cocktails-more",
@@ -100,7 +100,7 @@ const blogPostsData: BlogPost[] = [
     category: "Food/Restaurants",
     readTime: "18 min read",
     heroImage:
-      "/photos/post/the-best-restaurants-in-whistler-canada-food-coffee-cocktails-and-more/hero.jpeg",
+      "/photos/post/the-best-restaurants-in-whistler-canada-food-coffee-cocktails-more/hero.jpeg",
   },
   {
     slug: "acehost-whistler-vip-concierge-services",
@@ -148,21 +148,22 @@ const blogPostsData: BlogPost[] = [
     category: "Property Management",
     readTime: "13 min read",
     heroImage:
-      "/photos/post/luxury-property-management-investment-opportunities-in-whistler/Hero.jpg",
+      "/photos/post/luxury-property-management-investment-opportunities-in-whistler/hero.jpg",
   },
   {
     slug: "whistlers-dream-rental-homes",
     title: "Top 5 Luxury Vacation Rental Homes/airbnbs in Whistler Canada",
     category: "Travel and Accommodation",
     readTime: "13 min read",
-    heroImage: "/photos/post/whistlers-dream-rental-homes/Hero.jpg",
+    heroImage: "/photos/post/whistlers-dream-rental-homes/hero.jpg",
   },
   {
     slug: "whistlers-luxury-rental-escapes",
     title:
-      "Whistler&apos;s Luxury Rental Escapes | Choosing a Luxury Airbnb Vacation",
+      "Whistler's Luxury Rental Escapes | Choosing a Luxury Airbnb Vacation",
     category: "Travel and Accommodation",
     readTime: "20 min read",
+    heroImage: "/photos/post/whistlers-luxury-rental-escapes/hero.jpg",
   },
 ];
 
