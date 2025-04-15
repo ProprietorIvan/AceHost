@@ -583,6 +583,50 @@ export default function Properties() {
             ],
             priceRange: "Nightly Price Range: $160-450",
           },
+          {
+            id: "the-nest-pets",
+            name: "The Nest | Ski in-Ski out",
+            images: [
+              "/photos/properties/Wolverine Crescent/06-2627 Wolverine-06.jpg",
+            ],
+            guests: 10,
+            bedrooms: 5,
+            bathrooms: 6,
+            location: "Whistler, BC, Canada",
+            description:
+              "Perched like an eagle high upon the hillside of Whistler Benchlands with spectacular views, this exquisite contemporary chalet offers a luxury stay with a rare ski-in ski-out access to Whistler Resort, private hot tub, fire pit and games room.",
+            features: [
+              "Heated floors",
+              "2 Living rooms",
+              "Panoramic views",
+              "Gourmet kitchen",
+            ],
+            highlights: [],
+            priceRange: "$29,000 Monthly | Winter (Booked until June 15, 2025)",
+            link: "/listings/the-nest-ski-in-ski-out",
+          },
+          {
+            id: "ski-in-ski-out-walk-to-lifts-2-bed",
+            name: "Le Chamois 2 Bed | Walk to Lifts",
+            images: [
+              "/photos/properties/ski-in-ski-out-walk-to-lifts-2-bed/Le chamois.jpg",
+            ],
+            guests: 4,
+            bedrooms: 2,
+            bathrooms: 2,
+            location: "Whistler, BC, Canada",
+            description:
+              "Perfectly located apartment in the heart of Whistler's Blackcomb Upper Village, just steps from the lifts. This stylish 2-bedroom unit offers modern comforts with mountain convenience.",
+            features: [
+              "Walk to ski lifts",
+              "Fully equipped kitchen",
+              "Living area with fireplace",
+              "Outdoor swimming pool",
+            ],
+            highlights: [],
+            priceRange: "$350-$1,050 Nightly",
+            link: "/listings/ski-in-ski-out-walk-to-lifts-2-bed",
+          },
         ],
       },
       {

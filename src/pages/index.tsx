@@ -541,21 +541,6 @@ const Home = () => {
       location: "vancouver",
       link: "/vancouver-listings/vancouver-house-corner-unit-30th-floor",
     },
-    // Beverly Hills Property
-    {
-      id: "beverly-hills-luxury-estate",
-      name: "Beverly Hills Luxury Estate | Pool | Private Garden",
-      image: "/photos/properties/worldwide/1.jpg", // Using placeholder image
-      guests: 12,
-      bedrooms: 6,
-      beds: 8,
-      bathrooms: 7.5,
-      priceRange: "Nightly Price Range: $3,500-$6,000",
-      winterPrice: "$4,500-$6,000 Nightly | Winter",
-      holidayPrice: "$7,000-$10,000 Nightly | Holiday Season",
-      location: "worldwide",
-      link: "/worldwide-listings/beverly-hills-luxury-estate",
-    },
   ];
 
   // Filter properties based on active filter
