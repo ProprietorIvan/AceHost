@@ -45,7 +45,7 @@ const LongTermRentals = () => {
         </title>
         <meta
           name="description"
-          content="Discover AceHost's exclusive long-term luxury rentals in Whistler. From ski-in/ski-out chalets to pet-friendly homes, find the perfect 3, 6, or 12-month rental property for your extended Whistler stay."
+          content="Discover the perfect long-term luxury rental in Whistler with AceHost's exclusive property portfolio. Enjoy premium amenities in Canada's top resort destination."
         />
       </Head>
 
