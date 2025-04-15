@@ -96,6 +96,7 @@ const blogPostsData: BlogPost[] = [
     title: "AceHost Whistler VIP Concierge Services",
     category: "VIP Concierge, Luxury Accommodations",
     readTime: "14 min read",
+    heroImage: "/photos/post/acehost-whistler-vip-concierge-services/hero.png",
   },
   {
     slug: "acehost-whistler-property-management-services",
