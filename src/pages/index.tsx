@@ -78,13 +78,29 @@ const Home = () => {
             quality={85}
           />
         </Link>
+        {property.isPetFriendly && (
+          <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 text-xs font-medium rounded-md z-10">
+            Pet Friendly
+          </div>
+        )}
         <div className="absolute bottom-4 right-4">
-          <Link
-            href={property.link}
-            className="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
-          >
-            Book Now
-          </Link>
+          {property.airbnbLink ? (
+            <a
+              href={property.airbnbLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Book Now
+            </a>
+          ) : (
+            <Link
+              href={property.link}
+              className="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+            >
+              Book Now
+            </Link>
+          )}
         </div>
       </div>
       <div className="p-6">
@@ -170,6 +186,8 @@ const Home = () => {
       holidayPrice: "$14,500-$19,000 Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/altitude-retreat-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/771060491470943213?guests=1&adults=1&s=67&unique_share_id=a8ff5a7a-4bda-4cc7-aaad-e99b178f3a5d",
     },
     {
       id: "two-cedars",
@@ -184,6 +202,8 @@ const Home = () => {
       holidayPrice: "$17,500-$21,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/two-cedars-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/666613336620375768?guests=1&adults=1&s=67&unique_share_id=0d8a1725-cb02-487a-a033-7cc2940692e4",
     },
     {
       id: "chalet-la-forja",
@@ -198,6 +218,8 @@ const Home = () => {
       holidayPrice: "$16,000-$21,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/chalet-la-forja-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/52655503?guests=1&adults=1&s=67&unique_share_id=f1bb5c2c-51f9-4a82-9aa4-670fb8caa71d",
     },
     {
       id: "slopeside-villa",
@@ -213,6 +235,8 @@ const Home = () => {
       holidayPrice: "$10,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/slopeside-villa-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/826226399590812184?guests=1&adults=1&s=67&unique_share_id=aab7fbd3-669a-461d-b913-c15cf257b4c0",
     },
     {
       id: "panoramic-estate",
@@ -227,6 +251,8 @@ const Home = () => {
       holidayPrice: "$16,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/panoramic-estate-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/1104637821836596397?guests=1&adults=1&s=67&unique_share_id=67164555-993c-40dc-b188-23ffe0755654",
     },
     {
       id: "heron-views",
@@ -241,6 +267,8 @@ const Home = () => {
       holidayPrice: "$4,000-$6,800+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/heron-views-whistler-village",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/1168163637007998550?guests=1&adults=1&s=67&unique_share_id=8227e964-920d-4bc0-8073-13043963151f",
     },
     {
       id: "ravens-nest",
@@ -256,6 +284,8 @@ const Home = () => {
       holidayPrice: "$2,300-$4,000 Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/ravens-nest-ski-in-ski-out-views",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/1300258964918876012?guests=1&adults=1&s=67&unique_share_id=41b635e9-00a9-441c-a134-056b2b3814ac",
     },
     {
       id: "falcon-blueberry",
@@ -270,6 +300,8 @@ const Home = () => {
       holidayPrice: "$4,000-$7,200+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/falcon-blueberry-drive",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/18060329?guests=1&adults=1&s=67&unique_share_id=0759b67e-0517-4127-9de1-842265c53ff7",
     },
     {
       id: "the-nest",
@@ -284,6 +316,8 @@ const Home = () => {
       holidayPrice: "$3,000-$4,000+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/the-nest-ski-in-ski-out",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/763259660349118016?guests=1&adults=1&s=67&unique_share_id=d18218f6-da74-4763-a199-d5a1dc8c85ff",
     },
     {
       id: "snow-pine",
@@ -297,6 +331,9 @@ const Home = () => {
       winterPrice: "$10,000-$12,000 Monthly | Winter",
       location: "whistler",
       link: "/listings/snow-pine",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/744832560480313027?guests=1&adults=1&s=67&unique_share_id=50412c76-d839-4753-bf56-19310f38a4ef",
+      isPetFriendly: true,
     },
     {
       id: "wedge-mountain-lodge",
@@ -327,6 +364,24 @@ const Home = () => {
       holidayPrice: "$1,800-$2,200+ Nightly | Christmas & NY",
       location: "whistler",
       link: "/listings/luxe-cozy-3-bed-whistler-village",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/50025973?guests=1&adults=1&s=67&unique_share_id=04ceb090-1b8e-4e32-972f-d616b380a0a8",
+    },
+    {
+      id: "le-chamoix",
+      name: "Le Chamoix | Ski-in/Ski-out | 2 Bedroom",
+      image: "/photos/properties/default-property.jpg",
+      guests: 4,
+      bedrooms: 2,
+      beds: 2,
+      bathrooms: 2,
+      priceRange: "$350-$900",
+      winterPrice: "$500-$900 Nightly | Winter",
+      holidayPrice: "",
+      location: "whistler",
+      link: "/listings/le-chamoix",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/1015303987589924725?guests=1&adults=1&s=67&unique_share_id=70e4858b-6c89-41b1-bcfb-fef3fd327b52",
     },
     {
       id: "dream-log-chalet",
@@ -356,6 +411,8 @@ const Home = () => {
       holidayPrice: "",
       location: "whistler",
       link: "/listings/whispering-pines-ski-in-ski-out",
+      airbnbLink:
+        "https://www.airbnb.com/rooms/1072474554447345991?guests=1&adults=1&s=67&unique_share_id=e556b35c-05b5-40b6-91e1-5304ffafc23b",
     },
     {
       id: "marquise-2-bed",
@@ -370,6 +427,59 @@ const Home = () => {
       holidayPrice: "",
       location: "whistler",
       link: "/listings/marquise-2-bed-ski-in-ski-out",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/1370367404602078616?guests=1&adults=1&s=67&unique_share_id=eb381b39-e67d-44ea-9d7c-2de2e1b5fa20",
+    },
+    {
+      id: "two-cedars-pets",
+      name: "Two Cedars | Kadenwood | Private Butler",
+      image: "/photos/properties/Two Cedars New/OSA_AncientCW1248.jpg",
+      guests: 16,
+      bedrooms: 7,
+      beds: 12,
+      bathrooms: 8.5,
+      priceRange: "Nightly Price Range: $6,500-$9,500+",
+      winterPrice: "$8,500-$10,000+ Nightly | Winter",
+      holidayPrice: "$17,500-$21,000+ Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/two-cedars-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/666613336620375768?guests=1&adults=1&s=67&unique_share_id=0d8a1725-cb02-487a-a033-7cc2940692e4",
+    },
+    {
+      id: "slope-slide-pets",
+      name: "Slope Slide Chalet | Kadenwood",
+      image:
+        "/photos/properties/Slopeside Kadenwood/01-2945 Kadenwood Dr 01.jpg",
+      guests: 10,
+      bedrooms: 5,
+      beds: 6,
+      bathrooms: 6,
+      priceRange: "Nightly Price Range: $2,600-$6,000",
+      winterPrice: "$4,500-$6,500+ Nightly | Winter",
+      holidayPrice: "$10,000+ Nightly | Christmas & NY",
+      location: "whistler",
+      link: "/listings/slopeside-villa-kadenwood",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/826226399590812184?guests=1&adults=1&s=67&unique_share_id=aab7fbd3-669a-461d-b913-c15cf257b4c0",
+      isPetFriendly: true,
+    },
+    {
+      id: "the-nest-pets",
+      name: "The Nest | Ski in-Ski out",
+      image: "/photos/properties/Wolverine Crescent/06-2627 Wolverine-06.jpg",
+      guests: 10,
+      bedrooms: 5,
+      beds: 6,
+      bathrooms: 6,
+      priceRange: "Monthly Price Range: $18,000-$29,000",
+      winterPrice: "$29,000 Monthly | Winter (Booked until June 15, 2025)",
+      holidayPrice: "90+ day minimum",
+      location: "whistler",
+      link: "/listings/the-nest-ski-in-ski-out",
+      airbnbLink:
+        "https://www.airbnb.ca/rooms/763259660349118016?guests=1&adults=1&s=67&unique_share_id=d18218f6-da74-4763-a199-d5a1dc8c85ff",
+      isPetFriendly: true,
     },
     // Worldwide Properties
     {
@@ -452,6 +562,8 @@ const Home = () => {
   const filteredListings =
     activeFilter === "all"
       ? allListings
+      : activeFilter === "pets"
+      ? allListings.filter((listing) => listing.isPetFriendly === true)
       : allListings.filter((listing) => listing.location === activeFilter);
 
   // This ensures only one Two Cedars property is displayed

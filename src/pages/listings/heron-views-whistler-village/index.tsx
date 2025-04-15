@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { GetStaticProps } from "next";
@@ -14,6 +14,7 @@ const HeronViewsWhistlerVillage = () => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(
     null
   );
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Property photos
   const photos = [
@@ -134,6 +135,23 @@ const HeronViewsWhistlerVillage = () => {
               Heron Views | Whistler Village
             </h1>
 
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    $1,200-$3,500 Nightly
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $1,800-$3,000 Nightly | Winter
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $3,000-$3,500 Nightly | Christmas & NY
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
               <button
                 onClick={() => setShowAllPhotos(true)}
@@ -143,7 +161,7 @@ const HeronViewsWhistlerVillage = () => {
               </button>
               <Link
                 href="#details"
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white border border-gray-700 rounded font-medium hover:bg-gray-800 text-sm sm:text-base"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium hover:bg-gray-800 text-sm sm:text-base"
               >
                 Details
               </Link>
@@ -162,9 +180,15 @@ const HeronViewsWhistlerVillage = () => {
                 Book on Airbnb
               </a>
             </div>
+
+            <div className="text-center mb-6 sm:mb-8">
+              <p className="text-gray-700 text-sm sm:text-base">
+                Minimum Stay Requirement: 3-4 Nights | 6-7 Christmas & NY
+              </p>
+            </div>
           </div>
 
-          {/* Photo Grid - Using 2 columns on mobile */}
+          {/* Photo Grid */}
           <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-16">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
               {photos.slice(0, 8).map((photo, index) => (
@@ -177,7 +201,7 @@ const HeronViewsWhistlerVillage = () => {
                     src={photo}
                     alt={`Heron Views interior ${index + 1}`}
                     fill
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover hover:scale-105 transition-transform duration-300"
                     priority={index < 4}
                   />
@@ -197,163 +221,34 @@ const HeronViewsWhistlerVillage = () => {
           </div>
 
           {/* Property Description */}
-          <div id="details" className="max-w-4xl mx-auto px-4 mb-10 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900">
-              About this property
-            </h2>
-            <div className="prose prose-lg max-w-none">
-              <p>
-                Welcome to Heron Views, a beautiful and inviting traditional log
-                chalet in the prestigious Blueberry Hill neighborhood. This
-                spectacular property offers breathtaking views of the Whistler
-                Golf Course, Blackcomb, and Whistler Mountain. Spanning 7,800 sq
-                ft, this spacious retreat sleeps 11 guests in 5 large bedrooms
-                and 5.5 baths. Just a 3–4-minute drive to the village and
-                slopes, or a 15-minute walk through trails, with a local bus
-                stop steps away. Enjoy AC during summer, a rare find in
-                Whistler.
-              </p>
+          <div className="max-w-6xl mx-auto px-4" id="details">
+            <p className="text-gray-800 mb-16 max-w-4xl">
+              Welcome to Heron Views, a beautiful and inviting traditional log
+              chalet in the prestigious Blueberry Hill neighborhood. This
+              spectacular property offers breathtaking views of the Whistler
+              Golf Course, Blackcomb, and Whistler Mountain. Spanning 7,800 sq
+              ft, this spacious retreat sleeps 11 guests in 5 large bedrooms and
+              5.5 baths.
+              <br />
+              <br />
+              Just a 3–4-minute drive to the village and slopes, or a 15-minute
+              walk through trails, with a local bus stop steps away. Enjoy AC
+              during summer, a rare find in Whistler.
+            </p>
 
-              {/* The Space Section */}
-              <div className="flex flex-col md:flex-row mb-20">
-                <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
-                  <div className="relative aspect-[4/3] mb-2">
-                    <Image
-                      src={photos[2]}
-                      alt="Heron Views Interior"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="md:w-1/2">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-black text-white p-4 rounded-full mr-4">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <h2 className="text-2xl font-bold">The Space</h2>
-                  </div>
-                  <p className="text-gray-800 mb-6">
-                    Outdoor enthusiasts will love the two newly renovated modern
-                    and spacious decks, with 2,400 sq ft of space, providing
-                    ample room for entertaining and taking in breathtaking
-                    views. The outdoor decks are a true highlight, the top deck
-                    features a fire pit table, stylish outdoor furniture, a
-                    daybed, and a BBQ, perfect for lounging and enjoying a drink
-                    with friends and family. The bottom deck is even more
-                    impressive, boasting a large hot tub that seats 14 people, a
-                    cozy sunken fire pit, two sun loungers, and deck chairs, all
-                    designed to help you soak in the stunning views of the
-                    Whistler Golf Course and surrounding mountain views.
-                  </p>
-                  <p className="text-gray-800 mb-6">
-                    This open-plan living space includes a well-equipped
-                    kitchen, appliances including a Vertuo Nespresso machine,
-                    Keurig coffee machine, and drip coffee machine, and Smart
-                    TV. Enjoy the wet bar located just off the dining room with
-                    lots of glassware and a bar fridge. The spacious living room
-                    features two seating areas with a Smart TV in one. The
-                    ground floor features a large living room with a large
-                    Samsung Frame TV. Take your entertaining to the next level
-                    and seamlessly blend indoor-outdoor living with the vast wet
-                    bar, with lots of countertop space and a fridge, and direct
-                    access to the lower deck. Unwind after a day on the hill and
-                    enjoy the steam shower.
-                  </p>
-                  <p className="text-gray-800">
-                    The driveway fits two vehicles and the garage fits one
-                    vehicle with plenty of storage for all your ski gear or
-                    bikes in the summer. Book your stay at this enchanting log
-                    chalet and experience the perfect blend of rustic charm and
-                    modern luxury in the heart of Blueberry Hill. Enjoy sweeping
-                    views, easy access to the Valley Trail and Whistler Village,
-                    and an unforgettable mountain retreat.
-                  </p>
+            {/* The Space Section */}
+            <div className="flex flex-col md:flex-row mb-20">
+              <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
+                <div className="relative aspect-[4/3] mb-2">
+                  <Image
+                    src={photos[2]}
+                    alt="Heron Views Interior"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
-
-              {/* Bedroom Layout Section */}
-              <div className="flex flex-col md:flex-row mb-20">
-                <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0 order-1 md:order-2">
-                  <div className="relative aspect-[4/3] mb-2">
-                    <Image
-                      src={photos[10]}
-                      alt="Heron Views Bedroom"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="md:w-1/2 order-2 md:order-1">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-black text-white p-4 rounded-full mr-4">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M7 13C8.66 13 10 11.66 10 10C10 8.34 8.66 7 7 7C5.34 7 4 8.34 4 10C4 11.66 5.34 13 7 13ZM19 13C20.66 13 22 11.66 22 10C22 8.34 20.66 7 19 7C17.34 7 16 8.34 16 10C16 11.66 17.34 13 19 13ZM7 15C4.67 15 0 16.17 0 18.5V20H14V18.5C14 16.17 9.33 15 7 15ZM19 15C18.71 15 18.38 15.02 18.03 15.05C19.19 15.89 20 17.02 20 18.5V20H24V18.5C24 16.17 21.33 15 19 15Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <h2 className="text-2xl font-bold">Bedroom Layout</h2>
-                  </div>
-
-                  <p className="font-bold mb-2">Top Level:</p>
-                  <p className="mb-4">
-                    • <span className="font-medium">Master bedroom 1-</span>{" "}
-                    Featuring a king bed with a generously sized ensuite
-                    bathroom with a bathtub large walk-in shower and a separate
-                    toilet room. Enjoy the convenience of a large closet and
-                    private balcony with outdoor seating, wake up, and enjoy
-                    your morning coffee in total relaxation and privacy.
-                  </p>
-                  <p className="mb-4">
-                    • <span className="font-medium">Bedroom 2-</span> This
-                    bright and cozy bedroom has a 4-poster king bed, an ensuite
-                    bathroom, a bathtub, and a private balcony.
-                  </p>
-                  <p className="mb-4">
-                    • <span className="font-medium">Bedroom 3-</span> This
-                    modern room features a queen bed, a newly renovated ensuite
-                    bathroom, and a spacious walk-in shower.
-                  </p>
-                  <p className="mb-4">
-                    • <span className="font-medium">Bedroom 4-</span> Tucked
-                    down the end of the corridor is the bunk room with a queen
-                    bed on the bottom and twin on the top. Ensuite bathroom with
-                    a bathtub and private balcony. Smart TV in the bedroom.
-                  </p>
-
-                  <p className="font-bold mb-2">Lower level:</p>
-                  <p className="mb-4">
-                    • <span className="font-medium">Bedroom 5-</span> Tucked
-                    away at the end of the corridor is this well-appointed cozy
-                    bedroom with a queen bed, a large bathroom with a walk-in
-                    shower is located just next door. Enjoy easy access to the
-                    lower deck with the hot tub and sunken fire pit.
-                  </p>
-                  <p className="mb-4">• Steam shower located on this floor.</p>
-                </div>
-              </div>
-
-              {/* Location Section */}
-              <div className="mb-16">
+              <div className="md:w-1/2">
                 <div className="flex items-center mb-6">
                   <div className="bg-black text-white p-4 rounded-full mr-4">
                     <svg
@@ -364,115 +259,157 @@ const HeronViewsWhistlerVillage = () => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                        d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
                         fill="white"
                       />
                     </svg>
                   </div>
-                  <h2 className="text-2xl font-bold">Location</h2>
+                  <h2 className="text-2xl font-bold">The Space</h2>
                 </div>
-                <p className="text-gray-800 max-w-4xl">
-                  This chalet&apos;s exceptional location makes it the ideal
-                  home base for your holiday. Home is a minute&apos;s walk away
-                  from Whistler Golf Course and the valley trail.
+                <p className="text-gray-800 mb-6">
+                  Outdoor enthusiasts will love the two newly renovated modern
+                  and spacious decks, with 2,400 sq ft of space, providing ample
+                  room for entertaining and taking in breathtaking views. Enjoy
+                  the 14-person hot tub, fire table, and BBQ for unforgettable
+                  gatherings.
+                </p>
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="flex items-center">
+                    <FaBed className="text-gray-600 mr-2" size={20} />
+                    <span className="text-gray-800">5 Bedrooms</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaBath className="text-gray-600 mr-2" size={20} />
+                    <span className="text-gray-800">5.5 Bathrooms</span>
+                  </div>
+                </div>
+                <p className="text-gray-800">
+                  Inside, discover soaring ceilings, exposed beams, a modern
+                  kitchen with Miele appliances, and a dining room with valley
+                  views. The home features a grand living room, five bedrooms, a
+                  theater room, and a unique bar area with aquarium, delivering
+                  mountain luxury at its finest.
                 </p>
               </div>
             </div>
           </div>
-        </main>
 
-        {/* Photo Gallery Modal */}
-        {showAllPhotos && (
-          <div className="fixed inset-0 z-50 bg-black overflow-y-auto">
-            <div className="sticky top-0 z-10 bg-black p-4 flex justify-between items-center">
-              <h2 className="text-lg sm:text-xl text-white font-medium">
-                Heron Views - All Photos
-              </h2>
-              <button
-                onClick={closeAllPhotos}
-                className="text-white hover:text-gray-300 bg-gray-900 px-4 py-2 rounded-full"
-              >
-                Close
-              </button>
-            </div>
+          {/* Photos Modal - Show all photos */}
+          {showAllPhotos && (
+            <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-y-auto">
+              <div className="flex justify-between items-center p-4 sticky top-0 bg-black bg-opacity-75 z-10">
+                <h3 className="text-white text-xl font-medium">
+                  Heron Views - {photos.length} photos
+                </h3>
+                <button
+                  onClick={closeAllPhotos}
+                  className="text-white hover:text-gray-300"
+                >
+                  <X size={24} />
+                </button>
+              </div>
 
-            <div className="max-w-7xl mx-auto py-6 px-4">
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {photos.map((photo, index) => (
-                  <div key={index} className="mb-6">
+              <div className="container mx-auto px-4 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {photos.map((photo, index) => (
                     <div
-                      className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+                      key={index}
+                      className="aspect-[4/3] relative cursor-pointer"
                       onClick={() => handlePhotoClick(index)}
                     >
                       <Image
                         src={photo}
-                        alt={`Heron Views ${index + 1}`}
+                        alt={`Heron Views photo ${index + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
-                        priority={index < 6}
-                        loading={index < 6 ? "eager" : "lazy"}
+                        className="object-cover hover:opacity-95 transition-opacity"
                       />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Full-screen Photo View */}
-        {selectedPhotoIndex !== null && (
-          <div className="fixed inset-0 z-[60] bg-black flex items-center justify-center">
-            <div className="absolute top-4 right-4 flex space-x-4">
-              <button
-                onClick={closeFullScreenPhoto}
-                className="text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-
-            <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
-              onClick={() => navigatePhoto("prev")}
+          {/* Full Screen Photo View */}
+          {selectedPhotoIndex !== null && (
+            <div
+              className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+              onClick={closeFullScreenPhoto}
             >
-              &larr;
-            </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigatePhoto("prev");
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
 
-            <div className="relative w-full h-full max-w-6xl max-h-[80vh] mx-auto px-4">
-              <div className="relative w-full h-full">
+              <div className="relative h-screen w-screen flex items-center justify-center">
                 <Image
                   src={photos[selectedPhotoIndex]}
-                  alt={`Heron Views full view ${selectedPhotoIndex + 1}`}
+                  alt={`Heron Views photo ${selectedPhotoIndex + 1}`}
                   fill
-                  priority
-                  className="object-contain"
                   sizes="100vw"
+                  className="object-contain p-4"
                 />
               </div>
-            </div>
 
-            <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-900 p-2 rounded-full hover:bg-gray-800 transition-colors"
-              onClick={() => navigatePhoto("next")}
-            >
-              &rarr;
-            </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigatePhoto("next");
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
 
-            <div className="absolute bottom-4 left-0 right-0 text-center">
-              <p className="text-white text-sm">
-                {selectedPhotoIndex + 1} / {photos.length}
-              </p>
+              <button
+                onClick={closeFullScreenPhoto}
+                className="absolute top-4 right-4 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
+              >
+                <X size={24} />
+              </button>
             </div>
-          </div>
-        )}
+          )}
+        </main>
 
         <Footer />
       </div>
     </>
   );
 };
+
+export default HeronViewsWhistlerVillage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
@@ -481,5 +418,3 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
-
-export default HeronViewsWhistlerVillage;

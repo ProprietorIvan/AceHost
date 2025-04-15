@@ -46,8 +46,22 @@ const ConciergeService = () => {
   const diningServicesRef = useRef<HTMLDivElement>(null);
   const inhomeServicesRef = useRef<HTMLDivElement>(null);
   const transportServicesRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    if (videoRef.current) {
+      if (!isVideoPlaying) {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  };
 
   useEffect(() => {
     // Add responsive classes to all carousel items
@@ -73,6 +87,23 @@ const ConciergeService = () => {
     // Call the function after component mount
     addResponsiveClasses();
   }, []);
+
+  // Video ended handler
+  useEffect(() => {
+    const handleVideoEnded = () => {
+      setIsVideoPlaying(false);
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener("ended", handleVideoEnded);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.removeEventListener("ended", handleVideoEnded);
+      }
+    };
+  }, [videoRef]);
 
   const scrollServices = (
     ref: React.RefObject<HTMLDivElement>,
@@ -185,7 +216,7 @@ const ConciergeService = () => {
                   </div>
                 </div>
 
-                {/* Instagram Embed */}
+                {/* Video Player (Formerly Instagram Embed) */}
                 <div className="rounded-lg overflow-hidden shadow-lg bg-white">
                   <div className="flex flex-col h-full">
                     <div className="p-4 border-b">
@@ -198,22 +229,62 @@ const ConciergeService = () => {
                       className="aspect-w-9 aspect-h-16 relative"
                       style={{ minHeight: "500px" }}
                     >
-                      <iframe
-                        src="https://www.instagram.com/reel/DEp1OJ5uYZk/embed/?cr=1&amp;rd=https%3A%2F%2Facehost.ca&amp;v=14&autoplay=1&mute=0"
-                        className="absolute inset-0 w-full h-full"
-                        frameBorder="0"
-                        scrolling="no"
-                        allowFullScreen
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        title="Instagram video player"
-                        referrerPolicy="no-referrer"
-                      ></iframe>
+                      <div className="absolute inset-0 w-full h-full bg-black">
+                        <video
+                          ref={videoRef}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          playsInline
+                          poster="/photos/homepage/concierge-service/PrivateDrivers.jpeg"
+                          src="/photos/homepage/concierge-service/acehost_concierge_reel%20(720p).mp4"
+                          preload="metadata"
+                          muted={false}
+                          controls={isVideoPlaying}
+                        />
+                        {!isVideoPlaying && (
+                          <div
+                            className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black bg-opacity-20 hover:bg-opacity-10 transition-opacity"
+                            onClick={handleVideoPlay}
+                          >
+                            <div className="w-16 h-16 rounded-full bg-white bg-opacity-70 flex items-center justify-center">
+                              <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                fill="black"
+                              >
+                                <polygon points="9,6 9,18 18,12" />
+                              </svg>
+                            </div>
+                            <span className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                              00:28
+                            </span>
+                          </div>
+                        )}
+                        {isVideoPlaying && (
+                          <div
+                            className="absolute bottom-4 right-4 p-3 rounded-full bg-black bg-opacity-50 cursor-pointer hover:bg-opacity-70 transition-opacity"
+                            onClick={handleVideoPlay}
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                              className="text-white"
+                            >
+                              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     <div className="p-3 border-t">
                       <a
                         href="https://www.instagram.com/acehost_whistler/"
                         className="text-blue-500 text-sm font-medium block mb-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         View more on Instagram
                       </a>

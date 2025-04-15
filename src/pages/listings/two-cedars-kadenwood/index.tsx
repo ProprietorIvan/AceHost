@@ -1,22 +1,23 @@
 import React, { useState, useRef } from "react";
-import Image from "next/image";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import Image from "next/image";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import Footer from "../../../components/Footer";
-import Navigation from "../../../components/Navigation";
-import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { FaBed, FaBath } from "react-icons/fa";
+import { X } from "lucide-react";
 
-export default function TwoCedarsKadenwood() {
-  const { t } = useTranslation("common");
+const TwoCedarsKadenwood = () => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(
     null
   );
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const propertyImages = [
+  // Property photos
+  const photos = [
     "/photos/properties/Two Cedars New/OSA_AncientCW1002 Panorama.jpg",
     "/photos/properties/Two Cedars New/02-2934 Ancient Cedars-02.jpg",
     "/photos/properties/Two Cedars New/03-2934 Ancient Cedars-03.jpg",
@@ -62,364 +63,339 @@ export default function TwoCedarsKadenwood() {
     "/photos/properties/Two Cedars New/OSA_AncientCW1437-Panorama.jpg",
   ];
 
-  const showPhoto = (index: number) => {
+  const handlePhotoClick = (index: number) => {
     setSelectedPhotoIndex(index);
-  };
-
-  const nextPhoto = () => {
-    setSelectedPhotoIndex((prev) =>
-      prev === null ? null : (prev + 1) % propertyImages.length
-    );
-  };
-
-  const prevPhoto = () => {
-    setSelectedPhotoIndex((prev) =>
-      prev === null
-        ? null
-        : (prev - 1 + propertyImages.length) % propertyImages.length
-    );
   };
 
   const closeFullScreenPhoto = () => {
     setSelectedPhotoIndex(null);
   };
 
+  const navigatePhoto = (direction: "prev" | "next") => {
+    if (selectedPhotoIndex === null) return;
+
+    if (direction === "prev") {
+      setSelectedPhotoIndex(
+        selectedPhotoIndex === 0 ? photos.length - 1 : selectedPhotoIndex - 1
+      );
+    } else {
+      setSelectedPhotoIndex(
+        selectedPhotoIndex === photos.length - 1 ? 0 : selectedPhotoIndex + 1
+      );
+    }
+  };
+
+  // Close full screen view when all photos modal is closed
   const closeAllPhotos = () => {
     setShowAllPhotos(false);
+    setSelectedPhotoIndex(null);
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <>
       <Head>
-        <title>Two Cedars Kadenwood | AceHost</title>
+        <title>Two Cedars | Kadenwood | AceHost</title>
         <meta
           name="description"
-          content="Luxurious 5-bedroom Chalet in Kadenwood, Whistler offering stunning views and ski-in/ski-out access."
+          content="Experience the ultimate luxury at Two Cedars in Kadenwood. This 8,000+ square foot ski-in/ski-out mansion features a hot tub, private views, and exclusive amenities."
         />
       </Head>
-      <Navigation transparent={false} />
 
-      <main className="flex-grow mt-16">
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-            <div className="relative h-[300px] md:h-[500px]">
-              <Image
-                src={propertyImages[0]}
-                alt="Two Cedars Kadenwood - Primary"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                style={{ objectFit: "cover" }}
-                onClick={() => showPhoto(0)}
-                className="cursor-pointer"
-              />
+      <div className="min-h-screen bg-white">
+        <Navigation transparent={false} />
+
+        <main>
+          {/* Header with Property Info */}
+          <div className="max-w-7xl mx-auto px-4 pt-8">
+            <div className="flex justify-center mb-6">
+              <div className="bg-black text-white rounded-full py-2 px-4 sm:px-6 flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
+                <span>10 guests</span>
+                <span className="hidden sm:block mx-3 text-gray-500">|</span>
+                <span>Nightly Price Range: $4,000-$7,000</span>
+              </div>
             </div>
-            <div className="hidden md:grid grid-cols-2 gap-1">
-              {propertyImages.slice(1, 5).map((image, index) => (
-                <div key={index} className="relative h-[250px]">
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
+              Two Cedars | Kadenwood
+            </h1>
+
+            {/* Pricing Information */}
+            <div className="flex flex-col items-center mb-8 space-y-2">
+              <div className="bg-gray-100 rounded-lg px-6 py-4 max-w-2xl w-full">
+                <div className="space-y-2">
+                  <p className="text-gray-800 text-center font-medium">
+                    $4,000-$7,000 Nightly
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $4,000-$6,000 Nightly | Winter
+                  </p>
+                  <p className="text-gray-800 text-center">
+                    $6,000-$7,000 Nightly | Christmas & NY
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+              <button
+                onClick={() => setShowAllPhotos(true)}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
+              >
+                More Photos
+              </button>
+              <Link
+                href="#details"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium hover:bg-gray-800 text-sm sm:text-base"
+              >
+                Details
+              </Link>
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
+              >
+                Contact Us
+              </Link>
+              <a
+                href="https://www.airbnb.ca/rooms/658945646684454022"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-black hover:bg-gray-900 text-white rounded font-medium text-sm sm:text-base"
+              >
+                Book on Airbnb
+              </a>
+            </div>
+
+            <div className="text-center mb-6 sm:mb-8">
+              <p className="text-gray-700 text-sm sm:text-base">
+                Minimum Stay Requirement: 3-4 Nights | 6-7 Christmas & NY
+              </p>
+            </div>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="max-w-7xl mx-auto px-4 mb-10 sm:mb-16">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+              {photos.slice(0, 8).map((photo, index) => (
+                <div
+                  key={index}
+                  className="aspect-[4/3] relative cursor-pointer rounded-lg overflow-hidden shadow-md"
+                  onClick={() => handlePhotoClick(index)}
+                >
                   <Image
-                    src={image}
-                    alt={`Two Cedars Kadenwood - Photo ${index + 2}`}
+                    src={photo}
+                    alt={`Two Cedars interior ${index + 1}`}
                     fill
-                    sizes="25vw"
-                    style={{ objectFit: "cover" }}
-                    onClick={() => showPhoto(index + 1)}
-                    className="cursor-pointer"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    priority={index < 4}
                   />
                 </div>
               ))}
             </div>
-          </div>
-          <button
-            onClick={() => setShowAllPhotos(true)}
-            className="absolute bottom-4 right-4 bg-white text-black px-4 py-2 rounded-full font-medium shadow hover:bg-gray-100 transition"
-          >
-            Show all photos
-          </button>
-        </div>
-
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">
-                Two Cedars Kadenwood
-              </h1>
-              <p className="text-gray-600 mb-2">
-                5 bedrooms · 5.5 bathrooms · 10 guests
-              </p>
-              <p className="text-gray-800 font-semibold">
-                From $4,000 CAD per night
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2 mt-4 md:mt-0">
-              <a
-                href="https://www.airbnb.ca/rooms/658945646684454022"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#FF5A5F] text-white font-medium py-2 px-6 rounded-full text-center hover:bg-[#FF4348] transition"
-              >
-                Book on Airbnb
-              </a>
-            </div>
-          </div>
-
-          <div className="sticky top-16 z-30 bg-white border-b mb-6">
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 py-4">
-              <button
-                onClick={() => setShowAllPhotos(true)}
-                className="bg-white text-black border border-gray-300 py-2 px-6 rounded-full font-medium hover:bg-gray-100 transition"
-              >
-                More photos
-              </button>
-              <a
-                href="#details"
-                className="bg-white text-black border border-gray-300 py-2 px-6 rounded-full font-medium hover:bg-gray-100 transition"
-              >
-                Details
-              </a>
-              <a
-                href="#contact"
-                className="bg-white text-black border border-gray-300 py-2 px-6 rounded-full font-medium hover:bg-gray-100 transition"
-              >
-                Contact us
-              </a>
-              <a
-                href="https://www.airbnb.ca/rooms/658945646684454022"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black border border-gray-300 py-2 px-6 rounded-full font-medium hover:bg-gray-100 transition"
-              >
-                Book on Airbnb
-              </a>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Description</h2>
-              <p className="mb-4">
-                Two Cedars is a luxurious 7-bedroom, 8.5-bathroom property
-                located in the prestigious Kadenwood neighborhood,
-                Whistler&apos;s most exclusive residential area. This stunning
-                mountain retreat offers unparalleled luxury, privacy, and
-                breathtaking views of the surrounding mountains and valleys.
-                Included with this property is a private butler service to
-                ensure your stay is both comfortable and memorable.
-              </p>
-              <p>
-                With over 8,000 square feet of living space, this elegantly
-                designed home features soaring ceilings, floor-to-ceiling
-                windows, a gourmet kitchen, multiple fireplaces, a home theater,
-                and a private outdoor hot tub. The property combines rustic
-                mountain charm with modern luxury, creating an unforgettable
-                Whistler experience.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#details">
-                <button className="border border-black text-black hover:bg-gray-100 px-4 py-2 rounded">
-                  Details
-                </button>
-              </Link>
-              <Link href="/contact">
-                <button className="border border-black text-black hover:bg-gray-100 px-4 py-2 rounded">
-                  Contact
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {propertyImages.slice(0, 8).map((photo, index) => (
-              <div
-                key={index}
-                className="aspect-[4/3] relative overflow-hidden rounded-lg cursor-pointer"
-                onClick={() => showPhoto(index)}
-              >
-                <Image
-                  src={photo}
-                  alt={`Two Cedars Kadenwood - Photo ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            ))}
-            {propertyImages.length > 8 && (
-              <div className="col-span-full">
+            {photos.length > 8 && (
+              <div className="text-center mt-6">
                 <button
                   onClick={() => setShowAllPhotos(true)}
-                  className="mt-4 bg-black hover:bg-gray-800 text-white px-4 py-2 rounded"
+                  className="inline-flex items-center px-6 py-2 bg-black hover:bg-gray-900 text-white rounded-full text-sm font-medium"
                 >
-                  View All {propertyImages.length} Photos
+                  View all {photos.length} photos
                 </button>
               </div>
             )}
           </div>
 
+          {/* Property Description */}
+          <div className="max-w-6xl mx-auto px-4" id="details">
+            <p className="text-gray-800 mb-16 max-w-4xl">
+              Two Cedars is a luxurious 7-bedroom, 8.5-bathroom property located
+              in the prestigious Kadenwood neighborhood, Whistler&apos;s most
+              exclusive residential area. This stunning mountain retreat offers
+              unparalleled luxury, privacy, and breathtaking views of the
+              surrounding mountains and valleys.
+              <br />
+              <br />
+              With over 8,000 square feet of living space, this elegantly
+              designed home features soaring ceilings, floor-to-ceiling windows,
+              a gourmet kitchen, multiple fireplaces, a home theater, and a
+              private outdoor hot tub.
+            </p>
+
+            {/* The Space Section */}
+            <div className="flex flex-col md:flex-row mb-20">
+              <div className="md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
+                <div className="relative aspect-[4/3] mb-2">
+                  <Image
+                    src={photos[6]}
+                    alt="Two Cedars Interior"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:w-1/2">
+                <div className="flex items-center mb-6">
+                  <div className="bg-black text-white p-4 rounded-full mr-4">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl font-bold">The Space</h2>
+                </div>
+                <p className="text-gray-800 mb-6">
+                  The property combines rustic mountain charm with modern
+                  luxury, creating an unforgettable Whistler experience. Located
+                  in Kadenwood, guests enjoy access to a private gondola that
+                  provides exclusive ski-in/ski-out access to Whistler Mountain.
+                </p>
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="flex items-center">
+                    <FaBed className="text-gray-600 mr-2" size={20} />
+                    <span className="text-gray-800">7 Bedrooms</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaBath className="text-gray-600 mr-2" size={20} />
+                    <span className="text-gray-800">8.5 Bathrooms</span>
+                  </div>
+                </div>
+                <p className="text-gray-800">
+                  Perfect for large groups or multiple families, Two Cedars
+                  offers the ultimate luxury getaway in Whistler&apos;s most
+                  coveted location.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Photos Modal - Show all photos */}
           {showAllPhotos && (
-            <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-y-auto p-4 md:p-8">
-              <div className="flex justify-end">
+            <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-y-auto">
+              <div className="flex justify-between items-center p-4 sticky top-0 bg-black bg-opacity-75 z-10">
+                <h3 className="text-white text-xl font-medium">
+                  Two Cedars - {photos.length} photos
+                </h3>
                 <button
                   onClick={closeAllPhotos}
-                  className="text-white mb-4 p-2"
+                  className="text-white hover:text-gray-300"
                 >
-                  <X className="w-6 h-6" />
+                  <X size={24} />
                 </button>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {propertyImages.map((photo, index) => (
-                  <div
-                    key={index}
-                    className="aspect-[4/3] relative overflow-hidden rounded-lg cursor-pointer"
-                    onClick={() => showPhoto(index)}
-                  >
-                    <Image
-                      src={photo}
-                      alt={`Two Cedars Kadenwood - Photo ${index + 1}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                ))}
+
+              <div className="container mx-auto px-4 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {photos.map((photo, index) => (
+                    <div
+                      key={index}
+                      className="aspect-[4/3] relative cursor-pointer"
+                      onClick={() => handlePhotoClick(index)}
+                    >
+                      <Image
+                        src={photo}
+                        alt={`Two Cedars photo ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover hover:opacity-95 transition-opacity"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}
 
+          {/* Full Screen Photo View */}
           {selectedPhotoIndex !== null && (
-            <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+            <div
+              className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+              onClick={closeFullScreenPhoto}
+            >
               <button
-                onClick={closeFullScreenPhoto}
-                className="absolute top-4 right-4 text-white p-2 z-[60]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigatePhoto("prev");
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
               >
-                <X className="w-8 h-8" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
               </button>
-              <button
-                onClick={prevPhoto}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white p-2 z-[60]"
-                aria-label="Previous photo"
-              >
-                <ArrowLeft className="w-8 h-8" />
-              </button>
-              <div className="relative w-full h-full max-w-6xl max-h-[80vh] flex items-center justify-center">
+
+              <div className="relative h-screen w-screen flex items-center justify-center">
                 <Image
-                  src={propertyImages[selectedPhotoIndex]}
-                  alt={`Two Cedars Kadenwood - Photo ${selectedPhotoIndex + 1}`}
+                  src={photos[selectedPhotoIndex]}
+                  alt={`Two Cedars photo ${selectedPhotoIndex + 1}`}
                   fill
                   sizes="100vw"
-                  style={{ objectFit: "contain" }}
-                  priority
+                  className="object-contain p-4"
                 />
               </div>
+
               <button
-                onClick={nextPhoto}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white p-2 z-[60]"
-                aria-label="Next photo"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigatePhoto("next");
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
               >
-                <ArrowRight className="w-8 h-8" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+
+              <button
+                onClick={closeFullScreenPhoto}
+                className="absolute top-4 right-4 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-75 z-10"
+              >
+                <X size={24} />
               </button>
             </div>
           )}
-        </div>
+        </main>
 
-        <div id="details" className="space-y-8 mb-12">
-          <section>
-            <h2 className="text-2xl font-bold mb-4">Property Layout</h2>
-            <h3 className="text-xl font-semibold mb-2">Main Level</h3>
-            <p className="mb-4">
-              The main level features an open-concept living area with a grand
-              stone fireplace, dining space for 14, and a gourmet kitchen with
-              high-end appliances. Floor-to-ceiling windows showcase stunning
-              mountain views. This level also includes a powder room and access
-              to the expansive deck with outdoor seating and hot tub.
-            </p>
-
-            <h3 className="text-xl font-semibold mb-2">Upper Level</h3>
-            <p className="mb-4">
-              The upper level houses the primary suite with a king bed, gas
-              fireplace, walk-in closet, and luxurious ensuite bathroom
-              featuring a soaking tub and separate shower. Three additional
-              bedrooms on this floor each have queen beds and ensuite bathrooms.
-            </p>
-
-            <h3 className="text-xl font-semibold mb-2">Lower Level</h3>
-            <p className="mb-4">
-              The lower level contains three more bedrooms: one with a king bed
-              and ensuite bathroom, one with a queen bed and ensuite bathroom,
-              and a bunk room with two sets of twin bunk beds and an adjacent
-              full bathroom. This level also features a media room with a large
-              screen TV, games area, and wet bar.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4">Location</h2>
-            <p className="mb-4">
-              Situated in Whistler&apos;s most prestigious neighborhood,
-              Kadenwood offers unparalleled privacy and exclusivity. Residents
-              enjoy access to a private gondola connecting Kadenwood to
-              Creekside Village and the Creekside Gondola, providing
-              ski-in/ski-out access to Whistler Blackcomb.
-            </p>
-            <p>
-              Creekside Village is just minutes away, offering restaurants,
-              shops, and amenities. Whistler Village is a short 5-minute drive,
-              where you&apos;ll find world-class dining, shopping, and
-              entertainment options.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold mb-4">Amenities</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Private outdoor hot tub</li>
-              <li>Multiple fireplaces</li>
-              <li>Home theater/media room</li>
-              <li>Gourmet kitchen with high-end appliances</li>
-              <li>Heated floors</li>
-              <li>High-speed WiFi</li>
-              <li>Smart home technology</li>
-              <li>Private access to Kadenwood Gondola (winter operation)</li>
-              <li>Ski room with boot warmers</li>
-              <li>Laundry facilities</li>
-              <li>Garage parking for 2 vehicles</li>
-              <li>Additional driveway parking</li>
-            </ul>
-          </section>
-        </div>
-
-        <div className="bg-gray-100 p-6 rounded-lg mb-12">
-          <h2 className="text-2xl font-bold mb-4">Book This Property</h2>
-          <p className="mb-4">
-            Two Cedars is available for long-term rentals with a minimum 30-day
-            stay requirement. Rates start at $45,000 per month, with prices
-            varying by season.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact">
-              <button className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded">
-                Contact Us
-              </button>
-            </Link>
-            <Link href="/properties">
-              <button className="border border-black text-black hover:bg-gray-100 px-4 py-2 rounded">
-                View More Properties
-              </button>
-            </Link>
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
-}
+};
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export default TwoCedarsKadenwood;
+
+export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(context.locale || "en", ["common"])),
     },
   };
-}
+};
