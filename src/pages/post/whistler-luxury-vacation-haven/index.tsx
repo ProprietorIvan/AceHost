@@ -59,7 +59,7 @@ export default function BlogPost() {
               </div>
               <div className="relative w-full aspect-[16/9] mb-8 rounded-xl overflow-hidden">
                 <Image
-                  src="/photos/post/whistler-luxury-vacation-haven/hero.jpg"
+                  src="/photos/post/whistler-luxury-vacation-haven/hero.jpeg"
                   alt="Whistler luxury vacation destination with mountain view"
                   fill
                   className="object-cover"

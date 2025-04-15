@@ -111,7 +111,7 @@ const Navigation = ({
                   className={`px-4 py-2 rounded-md text-sm font-semibold ${
                     currentPage === link.url
                       ? "text-black border-b-2 border-black"
-                      : "text-gray-700 hover:text-black hover:border-b-2 hover:border-black transition-all duration-200"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50 hover:border-b-2 hover:border-black transition-all duration-300 ease-in-out transform hover:scale-105"
                   }`}
                 >
                   {link.text}
@@ -128,11 +128,11 @@ const Navigation = ({
                   className={`px-4 py-2 rounded-md text-sm font-semibold flex items-center ${
                     currentPage === "/resources"
                       ? "text-black border-b-2 border-black"
-                      : "text-gray-700 hover:text-black hover:border-b-2 hover:border-black transition-all duration-200"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50 hover:border-b-2 hover:border-black transition-all duration-300 ease-in-out transform hover:scale-105"
                   }`}
                 >
                   Resources
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
 
                 {/* Desktop Dropdown */}

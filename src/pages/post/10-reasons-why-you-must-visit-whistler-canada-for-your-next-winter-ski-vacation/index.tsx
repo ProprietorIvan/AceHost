@@ -60,7 +60,7 @@ export default function BlogPost() {
               </div>
               <div className="relative w-full aspect-[16/9] mb-8 rounded-xl overflow-hidden">
                 <Image
-                  src="/photos/post/10-reasons-why-you-must-visit-whistler-canada-for-your-next-winter-ski-vacation/hero.jpg"
+                  src="/photos/post/10-reasons-why-you-must-visit-whistler-canada-for-your-next-winter-ski-vacation/Hero.jpg"
                   alt="Whistler Canada winter ski vacation"
                   fill
                   className="object-cover"
