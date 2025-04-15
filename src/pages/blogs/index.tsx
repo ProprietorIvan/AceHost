@@ -72,6 +72,8 @@ const blogPostsData: BlogPost[] = [
       "Highlighting the Importance of a Property Management Company For Your Whistler Investment Home",
     category: "Property Management",
     readTime: "15 min read",
+    heroImage:
+      "/photos/post/highlighting-the-importance-of-a-property-management-company-for-your-whistler-investment-home/Hero.jpg",
   },
   {
     slug: "discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada",
@@ -80,7 +82,7 @@ const blogPostsData: BlogPost[] = [
     category: "Ski in Ski out/Travel",
     readTime: "12 min read",
     heroImage:
-      "/photos/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada/hero.jpg",
+      "/photos/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada/Hero.jpg",
   },
   {
     slug: "the-best-restaurants-in-whistler-canada-food-coffee-cocktails-more",
@@ -121,6 +123,8 @@ const blogPostsData: BlogPost[] = [
       "10 Reasons Why You Must Visit Whistler Canada For Your Next Winter Ski Vacation",
     category: "Tourism",
     readTime: "15 min read",
+    heroImage:
+      "/photos/post/10-reasons-why-you-must-visit-whistler-canada-for-your-next-winter-ski-vacation/Hero.jpg",
   },
   {
     slug: "whistler-luxury-home-marketing-strategies",
@@ -128,24 +132,30 @@ const blogPostsData: BlogPost[] = [
       "Whistler Celebrity & Influencer Marketing in Whistler | Luxury Home Marketing Strategies",
     category: "Travel and celebrity marketing",
     readTime: "14 min read",
+    heroImage:
+      "/photos/post/whistler-luxury-home-marketing-strategies/Hero.png",
   },
   {
     slug: "whistler-luxury-vacation-haven",
     title: "Whistler: Luxury Vacation Haven | 20 reasons to visit Whistler",
     category: "Travel and Destination Guides",
     readTime: "10 min read",
+    heroImage: "/photos/post/whistler-luxury-vacation-haven/hero.jpeg",
   },
   {
     slug: "luxury-property-management-investment-opportunities-in-whistler",
     title: "Luxury Property Management & Investment Opportunities in Whistler",
     category: "Property Management",
     readTime: "13 min read",
+    heroImage:
+      "/photos/post/luxury-property-management-investment-opportunities-in-whistler/Hero.jpg",
   },
   {
     slug: "whistlers-dream-rental-homes",
     title: "Top 5 Luxury Vacation Rental Homes/airbnbs in Whistler Canada",
     category: "Travel and Accommodation",
     readTime: "13 min read",
+    heroImage: "/photos/post/whistlers-dream-rental-homes/Hero.jpg",
   },
   {
     slug: "whistlers-luxury-rental-escapes",
@@ -220,16 +230,42 @@ const BlogIndex = ({ blogPosts }: BlogIndexProps) => {
                     <div className="relative aspect-[16/10] w-full overflow-hidden">
                       <Image
                         src={
-                          post.heroImage || `/photos/post/${post.slug}/hero.jpg`
+                          post.heroImage || `/photos/post/${post.slug}/Hero.jpg`
                         }
                         alt={post.title}
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
-                          // Fallback to .png if jpg not found
+                          // Try different extensions and casing if the image fails to load
                           const target = e.target as HTMLImageElement;
-                          if (target.src.endsWith(".jpg")) {
-                            target.src = target.src.replace(".jpg", ".png");
+                          const originalSrc = target.src;
+
+                          if (originalSrc.toLowerCase().endsWith(".jpg")) {
+                            // Try png
+                            target.src = originalSrc.replace(/\.jpg$/i, ".png");
+                          } else if (
+                            originalSrc.toLowerCase().endsWith(".png")
+                          ) {
+                            // Try jpeg
+                            target.src = originalSrc.replace(
+                              /\.png$/i,
+                              ".jpeg"
+                            );
+                          } else if (
+                            originalSrc.toLowerCase().endsWith(".jpeg")
+                          ) {
+                            // Try with different casing
+                            if (originalSrc.includes("/Hero.")) {
+                              target.src = originalSrc.replace(
+                                "/Hero.",
+                                "/hero."
+                              );
+                            } else if (originalSrc.includes("/hero.")) {
+                              target.src = originalSrc.replace(
+                                "/hero.",
+                                "/Hero."
+                              );
+                            }
                           }
                         }}
                       />
