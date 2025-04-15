@@ -38,7 +38,7 @@ export default function BlogPost() {
         </title>
         <meta
           name="description"
-          content="Explore Whistler&apos;s most exquisite luxury vacation rentals with stunning views, exceptional amenities, and unparalleled comfort. Find your perfect Whistler retreat with AceHost."
+          content="Explore Whistler's most exquisite luxury vacation rentals with stunning views, exceptional amenities, and unparalleled comfort. Find your perfect Whistler retreat with AceHost."
         />
       </Head>
 

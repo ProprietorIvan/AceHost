@@ -18,7 +18,7 @@ export default function BlogPost() {
     },
     {
       title:
-        "Luxury Whistler Vacation Redefined: How AceHost Whistler Caters to the 1% in Canada's Ultimate Playground",
+        "Luxury Whistler Vacation Redefined: How AceHost Whistler Caters to the 1% in Canada&apos;s Ultimate Playground",
       slug: "luxury-whistler-vacation-redefined-how-acehost-whistler-caters-to-the-1-in-canadas-ultimate-playground",
       category: "VIP Concierge | Luxury Vacation",
     },
@@ -81,8 +81,8 @@ export default function BlogPost() {
               </div>
 
               <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">
-                Discovering Culinary Gems in Whistler: A Foodie's Guide to
-                Whistler's Best Restaurants, Bars, and Coffee
+                Discovering Culinary Gems in Whistler: A Foodie&apos;s Guide to
+                Whistler&apos;s Best Restaurants, Bars, and Coffee
               </h2>
 
               <p>
