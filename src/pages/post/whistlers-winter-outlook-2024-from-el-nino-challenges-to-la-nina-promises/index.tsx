@@ -139,7 +139,7 @@ const WhistlerWinterOutlook = () => {
                 <div className="relative aspect-video rounded-lg overflow-hidden">
                   <Image
                     src="/photos/post/whistlers-winter-outlook-2024-from-el-nino-challenges-to-la-nina-promises/1.png"
-                    alt="El Niño effect on Whistler&apos;s snow conditions"
+                    alt="El Niño effect on Whistler's snow conditions"
                     fill
                     className="object-cover"
                   />
@@ -172,7 +172,7 @@ const WhistlerWinterOutlook = () => {
                 <div className="relative aspect-video rounded-lg overflow-hidden">
                   <Image
                     src="/photos/post/whistlers-winter-outlook-2024-from-el-nino-challenges-to-la-nina-promises/2.png"
-                    alt="La Niña effect on Whistler&apos;s snow forecast"
+                    alt="La Niña effect on Whistler's snow forecast"
                     fill
                     className="object-cover"
                   />
