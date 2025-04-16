@@ -205,18 +205,22 @@ const Navigation = ({
                         {/* Blog entries */}
                         <div className="space-y-6 mb-8">
                           {/* Blog 1 */}
-                          <div className="flex gap-5">
-                            <div className="flex-shrink-0 w-32">
+                          <Link
+                            href="/post/luxury-property-management-investment-opportunities-in-whistler"
+                            onClick={() => setShowResourcesDropdown(false)}
+                            className="flex gap-5 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
+                          >
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/WhisterPropertyManagment.jpg"
                                 alt="Whistler Property"
                                 width={128}
                                 height={96}
-                                className="w-full h-24 object-cover rounded-md"
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Acehost Whistler Property Management Services
                               </h4>
                               <p className="text-xs text-gray-600">
@@ -226,21 +230,25 @@ const Navigation = ({
                                 opportunity.
                               </p>
                             </div>
-                          </div>
+                          </Link>
 
                           {/* Blog 2 */}
-                          <div className="flex gap-5">
-                            <div className="flex-shrink-0 w-32">
+                          <Link
+                            href="/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada"
+                            onClick={() => setShowResourcesDropdown(false)}
+                            className="flex gap-5 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
+                          >
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/DiscoverUltimate.jpg"
                                 alt="Ski Chalet"
                                 width={128}
                                 height={96}
-                                className="w-full h-24 object-cover rounded-md"
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Discover the Ultimate Ski-in Ski-out Luxury
                                 Chalet Homes in Whistler, Canada
                               </h4>
@@ -254,21 +262,25 @@ const Navigation = ({
                                 find here in Whistler.
                               </p>
                             </div>
-                          </div>
+                          </Link>
 
                           {/* Blog 3 */}
-                          <div className="flex gap-5">
-                            <div className="flex-shrink-0 w-32">
+                          <Link
+                            href="/post/luxury-whistler-vacation-redefined-how-acehost-whistler-caters-to-the-1-in-canadas-ultimate-playground"
+                            onClick={() => setShowResourcesDropdown(false)}
+                            className="flex gap-5 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
+                          >
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/LuxuryWhistlerRedefined.jpg"
                                 alt="Luxury Whistler"
                                 width={128}
                                 height={96}
-                                className="w-full h-24 object-cover rounded-md"
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Luxury Whistler Vacation Redefined: How AceHost
                                 Whistler Caters to the 1% in Canada&apos;s
                                 Ultimate Playground
@@ -281,7 +293,7 @@ const Navigation = ({
                                 offer.
                               </p>
                             </div>
-                          </div>
+                          </Link>
                         </div>
 
                         {/* Video thumbnails with play button */}
@@ -479,6 +491,39 @@ const Navigation = ({
                     >
                       <ChevronRight className="h-4 w-4 mr-2" />
                       FAQ&apos;s
+                    </Link>
+                    <Link
+                      href="/post/luxury-property-management-investment-opportunities-in-whistler"
+                      onClick={() => {
+                        setShowMobileResourcesDropdown(false);
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center py-3 px-4 text-base text-gray-600 hover:text-black hover:bg-gray-50 rounded-md transition-colors"
+                    >
+                      <ChevronRight className="h-4 w-4 mr-2" />
+                      Whistler Property Management
+                    </Link>
+                    <Link
+                      href="/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada"
+                      onClick={() => {
+                        setShowMobileResourcesDropdown(false);
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center py-3 px-4 text-base text-gray-600 hover:text-black hover:bg-gray-50 rounded-md transition-colors"
+                    >
+                      <ChevronRight className="h-4 w-4 mr-2" />
+                      Ski-in Ski-out Luxury Chalets
+                    </Link>
+                    <Link
+                      href="/post/luxury-whistler-vacation-redefined-how-acehost-whistler-caters-to-the-1-in-canadas-ultimate-playground"
+                      onClick={() => {
+                        setShowMobileResourcesDropdown(false);
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center py-3 px-4 text-base text-gray-600 hover:text-black hover:bg-gray-50 rounded-md transition-colors"
+                    >
+                      <ChevronRight className="h-4 w-4 mr-2" />
+                      Luxury Whistler Vacation
                     </Link>
                     <Link
                       href="/resources"
