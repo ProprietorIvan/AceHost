@@ -541,6 +541,7 @@ const Home = () => {
       location: "vancouver",
       link: "/vancouver-listings/vancouver-house-corner-unit-30th-floor",
     },
+    
   ];
 
   // Filter properties based on active filter

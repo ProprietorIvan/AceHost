@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -144,12 +144,12 @@ const Navigation = ({
                 {/* Desktop Dropdown */}
                 {showResourcesDropdown && (
                   <div
-                    className="absolute top-full right-0 w-[840px] bg-white shadow-lg z-50 py-6 px-8 -mr-24 mt-2 hidden lg:block"
+                    className="absolute top-full right-0 w-[960px] bg-white shadow-lg z-50 py-8 px-8 -mr-24 mt-2 hidden lg:block"
                     onMouseLeave={() => setShowResourcesDropdown(false)}
                   >
                     <div className="grid grid-cols-12 gap-6">
                       {/* Left column */}
-                      <div className="col-span-4">
+                      <div className="col-span-3">
                         <h3 className="text-xs font-semibold mb-3 pb-2 border-b border-gray-200">
                           Featured Blog Article
                         </h3>
@@ -196,8 +196,8 @@ const Navigation = ({
                         </ul>
                       </div>
 
-                      {/* Right column */}
-                      <div className="col-span-8 border-l border-gray-100 pl-6">
+                      {/* Middle column - Blog Posts */}
+                      <div className="col-span-6 border-l border-gray-100 pl-6">
                         <h3 className="text-xs font-semibold mb-3 pb-2 border-b border-gray-200">
                           More Blogs
                         </h3>
@@ -208,22 +208,22 @@ const Navigation = ({
                           <Link
                             href="/post/luxury-property-management-investment-opportunities-in-whistler"
                             onClick={() => setShowResourcesDropdown(false)}
-                            className="flex gap-4 group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
+                            className="flex gap-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
                           >
-                            <div className="flex-shrink-0 w-24 overflow-hidden rounded-md">
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/WhisterPropertyManagment.jpg"
                                 alt="Whistler Property"
-                                width={96}
-                                height={72}
-                                className="w-full h-20 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
+                                width={128}
+                                height={96}
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-xs mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Acehost Whistler Property Management Services
                               </h4>
-                              <p className="text-xs text-gray-600 text-[11px] leading-tight">
+                              <p className="text-xs text-gray-600 leading-tight">
                                 AceHost Whistler&apos;s guide on property
                                 management services and why Whistler&apos;s
                                 vacation homes are a timeless investment
@@ -236,23 +236,23 @@ const Navigation = ({
                           <Link
                             href="/post/discover-the-ultimate-ski-in-ski-out-luxury-chalet-homes-in-whistler-canada"
                             onClick={() => setShowResourcesDropdown(false)}
-                            className="flex gap-4 group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
+                            className="flex gap-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
                           >
-                            <div className="flex-shrink-0 w-24 overflow-hidden rounded-md">
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/DiscoverUltimate.jpg"
                                 alt="Ski Chalet"
-                                width={96}
-                                height={72}
-                                className="w-full h-20 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
+                                width={128}
+                                height={96}
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-xs mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Discover the Ultimate Ski-in Ski-out Luxury
                                 Chalet Homes in Whistler, Canada
                               </h4>
-                              <p className="text-xs text-gray-600 text-[11px] leading-tight">
+                              <p className="text-xs text-gray-600 leading-tight">
                                 Staying in a Luxury Ski in Ski out Chalet Rental
                                 can have a major impact on your vacation in
                                 Whistler or any ski town.
@@ -264,24 +264,24 @@ const Navigation = ({
                           <Link
                             href="/post/luxury-whistler-vacation-redefined-how-acehost-whistler-caters-to-the-1-in-canadas-ultimate-playground"
                             onClick={() => setShowResourcesDropdown(false)}
-                            className="flex gap-4 group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
+                            className="flex gap-4 group hover:bg-gray-50 p-3 rounded-lg transition-all duration-300"
                           >
-                            <div className="flex-shrink-0 w-24 overflow-hidden rounded-md">
+                            <div className="flex-shrink-0 w-32 overflow-hidden rounded-md">
                               <Image
                                 src="/photos/homepage/resources/LuxuryWhistlerRedefined.jpg"
                                 alt="Luxury Whistler"
-                                width={96}
-                                height={72}
-                                className="w-full h-20 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
+                                width={128}
+                                height={96}
+                                className="w-full h-24 object-cover rounded-md transform group-hover:scale-105 transition-transform duration-300"
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-xs mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
                                 Luxury Whistler Vacation Redefined: How AceHost
                                 Whistler Caters to the 1% in Canada&apos;s
                                 Ultimate Playground
                               </h4>
-                              <p className="text-xs text-gray-600 text-[11px] leading-tight">
+                              <p className="text-xs text-gray-600 leading-tight">
                                 In recent years, a different kind of traveler
                                 has made Whistler their go-to destination—one
                                 seeking not just the thrill of alpine sports.
@@ -289,97 +289,94 @@ const Navigation = ({
                             </div>
                           </Link>
                         </div>
+                      </div>
 
-                        {/* Video thumbnails with play button */}
-                        <div className="grid grid-cols-3 gap-4">
+                      {/* Right column - YouTube Videos */}
+                      <div className="col-span-3 border-l border-gray-100 pl-6">
+                        <h3 className="text-xs font-semibold mb-3 pb-2 border-b border-gray-200">
+                          YouTube Videos
+                        </h3>
+
+                        {/* Video thumbnails vertical layout */}
+                        <div className="space-y-3 mb-6">
                           {/* Video 1 */}
-                          <a
+                          <Link
                             href="https://www.youtube.com/watch?v=BKK5X_LPd8k"
                             target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block"
+                            className="block group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
                           >
-                            <div className="relative rounded-md overflow-hidden mb-1">
-                              <Image
-                                src="https://img.youtube.com/vi/BKK5X_LPd8k/maxresdefault.jpg"
-                                alt="Dream Whistler Vacation"
-                                width={150}
-                                height={84}
-                                className="w-full h-20 object-cover"
-                              />
-                              <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
-                                <div className="w-8 h-8 rounded-full bg-white bg-opacity-80 flex items-center justify-center">
-                                  <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-black border-b-[5px] border-b-transparent ml-0.5"></div>
-                                </div>
-                              </div>
+                            <div className="w-full h-16 rounded-md overflow-hidden mb-1 relative">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/BKK5X_LPd8k?autoplay=1&mute=1&playsinline=1&loop=1&playlist=BKK5X_LPd8k&controls=0&showinfo=0&modestbranding=1"
+                                title="The Dream Luxury Whistler Vacation"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                className="w-full h-full pointer-events-none"
+                              ></iframe>
+                              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-[10px] font-medium">
-                              The Dream Luxury Whistler Vacation! | AceHost
-                              Whistler
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
+                              The Dream Luxury Whistler Vacation!
                             </h5>
                             <p className="text-[10px] text-gray-500">
                               AceHost Whistler Experience Promo
                             </p>
-                          </a>
+                          </Link>
 
                           {/* Video 2 */}
-                          <a
+                          <Link
                             href="https://www.youtube.com/watch?v=GOzVT9x08sc"
                             target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block"
+                            className="block group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
                           >
-                            <div className="relative rounded-md overflow-hidden mb-1">
-                              <Image
-                                src="https://img.youtube.com/vi/GOzVT9x08sc/maxresdefault.jpg"
-                                alt="Whistler Chef Experience"
-                                width={150}
-                                height={84}
-                                className="w-full h-20 object-cover"
-                              />
-                              <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
-                                <div className="w-8 h-8 rounded-full bg-white bg-opacity-80 flex items-center justify-center">
-                                  <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-black border-b-[5px] border-b-transparent ml-0.5"></div>
-                                </div>
-                              </div>
+                            <div className="w-full h-16 rounded-md overflow-hidden mb-1 relative">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/GOzVT9x08sc?autoplay=1&mute=1&playsinline=1&loop=1&playlist=GOzVT9x08sc&controls=0&showinfo=0&modestbranding=1"
+                                title="Whistler Private Chef Experience"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                className="w-full h-full pointer-events-none"
+                              ></iframe>
+                              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-[10px] font-medium">
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
                               Whistler Private Chef Experience
                             </h5>
                             <p className="text-[10px] text-gray-500">
                               Luxury home all inclusive chef walkthrough
                             </p>
-                          </a>
+                          </Link>
 
                           {/* Video 3 */}
-                          <a
+                          <Link
                             href="https://www.youtube.com/watch?v=cNHhE2B8Zeo"
                             target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block"
+                            className="block group hover:bg-gray-50 p-2 rounded-lg transition-all duration-300"
                           >
-                            <div className="relative rounded-md overflow-hidden mb-1">
-                              <Image
-                                src="https://img.youtube.com/vi/cNHhE2B8Zeo/maxresdefault.jpg"
-                                alt="Ultimate Luxury Winter Road Trip"
-                                width={150}
-                                height={84}
-                                className="w-full h-20 object-cover"
-                              />
-                              <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
-                                <div className="w-8 h-8 rounded-full bg-white bg-opacity-80 flex items-center justify-center">
-                                  <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-black border-b-[5px] border-b-transparent ml-0.5"></div>
-                                </div>
-                              </div>
+                            <div className="w-full h-16 rounded-md overflow-hidden mb-1 relative">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/cNHhE2B8Zeo?autoplay=1&mute=1&playsinline=1&loop=1&playlist=cNHhE2B8Zeo&controls=0&showinfo=0&modestbranding=1"
+                                title="The Ultimate Luxury Whistler Chalet Winter Road Trip"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                className="w-full h-full pointer-events-none"
+                              ></iframe>
+                              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-[10px] font-medium">
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
                               The Ultimate Luxury Whistler Chalet Winter Road
-                              Trip Experience 🇨🇦
+                              Trip
                             </h5>
                             <p className="text-[10px] text-gray-500">
                               Whistler, BC, Canada | Chalet La Forja
                             </p>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

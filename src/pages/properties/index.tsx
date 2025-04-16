@@ -1006,9 +1006,9 @@ export default function Properties() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
-          {/* Book Now Button - only shown if airbnbLink exists */}
-          {airbnbLink && (
-            <div className="absolute top-4 right-4 z-10">
+          {/* Book Now Button - Use empty div when no link to maintain DOM structure */}
+          <div className="absolute top-4 right-4 z-10">
+            {airbnbLink ? (
               <a
                 href={airbnbLink}
                 target="_blank"
@@ -1018,8 +1018,8 @@ export default function Properties() {
               >
                 Book Now
               </a>
-            </div>
-          )}
+            ) : null}
+          </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
